@@ -219,6 +219,7 @@ public class ShadowBehaviour : MonoBehaviour
         yield return new WaitForSeconds(shadowDuration);
         float currentTime = Time.time - recordStartTime;
         beaconBehaviour.SetEchoTime(currentTime);
+        beaconBehaviour.restore(); // 恢复Sprite
         // 查找player并通知它回到正常状态
         GameObject player = GameObject.Find("Player");
 
@@ -379,6 +380,7 @@ public class ShadowBehaviour : MonoBehaviour
     {
         float currentTime = Time.time - recordStartTime;
         beaconBehaviour.SetEchoTime(currentTime);
+        beaconBehaviour.restore(); // 恢复Sprite
         GameObject player = GameObject.Find("Player");
         if (player != null)
         {
