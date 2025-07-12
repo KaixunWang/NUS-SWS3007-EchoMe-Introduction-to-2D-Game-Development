@@ -269,6 +269,7 @@ public class EchoBehaviour : MonoBehaviour
                 break;
             case InputType.G:
                 beaconBehaviour.SetHasEcho(false);
+                beaconBehaviour.restore();
                 Destroy(gameObject);
                 break;
 
@@ -347,11 +348,14 @@ public class EchoBehaviour : MonoBehaviour
     {
         yield return new WaitForSeconds(echoDuration);
         beaconBehaviour.SetHasEcho(false);
+        beaconBehaviour.restore();
+         // 恢复Sprite
         Destroy(gameObject);
     }
     public void DestroyImmediate()
     {
         beaconBehaviour.SetHasEcho(false);
+        beaconBehaviour.restore();
         Destroy(gameObject);
     }
 
