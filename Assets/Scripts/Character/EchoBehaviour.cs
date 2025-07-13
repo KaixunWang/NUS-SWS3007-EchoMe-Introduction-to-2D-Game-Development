@@ -154,6 +154,11 @@ public class EchoBehaviour : MonoBehaviour
     private float jumpForce = 13f;
     [SerializeField] private float echoDuration = 10f;
     
+    // 新增：音效组件
+    public AudioSource footstepAudioSource;
+    public AudioSource jumpAudioSource;
+    public AudioSource deadAudioSource;
+    
     private List<TimeBasedInputEvent> inputEvents;
     private int currentEventIndex = 0;
     private float replayStartTime;
@@ -201,14 +206,23 @@ public class EchoBehaviour : MonoBehaviour
 
         // 处理基于时间的输入重播
         ProcessTimeBasedInput();
-        // if (currentEventIndex >= inputEvents.Count)
-        // {
-        //     beaconBehaviour.SetHasEcho(false);
-        //         Destroy(gameObject);
-        // }
         // 根据当前输入状态执行动作
         ExecuteCurrentInputs();
-        
+        // 走路音效控制
+        if ((currentInputStates[InputType.A] || currentInputStates[InputType.D]) && isGrounded)
+        {
+            if (footstepAudioSource != null && !footstepAudioSource.isPlaying)
+            {
+                footstepAudioSource.Play();
+            }
+        }
+        else
+        {
+            if (footstepAudioSource != null)
+            {
+                footstepAudioSource.Stop();
+            }
+        }
     }
     
     void FixedUpdate()
@@ -256,23 +270,23 @@ public class EchoBehaviour : MonoBehaviour
     {
         switch (inputType)
         {
-
             case InputType.W:
                 if (isGrounded)
                 {
                     animator.SetBool("IsJumping", true);
                     rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+                    if (jumpAudioSource != null)
+                    {
+                        jumpAudioSource.Play();
+                    }
                 }
                 break;
             case InputType.E:
                 Interact();
                 break;
             case InputType.G:
-                beaconBehaviour.SetHasEcho(false);
-                beaconBehaviour.restore();
-                Destroy(gameObject);
+                StartCoroutine(PlayDeadAndDestroy());
                 break;
-
         }
     }
     
@@ -352,15 +366,35 @@ public class EchoBehaviour : MonoBehaviour
     IEnumerator DestroyAfterTime()
     {
         yield return new WaitForSeconds(echoDuration);
-        beaconBehaviour.SetHasEcho(false);
-        beaconBehaviour.restore();
-         // 恢复Sprite
+        StartCoroutine(PlayDeadAndDestroy());
+    }
+
+    // 新增：死亡音效协程
+    IEnumerator PlayDeadAndDestroy()
+    {
+        if (deadAudioSource != null)
+        {
+            deadAudioSource.Play();
+            yield return new WaitForSeconds(deadAudioSource.clip.length);
+        }
+        if (beaconBehaviour != null)
+        {
+            beaconBehaviour.SetHasEcho(false);
+            beaconBehaviour.restore();
+        }
         Destroy(gameObject);
     }
     public void DestroyImmediate()
     {
-        beaconBehaviour.SetHasEcho(false);
-        beaconBehaviour.restore();
+        if (deadAudioSource != null)
+        {
+            deadAudioSource.Play();
+        }
+        if (beaconBehaviour != null)
+        {
+            beaconBehaviour.SetHasEcho(false);
+            beaconBehaviour.restore();
+        }
         Destroy(gameObject);
     }
 
