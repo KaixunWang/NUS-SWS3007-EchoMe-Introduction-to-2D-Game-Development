@@ -13,6 +13,7 @@ public class BoardBehavior : MonoBehaviour
     public Sprite spriteOpened;
     public Sprite spriteClosed;
     public Cainos.PixelArtPlatformer_Dungeon.Door door = null;
+    public Portal portal = null;
     private int count = 0;
 
 
@@ -77,6 +78,9 @@ public class BoardBehavior : MonoBehaviour
         count++;
         IsOpened = true;
         TriggerDoor(); // 触发门的开关
+        if(portal != null){
+            portal.SetPortalState(true);
+        }
         //gogogo
     }
     void OnTriggerExit2D(Collider2D other)
@@ -85,6 +89,9 @@ public class BoardBehavior : MonoBehaviour
         if (count <= 0){
             IsOpened = false; // 切换门的开关状态
             TriggerDoor(); // 触发门的开关
+            if(portal != null){
+                portal.SetPortalState(false);
+            }
         }
     }
     public bool GetBoardState()
