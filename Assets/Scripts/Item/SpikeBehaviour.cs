@@ -74,7 +74,7 @@ public class SpikeBehaviour : MonoBehaviour
         {
             Debug.Log("Echo hit the spike!");
             // 示例调用：回声掉血
-            other.GetComponent<EchoBehaviour>().DestroyImmediate();
+            other.GetComponent<EchoBehaviour>().TakeDamage("Spike");
             AchievementManager.Instance.UnlockAchievement("EchoSuicide");
         }
     }

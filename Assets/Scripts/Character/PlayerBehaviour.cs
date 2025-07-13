@@ -442,12 +442,18 @@ public class PlayerBehaviour : MonoBehaviour
         {
             deadAudioSource.Play(); // 播放死亡音效
         }
-        AchievementManager.Instance.UnlockAchievement("Die");
+        //1s 后AchievementManager.Instance.UnlockAchievement("Die");
+        StartCoroutine(UnlockAchievementAfterDelay(1f));
         Debug.Log("Player took damage from " + source);
     }
     public void Restart()
     {
         Debug.Log("Restarting scene");
         SceneManager.LoadScene(SceneManager.GetActiveScene().name); // 重新加载当前场景
+    }
+    private IEnumerator UnlockAchievementAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        AchievementManager.Instance.UnlockAchievement("Die");
     }
 }

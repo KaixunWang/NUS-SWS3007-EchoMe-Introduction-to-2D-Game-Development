@@ -375,24 +375,31 @@ public class EchoBehaviour : MonoBehaviour
     // 新增：死亡音效协程
     IEnumerator PlayDeadAndDestroy()
     {
-        if (deadAudioSource != null)
-        {
-            deadAudioSource.Play();
-            yield return new WaitForSeconds(deadAudioSource.clip.length);
-        }
+        // 等待一小段时间让音效开始播放
+        yield return new WaitForSeconds(0.1f);
+        
         if (beaconBehaviour != null)
         {
             beaconBehaviour.SetHasEcho(false);
             beaconBehaviour.restore();
         }
+        
+        // 等待音效播放完成后再销毁对象
+        if (deadAudioSource != null && deadAudioSource.clip != null)
+        {
+            yield return new WaitForSeconds(deadAudioSource.clip.length);
+        }
+        else
+        {
+            // 如果没有音效文件，等待0.5秒
+            yield return new WaitForSeconds(0.5f);
+        }
+        
         Destroy(gameObject);
     }
     public void DestroyImmediate()
     {
-        if (deadAudioSource != null)
-        {
-            deadAudioSource.Play();
-        }
+        
         if (beaconBehaviour != null)
         {
             beaconBehaviour.SetHasEcho(false);
@@ -454,5 +461,19 @@ public class EchoBehaviour : MonoBehaviour
         //         board.TriggerDoor(); // 触发门的开关
         //     }
         // }
+    }
+    public void TakeDamage(string source)
+    {
+        // Time.timeScale = 0; // 停止时间Time.timeScale = 0; // 停止时间
+        // lose = true;
+        if (deadAudioSource != null)
+        {
+            deadAudioSource.Play(); // 播放死亡音效
+            Debug.Log("111111111111111111111111111111111111111111111111111111111111111111");
+        }
+        //1s 后AchievementManager.Instance.UnlockAchievement("Die");
+        // StartCoroutine(UnlockAchievementAfterDelay(1f));
+        StartCoroutine(PlayDeadAndDestroy());
+        Debug.Log("Echo took damage from " + source);
     }
 }
