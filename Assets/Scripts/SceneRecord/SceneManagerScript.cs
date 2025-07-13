@@ -15,11 +15,12 @@ public class SceneManagerScript : MonoBehaviour
     public GameObject coinSystem; // Reference to the CoinSystemScript
     public List<GameObject> switches; // List of switch GameObjects
     public List<GameObject> pressurePlates; // List of pressure plate GameObjects
-    public int levelGoodTime = 60;
     public List<GameObject> doors; // List of door GameObjects
     public List<GameObject> boxes; // List of box GameObjects
     public List<GameObject> lifts; // List of lift GameObjects
+    public List<GameObject> spikes; // List of spike GameObjects
     private int score = 0;
+    public int levelGoodTime = 60;
     // Start is called before the first frame update
     void Start()
     {
@@ -165,6 +166,19 @@ public class SceneManagerScript : MonoBehaviour
                 Debug.LogWarning("Lift " + liftObj.name + " does not have a PlatformController component.");
             }
         }
+        foreach (var spikeObj in spikes)
+        {
+            var spikeBehaviour = spikeObj.GetComponent<SpikeBehaviour>();
+            if (spikeBehaviour != null)
+            {
+                currentState.spikes.Add(spikeBehaviour.getState());
+                Debug.Log("Spike " + spikeObj.name + " state saved.");
+            }
+            else
+            {
+                Debug.LogWarning("Spike " + spikeObj.name + " does not have a SpikeBehaviour component.");
+            }
+        }
         isRecording = true;
         Debug.Log("Scene state saved");
     }
@@ -224,6 +238,19 @@ public class SceneManagerScript : MonoBehaviour
                 {
                     platformController.SetStatus(currentState.lifts[i]);
                     Debug.Log("Lift " + lifts[i].name + " state loaded.");
+                }
+            }
+            for (int i = 0; i < spikes.Count && i < currentState.spikes.Count; i++)
+            {
+                var spikeBehaviour = spikes[i].GetComponent<SpikeBehaviour>();
+                if (spikeBehaviour != null)
+                {
+                    spikeBehaviour.setState(currentState.spikes[i]);
+                    Debug.Log("Spike " + spikes[i].name + " state loaded.");
+                }
+                else
+                {
+                    Debug.LogWarning("Spike " + spikes[i].name + " does not have a SpikeBehaviour component.");
                 }
             }
             // Restore other states as needed
