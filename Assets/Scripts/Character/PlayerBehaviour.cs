@@ -111,8 +111,8 @@ public class PlayerBehaviour : MonoBehaviour
                 Jump();
                 AchievementJump = true;
             }
-            if (AchievementMove) AchievementManager.Instance.UnlockAchievement("Move");
-            if (AchievementJump) AchievementManager.Instance.UnlockAchievement("Jump");
+            // if (AchievementMove) AchievementManager.Instance.UnlockAchievement("Move");
+            // if (AchievementJump) AchievementManager.Instance.UnlockAchievement("Jump");
         }
         else
         {
@@ -135,7 +135,12 @@ public class PlayerBehaviour : MonoBehaviour
             switchObject.IsOn = !switchObject.IsOn; // 切换开关状态
             if (switchObject.targetPlatform != null && switchObject.targetPlatform.tag == "MovingPlatform")
             {
-                switchObject.targetPlatform.RemainingCount ++; // 设置剩余前进路径点数量为1
+                switchObject.targetPlatform.RemainingCount++; // 设置剩余前进路径点数量为1
+            }
+            else if (switchObject.targetSpike != null)
+            {
+                Debug.Log("Spike behaviour found, incrementing cntMove");
+                switchObject.targetSpike.cntMove+=2;
             }
         }
 
@@ -247,7 +252,7 @@ public class PlayerBehaviour : MonoBehaviour
             rb.gravityScale = 10; // 黏住
             Debug.Log("Player entered MovingPlatform");
         }
-        if (other.gameObject.name == "Beacon")
+        if (other.gameObject.CompareTag("beacon"))
         {
 
             Debug.Log("Beacon Updated");
@@ -306,7 +311,7 @@ public class PlayerBehaviour : MonoBehaviour
             rb.gravityScale = 3.5f; // 恢复重力
             Debug.Log("Player exited MovingPlatform");
         }
-        if (other.gameObject.name == "Beacon")
+        if (other.gameObject.CompareTag("beacon"))
         {
             isNearBeacon = false;
             nearBeaconPosition = Vector3.zero;

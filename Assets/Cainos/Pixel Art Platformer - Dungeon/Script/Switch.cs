@@ -14,6 +14,7 @@ namespace Cainos.PixelArtPlatformer_Dungeon
     {
         [FoldoutGroup("Reference")] public Door target;
         [FoldoutGroup("Reference")] public Bundos.MovingPlatforms.PlatformController targetPlatform;
+        [FoldoutGroup("Reference")] public SpikeBehavioudr targetSpike;
         [Space]
         [FoldoutGroup("Reference")] public SpriteRenderer spriteRenderer;
         [FoldoutGroup("Reference")] public Sprite spriteOn;
