@@ -8,7 +8,8 @@ public class Camera_Level0   : MonoBehaviour
     public Vector3 origin; // Reference to the origin Transform (assign in Inspector)
     public Vector3 target; // Reference to the target Transform (assign in Inspector)
     public Vector3 offset = new Vector3(0, 0, 0);
-    public float xBoundary = -4f;
+    public float xBoundary1 = -0.5f;
+    public float xBoundary2 = 0.5f;
     public float smoothSpeed = 10f;
     void Start()
     {
@@ -17,13 +18,13 @@ public class Camera_Level0   : MonoBehaviour
 
     void LateUpdate()
     {
-        if (player.position.x > xBoundary)
+        if (player.position.x > xBoundary1)
         {
             Vector3 desiredPosition = target+ offset;
             Vector3 smoothedPosition = Vector3.Lerp(transform.position, desiredPosition, smoothSpeed * Time.deltaTime);
             transform.position = smoothedPosition;
         }
-        else
+        else if( player.position.x < xBoundary2)
         {
             Vector3 desiredPosition = origin + offset;
             Vector3 smoothedPosition = Vector3.Lerp(transform.position, desiredPosition, smoothSpeed * Time.deltaTime);
