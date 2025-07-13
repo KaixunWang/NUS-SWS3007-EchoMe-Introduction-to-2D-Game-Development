@@ -8,6 +8,7 @@ public class BeaconBehaviour : MonoBehaviour
     public AudioSource callShadowSource; // 音频源，用于播放开关音效
     public SpriteRenderer sc;
     public Sprite[] pic;
+    private bool isSystem = false;
     private float ShadowTime = 10f;
     private float EchoTime = 0f;
     private bool hasEcho = false;
@@ -15,6 +16,14 @@ public class BeaconBehaviour : MonoBehaviour
     void Start()
     {
         sc = GetComponent<SpriteRenderer>();
+    }
+    public void setSystem(bool isSystem)
+    {
+        this.isSystem = isSystem;
+    }
+    public bool getSystem()
+    {
+        return isSystem;
     }
 
     public void SwitchShadow(Vector3 nearBeaconPosition)
