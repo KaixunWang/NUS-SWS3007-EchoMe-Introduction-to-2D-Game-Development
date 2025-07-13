@@ -1326,6 +1326,13 @@ MonoBehaviour:
     isUnlocked: 0
     icon: {fileID: 149322233, guid: 0de512ca4a4475a46ad6200659a6e6c9, type: 3}
     scoreReward: 3
+  - id: GameOver
+    name: You Pro!
+    description: Player beats the game.
+    category: Other
+    isUnlocked: 0
+    icon: {fileID: -841803299, guid: 0de512ca4a4475a46ad6200659a6e6c9, type: 3}
+    scoreReward: 10
 --- !u!4 &326421657
 Transform:
   m_ObjectHideFlags: 0
