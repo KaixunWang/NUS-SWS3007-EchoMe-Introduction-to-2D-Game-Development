@@ -1256,6 +1256,13 @@ MonoBehaviour:
     isUnlocked: 0
     icon: {fileID: 1281055659, guid: 0de512ca4a4475a46ad6200659a6e6c9, type: 3}
     scoreReward: 3
+  - id: PassLevel5
+    name: "The Wolfpack\u2019s Fight"
+    description: Player passes level 5.
+    category: Progress
+    isUnlocked: 0
+    icon: {fileID: -1247888309, guid: 0de512ca4a4475a46ad6200659a6e6c9, type: 3}
+    scoreReward: 3
   - id: PressW
     name: You Know jump
     description: Player learned jump.
