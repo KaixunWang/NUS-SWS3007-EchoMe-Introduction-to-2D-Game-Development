@@ -1269,7 +1269,7 @@ MonoBehaviour:
     category: Progress
     isUnlocked: 0
     icon: {fileID: -820050990, guid: 0de512ca4a4475a46ad6200659a6e6c9, type: 3}
-    scoreReward: 10
+    scoreReward: 3
   - id: PressW
     name: You Know jump
     description: Player learned jump.
