@@ -163,6 +163,7 @@ MonoBehaviour:
   spriteClosed: {fileID: -2145196789, guid: 0afeb8577b003fb4589464f46d5b4b88, type: 3}
   openAudioSource: {fileID: 7424336974642843885}
   closeAudioSource: {fileID: -3184378301338509176}
+  Control: 1
   isOpened: 0
 --- !u!61 &6072023775945730290
 BoxCollider2D:
@@ -270,7 +271,7 @@ AudioSource:
   m_GameObject: {fileID: 1067245716914202741}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -3866962587194397796, guid: b8cf5e33b087dea4dba562c9b74760b9, type: 2}
   m_audioClip: {fileID: 8300000, guid: 67ef313e1e5cf614e9f94acde9362de0, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.2
@@ -366,7 +367,7 @@ AudioSource:
   m_GameObject: {fileID: 1067245716914202741}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -3866962587194397796, guid: b8cf5e33b087dea4dba562c9b74760b9, type: 2}
   m_audioClip: {fileID: 8300000, guid: b68d36642432617449a9ea53be396a44, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.2

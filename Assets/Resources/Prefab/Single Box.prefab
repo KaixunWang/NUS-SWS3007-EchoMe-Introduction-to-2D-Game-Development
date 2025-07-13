@@ -76,10 +76,10 @@ PrefabInstance:
       addedObject: {fileID: 2340739974983380934}
     - targetCorrespondingSourceObject: {fileID: 390456860282783827, guid: 9fff27e35a7206845afd0960a6b4fae7, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 2665312056263992126}
+      addedObject: {fileID: 1466746476011416502}
     - targetCorrespondingSourceObject: {fileID: 390456860282783827, guid: 9fff27e35a7206845afd0960a6b4fae7, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1466746476011416502}
+      addedObject: {fileID: -833802725903092587}
   m_SourcePrefab: {fileID: 100100000, guid: 9fff27e35a7206845afd0960a6b4fae7, type: 3}
 --- !u!1 &4280888610046116458 stripped
 GameObject:
@@ -158,18 +158,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4280888610046116458}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 03724bb96e352e346846a7f942c3b9e1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  boxAudioSource: {fileID: 1466746476011416502}
 --- !u!82 &1466746476011416502
 AudioSource:
   m_ObjectHideFlags: 0
@@ -179,7 +167,7 @@ AudioSource:
   m_GameObject: {fileID: 4280888610046116458}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -3866962587194397796, guid: b8cf5e33b087dea4dba562c9b74760b9, type: 2}
   m_audioClip: {fileID: 8300000, guid: 56d57003fc6137941a3769bad1ddc10e, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.1
@@ -266,3 +254,16 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &-833802725903092587
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4280888610046116458}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03724bb96e352e346846a7f942c3b9e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  boxAudioSource: {fileID: 1466746476011416502}

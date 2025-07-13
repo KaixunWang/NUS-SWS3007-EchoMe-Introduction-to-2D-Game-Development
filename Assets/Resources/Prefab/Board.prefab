@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 7367017407816311610}
   - component: {fileID: 5698858722802468987}
   - component: {fileID: 3405565461610159270}
-  - component: {fileID: 2721983143923840292}
   m_Layer: 11
   m_Name: Board
   m_TagString: Untagged
@@ -171,16 +170,3 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &2721983143923840292
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4454724116019459432}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 03724bb96e352e346846a7f942c3b9e1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  boxAudioSource: {fileID: 0}

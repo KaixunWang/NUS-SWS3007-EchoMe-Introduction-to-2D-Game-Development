@@ -259,6 +259,7 @@ MonoBehaviour:
   spriteOn: {fileID: 1446294333, guid: 0afeb8577b003fb4589464f46d5b4b88, type: 3}
   spriteOff: {fileID: -1141442345, guid: 0afeb8577b003fb4589464f46d5b4b88, type: 3}
   autoCloseDelay: 3
+  switchAudioSource: {fileID: 0}
   isOn: 0
 --- !u!61 &1144583870203724009
 BoxCollider2D:
@@ -314,7 +315,7 @@ AudioSource:
   m_GameObject: {fileID: 5760846579451053057}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -3866962587194397796, guid: b8cf5e33b087dea4dba562c9b74760b9, type: 2}
   m_audioClip: {fileID: 8300000, guid: ed856a953f9021e42bc83fe3a9208787, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.5
