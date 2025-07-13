@@ -90,6 +90,15 @@ namespace Bundos.MovingPlatforms
         {
             if (RemainingCount == 0)
             {
+                if (Vector2.Distance(transform.position, waypoints[currentWaypointIndex]) <= stopDistance)
+                {
+                    AudioSource audioSource = GetComponent<AudioSource>();
+                    if (audioSource != null)
+                    {
+                        // 确保音频源没有在播放
+                        audioSource.Stop();
+                    }
+                }
                 return;
             }
             if (waypoints.Count == 0)
@@ -98,6 +107,11 @@ namespace Bundos.MovingPlatforms
             if (Vector2.Distance(transform.position, waypoints[currentWaypointIndex]) <= stopDistance)
             {
                 RemainingCount--;
+                AudioSource audioSource = GetComponent<AudioSource>();
+                if (audioSource != null)
+                {
+                    audioSource.Play();
+                }
                 if (pathType == WaypointPathType.Closed)
                 {
                     switch (behaviorType)

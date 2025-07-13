@@ -36,12 +36,12 @@ public class AchievementManager : MonoBehaviour
     // 事件系统
     public static event Action<Achievement> OnAchievementUnlocked;
     public static event Action<int> OnTotalScoreChanged;
-    
+
     private void Awake()
     {
         // 单例模式
-        PlayerPrefs.DeleteAll();
-        PlayerPrefs.Save();
+        // PlayerPrefs.DeleteAll();
+        // PlayerPrefs.Save();
         if (Instance == null)
         {
             Instance = this;
@@ -117,6 +117,12 @@ public class AchievementManager : MonoBehaviour
         }
         return totalScore;
     }
+
+    //获取coinCount
+    public int GetCoinCount()
+    {
+        return PlayerPrefs.GetInt("CoinCount");
+    }
     
     // 获取指定分类的成就
     public List<Achievement> GetAchievementsByCategory(string category)
@@ -174,6 +180,18 @@ public class AchievementManager : MonoBehaviour
         }
     }
     
+    //检查coinCount是否达到新的里程碑
+    public void CheckCoinMilestones()
+    {
+        int coinCount = GetCoinCount();
+        if (coinCount >= 10)
+            UnlockAchievement("Coin1");
+        if (coinCount >= 20)
+            UnlockAchievement("Coin2");
+        if (coinCount >= 50)
+            UnlockAchievement("Coin3");
+        
+    }
     // 便捷方法 - 游戏事件触发（简化版）
     public void OnEnemyKilled()
     {

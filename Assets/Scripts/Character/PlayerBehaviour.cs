@@ -19,18 +19,23 @@ public class PlayerBehaviour : MonoBehaviour
     private bool isNearBeacon = false;
     private bool isNearSwitch = false;
     private Cainos.PixelArtPlatformer_Dungeon.Switch switchObject = null;
-    private BoxesBehavior boxes = null;
     private bool isInputEnabled = true;
     private bool isInDoor = false; // 是否在门内
     public Cainos.PixelArtPlatformer_Dungeon.Door Exit = null;
     public bool win = false; // 是否赢得游戏
     public bool lose= false; // 是否输掉游戏
+    public bool AchievementMove = false;
+    public bool AchievementJump = false;
     public bool getState()
     {
         return animator.GetBool("IsShadow");
     }
     public Vector3 nearBeaconPosition;
     private BeaconBehaviour beaconBehaviour;
+
+    public AudioSource footstepAudioSource;
+    public AudioSource jumpAudioSource;
+    public AudioSource deadAudioSource;
 
     void Start()
     {
@@ -79,16 +84,26 @@ public class PlayerBehaviour : MonoBehaviour
         {
             animator.SetBool("IsJumping", false);
         }
+        if (!isGrounded)
+        {
+            if (footstepAudioSource != null)
+            {
+                footstepAudioSource.Stop();
+            }
+        }
         if (!isShadow)
         {
-            bool AchievementMove = false;
-            bool AchievementJump = false;
+            
             // 只有在非影子状态下才允许移动
             if (isInputEnabled && Input.GetKey(KeyCode.A))
             {
                 animator.SetBool("IsWalking", true);
                 transform.localScale = new Vector3(-3, 3, 1);
                 moveInput = -1f;
+                if (footstepAudioSource != null && !footstepAudioSource.isPlaying && isGrounded)
+                {
+                    footstepAudioSource.Play();
+                }
                 AchievementMove = true;
             }
             if (isInputEnabled && Input.GetKey(KeyCode.D))
@@ -96,6 +111,10 @@ public class PlayerBehaviour : MonoBehaviour
                 animator.SetBool("IsWalking", true);
                 transform.localScale = new Vector3(3, 3, 1);
                 moveInput = 1f;
+                if (footstepAudioSource != null && !footstepAudioSource.isPlaying && isGrounded)
+                {
+                    footstepAudioSource.Play();
+                }
                 AchievementMove = true;
 
             }
@@ -108,11 +127,16 @@ public class PlayerBehaviour : MonoBehaviour
             if (isInputEnabled && Input.GetKeyDown(KeyCode.W) && isGrounded)
             {
                 Debug.Log("Jump");
+                
                 Jump();
+                if (jumpAudioSource != null)
+                {
+                    jumpAudioSource.Play();
+                }
                 AchievementJump = true;
             }
-            // if (AchievementMove) AchievementManager.Instance.UnlockAchievement("Move");
-            // if (AchievementJump) AchievementManager.Instance.UnlockAchievement("Jump");
+            if (AchievementMove) AchievementManager.Instance.UnlockAchievement("Move");
+            if(AchievementJump) AchievementManager.Instance.UnlockAchievement("PressW");
         }
         else
         {
@@ -132,7 +156,8 @@ public class PlayerBehaviour : MonoBehaviour
         if (isInputEnabled && Input.GetKeyDown(KeyCode.E) && isNearSwitch && switchObject != null)
         {
             Debug.Log("E pressed near switch");
-            switchObject.IsOn = !switchObject.IsOn; // 切换开关状态
+            switchObject.TriggerSwitch(); // 触发开关
+            //switchObject.IsOn = !switchObject.IsOn; // 切换开关状态
             if (switchObject.targetPlatform != null && switchObject.targetPlatform.tag == "MovingPlatform")
             {
                 switchObject.targetPlatform.RemainingCount++; // 设置剩余前进路径点数量为1
@@ -142,6 +167,7 @@ public class PlayerBehaviour : MonoBehaviour
                 Debug.Log("Spike behaviour found, incrementing cntMove");
                 switchObject.targetSpike.cntMove+=2;
             }
+
         }
 
         if (isInputEnabled && Input.GetKeyDown(KeyCode.R) && isNearBeacon && !isShadow && !beaconBehaviour.HasEcho())
@@ -219,30 +245,6 @@ public class PlayerBehaviour : MonoBehaviour
         isInputEnabled = true;
         Debug.Log("Input re-enabled after delay");
     }
-
-    void OnCollisionEnter2D(Collision2D collision)
-    {
-
-        if (collision.gameObject.name == "Boxes")
-        {
-            boxes = collision.gameObject.GetComponent<BoxesBehavior>();
-            Debug.Log("Collided with Boxes");
-            boxes.SetSpeed(moveSpeed); // 设置盒子的移动速度
-            if (collision.contacts[0].normal.x > 0)
-            {
-                Debug.Log("Collision on right side, pushing left");
-                // 如果碰撞发生在右侧，向左推动
-                boxes.PushLeft();
-            }
-            else if (collision.contacts[0].normal.x < 0)
-            {
-                Debug.Log("Collision on left side, pushing right");
-                // 如果碰撞发生在左侧，向右推动
-                boxes.PushRight();
-            }
-        }
-    }
-
 
     void OnTriggerEnter2D(Collider2D other)
     {
@@ -433,6 +435,10 @@ public class PlayerBehaviour : MonoBehaviour
     {
         Time.timeScale = 0; // 停止时间Time.timeScale = 0; // 停止时间
         lose = true;
+        if (deadAudioSource != null)
+        {
+            deadAudioSource.Play(); // 播放死亡音效
+        }
         AchievementManager.Instance.UnlockAchievement("Die");
         Debug.Log("Player took damage from " + source);
     }

@@ -5,25 +5,28 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: Assets/Scenes/SampleScene.unity
-    guid: 8c9cfa26abfee488c85f1582747f6a02
   - enabled: 1
     path: Assets/Scenes/Menu.unity
     guid: 5269cc58e9163234fba64c83e58fdf34
-  - enabled: 0
-    path: Assets/Scenes/original0.unity
-    guid: bbaf21d50f24c3a45b08c7dd699c0bf8
-  - enabled: 1
-    path: Assets/Scenes/Level_0.unity
-    guid: 760c4aeec28dd6c4c8b2a88fc978de99
-  - enabled: 1
-    path: Assets/Scenes/Level_2.unity
-    guid: 44c15a4c15fd9b6498e3590c4152d9ea
   - enabled: 1
     path: Assets/Scenes/LevelSelectScene.unity
     guid: 7bc75ddd7e168d147a0c40a83122b1a7
   - enabled: 1
+    path: Assets/Scenes/Level_0.unity
+    guid: 760c4aeec28dd6c4c8b2a88fc978de99
+  - enabled: 1
     path: Assets/Scenes/Level_1.unity
     guid: cee888e6d1a801e45b9854263f67c76b
+  - enabled: 1
+    path: Assets/Scenes/Level_2.unity
+    guid: 44c15a4c15fd9b6498e3590c4152d9ea
+  - enabled: 1
+    path: Assets/Scenes/Level_3.unity
+    guid: 1fbd096e51ccdb64283d222150cc788b
+  - enabled: 1
+    path: Assets/Scenes/Level_4.unity
+    guid: dc09058294f9dfc4591b1fe585cf2790
+  - enabled: 1
+    path: Assets/Scenes/BeatTheGameScene.unity
+    guid: 9f0f3e7d55cc50c488a791b35ba8320e
   m_configObjects: {}

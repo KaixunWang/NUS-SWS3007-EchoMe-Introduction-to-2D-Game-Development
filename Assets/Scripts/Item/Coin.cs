@@ -36,6 +36,12 @@ public class Coin : MonoBehaviour
             // 增加分数或执行其他逻辑
             Debug.Log("Coin collected!");
             coinSystem.AddCoin(); // 调用 CoinSystemScript 的 AddCoin 方法
+            // 存入PlayerPrefs当前+1
+            PlayerPrefs.SetInt("CoinCount", PlayerPrefs.GetInt("CoinCount") + 1);
+            PlayerPrefs.Save();
+            //发出事件，成就管理器获取playerPrefs中的coinCount，检查是否达到新的里程碑
+            AchievementManager.Instance.CheckCoinMilestones();
+
             Destroy(gameObject); // 收集后销毁硬币
         }
     }

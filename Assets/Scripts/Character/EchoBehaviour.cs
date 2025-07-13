@@ -164,7 +164,6 @@ public class EchoBehaviour : MonoBehaviour
 
     private bool isNearSwitch = false;
     private Cainos.PixelArtPlatformer_Dungeon.Switch switchObject = null;
-    private BoxesBehavior boxes = null;
     private BeaconBehaviour beaconBehaviour;
     void Start()
     {
@@ -270,6 +269,7 @@ public class EchoBehaviour : MonoBehaviour
                 break;
             case InputType.G:
                 beaconBehaviour.SetHasEcho(false);
+                beaconBehaviour.restore();
                 Destroy(gameObject);
                 break;
 
@@ -335,7 +335,8 @@ public class EchoBehaviour : MonoBehaviour
         //开关
         if (isNearSwitch && switchObject != null)
         {
-            switchObject.IsOn = !switchObject.IsOn; // 切换开关状态
+            //switchObject.IsOn = !switchObject.IsOn; // 切换开关状态
+            switchObject.TriggerSwitch(); // 触发开关
             if (switchObject.targetPlatform != null && switchObject.targetPlatform.tag == "MovingPlatform")
             {
                 switchObject.targetPlatform.RemainingCount++; // 设置剩余前进路径点数量为1
@@ -352,34 +353,15 @@ public class EchoBehaviour : MonoBehaviour
     {
         yield return new WaitForSeconds(echoDuration);
         beaconBehaviour.SetHasEcho(false);
+        beaconBehaviour.restore();
+         // 恢复Sprite
         Destroy(gameObject);
     }
     public void DestroyImmediate()
     {
         beaconBehaviour.SetHasEcho(false);
+        beaconBehaviour.restore();
         Destroy(gameObject);
-    }
-    void OnCollisionEnter2D(Collision2D collision)
-    {
-       
-        if (collision.gameObject.name == "Boxes")
-        {
-            boxes = collision.gameObject.GetComponent<BoxesBehavior>();
-            Debug.Log("Collided with Boxes");
-            boxes.SetSpeed(moveSpeed); // 设置盒子的移动速度
-            if (collision.contacts[0].normal.x > 0)
-            {
-                Debug.Log("Collision on right side, pushing left");
-                // 如果碰撞发生在右侧，向左推动
-                boxes.PushLeft();
-            }
-            else if (collision.contacts[0].normal.x < 0)
-            {
-                Debug.Log("Collision on left side, pushing right");
-                // 如果碰撞发生在左侧，向右推动
-                boxes.PushRight();
-            }
-        }
     }
 
     void OnTriggerEnter2D(Collider2D other)

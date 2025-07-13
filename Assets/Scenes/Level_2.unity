@@ -3667,10 +3667,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -7886,7 +7886,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9089738120532026596, guid: da5df88db6842f04e9238cb19c081e74, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.89
+      value: 2.17
       objectReference: {fileID: 0}
     - target: {fileID: 9089738120532026596, guid: da5df88db6842f04e9238cb19c081e74, type: 3}
       propertyPath: m_LocalPosition.z
@@ -8263,7 +8263,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4750236094321503291, guid: a8c889116495da54397835781b005aba, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: level_2
+      value: level_3
       objectReference: {fileID: 0}
     - target: {fileID: 8735341808391543837, guid: a8c889116495da54397835781b005aba, type: 3}
       propertyPath: m_Name

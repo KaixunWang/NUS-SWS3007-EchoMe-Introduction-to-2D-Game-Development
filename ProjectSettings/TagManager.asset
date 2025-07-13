@@ -10,6 +10,7 @@ TagManager:
   - lamp
   - MovingPlatform
   - switch
+  - box
   layers:
   - Default
   - TransparentFX

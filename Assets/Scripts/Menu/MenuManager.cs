@@ -4,6 +4,7 @@ using UnityEngine.SceneManagement;
 public class MenuManager : MonoBehaviour
 {
     public GameObject achievementPanel;
+    public GameObject optionsPanel;
     public void Start()
     {
         // 初始化菜单或其他设置
@@ -39,5 +40,15 @@ public class MenuManager : MonoBehaviour
     public void CloseAchievements()
     {
         achievementPanel.SetActive(false);
+    }
+
+    public void ShowOptions()
+    {
+        optionsPanel.SetActive(true);
+    }
+
+    public void CloseOptions()
+    {
+        optionsPanel.SetActive(false);
     }
 }

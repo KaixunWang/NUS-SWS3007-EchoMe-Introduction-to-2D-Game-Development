@@ -15,7 +15,10 @@ namespace Cainos.PixelArtPlatformer_Dungeon
         [FoldoutGroup("Reference")] public Sprite spriteOpened;
         [FoldoutGroup("Reference")] public Sprite spriteClosed;
 
-        private bool Control = true;
+        public AudioSource openAudioSource;
+        public AudioSource closeAudioSource;
+
+        public bool Control = true;
         public void SetControl(bool state)
         {
             Control = state;
@@ -68,8 +71,22 @@ namespace Cainos.PixelArtPlatformer_Dungeon
             {
                 return;
             }
-            Debug.Log("Door state set to: " + state);
+
             IsOpened = state;
+            if (state)
+            {
+                if (openAudioSource != null)
+                {
+                    openAudioSource.Play();
+                }
+            }
+            else
+            {
+                if (closeAudioSource != null)
+                {
+                    closeAudioSource.Play();
+                }
+            }
         }
 
         public void SetGate(bool state)
