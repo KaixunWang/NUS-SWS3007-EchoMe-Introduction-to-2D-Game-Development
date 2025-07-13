@@ -221,13 +221,14 @@ MonoBehaviour:
   - {fileID: 527581608}
   pressurePlates:
   - {fileID: 3996709800723377541}
-  levelGoodTime: 60
   doors:
   - {fileID: 0}
   - {fileID: 0}
   boxes:
   - {fileID: 1888109906}
   lifts: []
+  spikes: []
+  levelGoodTime: 60
 --- !u!4 &112695699
 Transform:
   m_ObjectHideFlags: 0
@@ -299,6 +300,10 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 5462017029474844879, guid: 2e6beff292853594ebc04470710f07c7, type: 3}
+      propertyPath: targetPortal
+      value: 
+      objectReference: {fileID: 919225957}
     - target: {fileID: 5760846579451053057, guid: 2e6beff292853594ebc04470710f07c7, type: 3}
       propertyPath: m_Name
       value: Switch
@@ -19281,6 +19286,14 @@ PrefabInstance:
     - target: {fileID: 623903794054863435, guid: 68af37e9d0cafea44b41a09d10372ae8, type: 3}
       propertyPath: m_Name
       value: Portal
+      objectReference: {fileID: 0}
+    - target: {fileID: 1916181846182874091, guid: 68af37e9d0cafea44b41a09d10372ae8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4952398092242965453, guid: 68af37e9d0cafea44b41a09d10372ae8, type: 3}
+      propertyPath: isActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4952398092242965453, guid: 68af37e9d0cafea44b41a09d10372ae8, type: 3}
       propertyPath: linkedPortal

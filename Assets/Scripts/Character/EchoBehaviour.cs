@@ -358,6 +358,9 @@ public class EchoBehaviour : MonoBehaviour
             else if (switchObject.targetSpike != null)
             {
                 switchObject.targetSpike.cntMove+=2;
+            }else if(switchObject.targetPortal != null){
+                bool isActive = switchObject.targetPortal.isActive;
+                switchObject.targetPortal.SetPortalState(!isActive);
             }
 
         }

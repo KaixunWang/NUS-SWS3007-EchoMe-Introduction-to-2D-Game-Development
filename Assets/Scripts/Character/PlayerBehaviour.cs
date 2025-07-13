@@ -166,6 +166,9 @@ public class PlayerBehaviour : MonoBehaviour
             {
                 Debug.Log("Spike behaviour found, incrementing cntMove");
                 switchObject.targetSpike.cntMove+=2;
+            }else if(switchObject.targetPortal != null){
+                bool isActive = switchObject.targetPortal.isActive;
+                switchObject.targetPortal.SetPortalState(!isActive);
             }
 
         }

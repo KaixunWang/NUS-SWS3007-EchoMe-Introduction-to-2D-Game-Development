@@ -3276,6 +3276,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   clickSound: {fileID: 8300000, guid: 0498e208374d670478ffd968b20416c7, type: 3}
   volume: 0.1
+  audioMixer: {fileID: 24100000, guid: b8cf5e33b087dea4dba562c9b74760b9, type: 2}
 --- !u!4 &831474454
 Transform:
   m_ObjectHideFlags: 0

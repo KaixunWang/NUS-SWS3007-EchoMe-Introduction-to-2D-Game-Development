@@ -14,10 +14,6 @@ public class Portal : MonoBehaviour
     public Transform sideAPosition;
     public Transform sideBPosition;
     
-    [Header("控制的组件")]
-    public GameObject[] particleSystems;     // 粒子特效
-    public Collider2D[] portalColliders;    // 3个碰撞器
-    
     [Header("设置")]
     public float teleportCooldown = 0.5f;
     private static System.Collections.Generic.Dictionary<GameObject, float> lastTeleportTime = 
@@ -53,18 +49,23 @@ public class Portal : MonoBehaviour
     {
         isActive = active;
         
-        // 控制粒子特效
-        foreach (GameObject particle in particleSystems)
+        // 直接控制整个Portals对象
+        Transform portals = transform.Find("Portals");
+        if (portals != null)
         {
-            if (particle != null)
-                particle.SetActive(active);
+            portals.gameObject.SetActive(active);
+            Debug.Log("传送门状态设置为：" + active);
         }
-        
-        // 控制碰撞器
-        foreach (Collider2D collider in portalColliders)
+        else
         {
-            if (collider != null)
-                collider.enabled = active;
+            // 调试信息：打印所有子对象名称
+            Debug.LogWarning($"在传送门 {gameObject.name} 中找不到 'Portals' 对象");
+            Debug.Log($"传送门 {gameObject.name} 的子对象有：");
+            for (int i = 0; i < transform.childCount; i++)
+            {
+                Transform child = transform.GetChild(i);
+                Debug.Log($"  - {child.name}");
+            }
         }
     }
     
