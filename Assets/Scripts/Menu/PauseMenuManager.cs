@@ -47,6 +47,12 @@ public class PauseMenuManager : MonoBehaviour
         Time.timeScale = 1f; // 恢复时间再重启
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
+    public void LoseRestartGame()
+    {
+        Time.timeScale = 1f; // 恢复时间再重启
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        AchievementManager.Instance.UnlockAchievement("Restart");
+    }
     public void ResumeGame()
     {
         pausePanel.SetActive(false);

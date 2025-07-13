@@ -40,7 +40,8 @@ public class AchievementManager : MonoBehaviour
     private void Awake()
     {
         // 单例模式
-
+        // PlayerPrefs.DeleteAll();
+        // PlayerPrefs.Save();
         if (Instance == null)
         {
             Instance = this;

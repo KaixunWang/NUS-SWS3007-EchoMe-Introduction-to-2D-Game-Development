@@ -122,7 +122,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 7943309086033127635}
         m_TargetAssemblyTypeName: PauseMenuManager, Assembly-CSharp
-        m_MethodName: RestartGame
+        m_MethodName: LoseRestartGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -532,6 +532,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerBehaviour: {fileID: 0}
   pausePanel: {fileID: 0}
+  isEnd: 0
 --- !u!1 &8200817992579092802
 GameObject:
   m_ObjectHideFlags: 0

@@ -6,18 +6,22 @@ public class BeaconBehaviour : MonoBehaviour
 {
     private List<TimeBasedInputEvent> memorizedInput = new List<TimeBasedInputEvent>();
     public AudioSource callShadowSource; // 音频源，用于播放开关音效
+    public SpriteRenderer sc;
+    public Sprite[] pic;
     private float ShadowTime = 10f;
     private float EchoTime = 0f;
     private bool hasEcho = false;
     // Start is called before the first frame update
     void Start()
     {
+        sc = GetComponent<SpriteRenderer>();
     }
 
     public void SwitchShadow(Vector3 nearBeaconPosition)
     {
         // 尝试加载 Shadow prefab
         GameObject shadowPrefab = Resources.Load<GameObject>("Prefab/Shadow");
+        sc.sprite = pic[1];
         if (shadowPrefab == null)
         {
             Debug.LogError("Failed to load Shadow prefab from Resources/Prefab/Shadow");
@@ -66,6 +70,7 @@ public class BeaconBehaviour : MonoBehaviour
         //generate echo
         // 尝试加载 Echo prefab
         GameObject echoPrefab = Resources.Load<GameObject>("Prefab/Echo");
+        sc.sprite = pic[2];
         if (echoPrefab == null)
         {
             Debug.LogError("Failed to load Echo prefab from Resources/Prefab/Echo");
@@ -125,5 +130,9 @@ public class BeaconBehaviour : MonoBehaviour
     public void SetEchoTime(float echoTime)
     {
         this.EchoTime = echoTime;
+    }
+    public void restore()
+    {
+        sc.sprite = pic[0];
     }
 }
