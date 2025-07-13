@@ -4,15 +4,39 @@ using UnityEngine;
 
 public class SpikeBehavioudr : MonoBehaviour
 {
+    public int cntMove = 0;
+    public bool inMove=false; // 是否开启
+    public float moveSpeed = 2f; // 移动速度
+    public Vector3 Destination ; // 相对距离
+    public Vector3 StartPosition; // 起始位置
     // Start is called before the first frame update
     void Start()
     {
+
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        if (inMove)
+        {
+            // 移动到目标位置
+            transform.position = Vector3.MoveTowards(transform.position, Destination, moveSpeed * Time.deltaTime);
+            // 检查是否到达目标位置
+            if (Vector3.Distance(transform.position, Destination) < 0.01f)
+            {
+                cntMove--;
+                inMove = false; // 停止移动
+                Destination = StartPosition; // 重置目标位置为起始位置
+                Debug.Log("Spike reached the destination, remaining count: " + cntMove);
+            }
+        }
+        else if (cntMove > 0)
+        {
+            inMove = true; 
+            StartPosition = transform.position; // 记录起始位置
+            Debug.Log("Spike begins moving.");
+        }
     }
     private void OnTriggerEnter2D(Collider2D other)
     {

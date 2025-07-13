@@ -329,9 +329,15 @@ public class ShadowBehaviour : MonoBehaviour
             switchObject.TriggerSwitch(); // 触发开关
             if (switchObject.targetPlatform != null && switchObject.targetPlatform.tag == "MovingPlatform")
             {
-                switchObject.targetPlatform.RemainingCount ++; // 设置剩余前进路径点数量为1
+                switchObject.targetPlatform.RemainingCount++; // 设置剩余前进路径点数量为1
+            }
+            else if (switchObject.targetSpike != null)
+            {
+                switchObject.targetSpike.cntMove+=2;
             }
         }
+        
+        
         
         // 立即销毁
         if (Input.GetKeyDown(KeyCode.G))
