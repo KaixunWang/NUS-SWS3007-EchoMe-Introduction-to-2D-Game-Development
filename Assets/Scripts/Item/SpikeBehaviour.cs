@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpikeBehavioudr : MonoBehaviour
+public class SpikeBehaviour : MonoBehaviour
 {
     public int cntMove = 0;
     public bool inMove=false; // 是否开启
@@ -13,6 +13,24 @@ public class SpikeBehavioudr : MonoBehaviour
     void Start()
     {
 
+    }
+    public void setState(SpikeState state)
+    {
+        cntMove = state.cntMove;
+        inMove = state.inMove;
+        Destination = state.Destination;
+        StartPosition = state.StartPosition;
+        transform.position = state.pos; // 设置当前位置信息
+    }
+    public SpikeState getState()
+    {
+        SpikeState state = new SpikeState();
+        state.cntMove = cntMove;
+        state.inMove = inMove;
+        state.Destination = Destination;
+        state.StartPosition = StartPosition;
+        state.pos = transform.position; // 获取当前位置信息
+        return state;
     }
 
     // Update is called once per frame

@@ -309,6 +309,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 90
       objectReference: {fileID: 0}
+    - target: {fileID: 2073556194556140837, guid: d67efab9ad2eb504ea34fa486eee2bd1, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7204240433690678487, guid: d67efab9ad2eb504ea34fa486eee2bd1, type: 3}
       propertyPath: m_Name
       value: Spike (1)
@@ -10169,19 +10173,25 @@ MonoBehaviour:
   coinSystem: {fileID: 1430798747}
   switches:
   - {fileID: 1745966247}
+  - {fileID: 806192422}
   - {fileID: 1973851484}
   - {fileID: 2051897178}
   - {fileID: 1320260647}
   - {fileID: 269760313}
   - {fileID: 1911071762}
-  - {fileID: 806192422}
   pressurePlates: []
-  levelGoodTime: 30
   doors:
   - {fileID: 363130573}
   boxes: []
-  lifts:
-  - {fileID: 0}
+  lifts: []
+  spikes:
+  - {fileID: 1716274923}
+  - {fileID: 1006005344}
+  - {fileID: 713457722}
+  - {fileID: 1971246624}
+  - {fileID: 1483971390}
+  - {fileID: 362977820}
+  levelGoodTime: 30
 --- !u!4 &1655490169
 Transform:
   m_ObjectHideFlags: 0
