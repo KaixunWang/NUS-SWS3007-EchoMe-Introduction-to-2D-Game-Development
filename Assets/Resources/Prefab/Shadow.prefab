@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 1669534501454773668}
   m_Layer: 9
   m_Name: Shadow
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -48,11 +48,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49a97631fe8ba1a48bb78788bb0917f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isPaused: 0
   rb: {fileID: 0}
   animator: {fileID: 0}
-  jumpForce: 10
-  moveSpeed: 6
   shadowDuration: 10
+  destroyAlpha: 0.3
 --- !u!50 &4252102077086372520
 Rigidbody2D:
   serializedVersion: 4
