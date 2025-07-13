@@ -21,6 +21,7 @@ public class PlayerBehaviour : MonoBehaviour
     private Cainos.PixelArtPlatformer_Dungeon.Switch switchObject = null;
     private bool isInputEnabled = true;
     private bool isInDoor = false; // 是否在门内
+    private bool isBeaconSystem = false; // 是否是信标系统
     public Cainos.PixelArtPlatformer_Dungeon.Door Exit = null;
     public bool win = false; // 是否赢得游戏
     public bool lose= false; // 是否输掉游戏
@@ -43,6 +44,12 @@ public class PlayerBehaviour : MonoBehaviour
         Application.targetFrameRate = 60;         // 手动锁帧
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+    }
+    public void setBeaconpos(Vector3 pos)
+    {
+        nearBeaconPosition = pos;
+        nearBeaconPosition.y += 0.5f; // 调整Y轴位置
+        Debug.Log("nearBeaconPosition set to: " + nearBeaconPosition);
     }
     void SwitchShadow()
     {
@@ -261,10 +268,18 @@ public class PlayerBehaviour : MonoBehaviour
         {
 
             Debug.Log("Beacon Updated");
-            isNearBeacon = true;
-            nearBeaconPosition = other.gameObject.transform.position;
-            nearBeaconPosition.y += 0.5f;
+            isNearBeacon = true; 
             beaconBehaviour = other.gameObject.GetComponent<BeaconBehaviour>();
+            if (beaconBehaviour.getSystem())
+            {
+                isBeaconSystem = true; // 标记为信标系统
+            }
+            else
+            {
+                nearBeaconPosition = other.gameObject.transform.position;
+                nearBeaconPosition.y += 0.5f;
+                isBeaconSystem = false; // 标记为非信标系统
+            }
         }
 
         if (other.gameObject.tag == "switch")
@@ -319,7 +334,7 @@ public class PlayerBehaviour : MonoBehaviour
         if (other.gameObject.CompareTag("beacon"))
         {
             isNearBeacon = false;
-            nearBeaconPosition = Vector3.zero;
+            if(!isBeaconSystem) nearBeaconPosition = Vector3.zero;
         }
 
         if (other.gameObject.tag == "switch")

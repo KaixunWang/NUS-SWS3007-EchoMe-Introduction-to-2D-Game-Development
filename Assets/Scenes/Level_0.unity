@@ -6499,7 +6499,7 @@ PrefabInstance:
       objectReference: {fileID: 749695954}
     - target: {fileID: 4750236094321503291, guid: a8c889116495da54397835781b005aba, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: level_1
+      value: Level_6
       objectReference: {fileID: 0}
     - target: {fileID: 8735341808391543837, guid: a8c889116495da54397835781b005aba, type: 3}
       propertyPath: m_Name
@@ -9385,12 +9385,13 @@ MonoBehaviour:
   switches:
   - {fileID: 552406783}
   pressurePlates: []
-  levelGoodTime: 60
   doors:
   - {fileID: 1558971174}
   boxes:
   - {fileID: 1647106285}
   lifts: []
+  spikes: []
+  levelGoodTime: 60
 --- !u!4 &1655490169
 Transform:
   m_ObjectHideFlags: 0

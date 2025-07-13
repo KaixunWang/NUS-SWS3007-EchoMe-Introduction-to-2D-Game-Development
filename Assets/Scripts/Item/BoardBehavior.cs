@@ -56,13 +56,23 @@ public class BoardBehavior : MonoBehaviour
     private bool isOpened;
 
     public void TriggerDoor() {
-        if (IsOpened && door != null) {
+        if (IsOpened && door != null)
+        {
             Debug.Log("Switch: Open the door");
             door.SetDoor(true);
+            if (door.tag == "gate")
+            {
+                door.SetGate(true); // 确保门的状态被正确设置
+            }
         }
-        else if (!IsOpened && door != null) {
+        else if (!IsOpened && door != null)
+        {
             Debug.Log("Switch: Close the door");
             door.SetDoor(false);
+            if(door.tag == "gate")
+            {
+                door.SetGate(false); // 确保门的状态被正确设置
+            }
         }
     }
 
