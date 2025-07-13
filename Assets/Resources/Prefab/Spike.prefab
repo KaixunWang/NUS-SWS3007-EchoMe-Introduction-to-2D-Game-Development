@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1930284247740096156}
   - component: {fileID: 6993307703147892119}
   - component: {fileID: 2073556194556140837}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Spike
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -163,7 +163,7 @@ GameObject:
   - component: {fileID: 1686830907188124024}
   - component: {fileID: 2525729626727603069}
   - component: {fileID: 9106352920967862230}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SpikeZone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
