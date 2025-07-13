@@ -3473,13 +3473,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelScenePrefix: Level_
-  totalLevels: 5
+  totalLevels: 6
   levelButtons:
   - {fileID: 579807764}
   - {fileID: 1352658431}
   - {fileID: 736214360}
   - {fileID: 1307982432}
   - {fileID: 1915428331}
+  - {fileID: 428513623}
 --- !u!4 &2045605240
 Transform:
   m_ObjectHideFlags: 0
