@@ -45,7 +45,6 @@ public class SpikeBehavioudr : MonoBehaviour
             Debug.Log("Player hit the spike!");
             // 示例调用：玩家掉血
             other.GetComponent<PlayerBehaviour>().TakeDamage("Spike");
-
         }
         // if (other.name == "Shadow(Clone)")
         // {
@@ -58,6 +57,7 @@ public class SpikeBehavioudr : MonoBehaviour
             Debug.Log("Echo hit the spike!");
             // 示例调用：回声掉血
             other.GetComponent<EchoBehaviour>().DestroyImmediate();
+            AchievementManager.Instance.UnlockAchievement("EchoSuicide");
         }
     }
 }

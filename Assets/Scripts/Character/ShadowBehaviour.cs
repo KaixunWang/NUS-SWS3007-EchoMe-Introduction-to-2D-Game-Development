@@ -369,7 +369,9 @@ public class ShadowBehaviour : MonoBehaviour
             // 如果透明度低于阈值，销毁影子
             if (alpha <= destroyAlpha)
             {
+                AchievementManager.Instance.UnlockAchievement("ShadowSuicide");
                 DestroyImmediate();
+                
             }
         }
     }
@@ -500,6 +502,7 @@ public class ShadowBehaviour : MonoBehaviour
     {
         float currentTime = Time.time - recordStartTime;
         Debug.Log("Shadow destroyed by trap at time: " + currentTime);
+        
         DestroyImmediate();
     }
 }
