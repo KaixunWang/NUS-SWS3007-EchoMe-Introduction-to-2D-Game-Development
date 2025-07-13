@@ -387,6 +387,10 @@ CompositeCollider2D:
       - X: 60000000
         Y: 10000000
       - X: 60000000
+        Y: 2187500
+      - X: 60625000
+        Y: 625000
+      - X: 61250000
         Y: 0
       - X: 180000000
         Y: 0
@@ -509,7 +513,9 @@ CompositeCollider2D:
       - {x: 18, y: 4.9999704}
       - {x: 17.999971, y: 1}
       - {x: 6, y: 0.99997073}
-      - {x: 6.000029, y: 0}
+      - {x: 6.000002, y: 0.2187454}
+      - {x: 6.062504, y: 0.0624963}
+      - {x: 6.125011, y: 0}
       - {x: 18, y: -0.0000294}
       - {x: 18.000029, y: -3}
       - {x: 18.187439, y: -3.0000618}
@@ -1530,8 +1536,8 @@ Tilemap:
   - first: {x: 6, y: 0, z: 0}
     second:
       serializedVersion: 2
-      m_TileIndex: 65
-      m_TileSpriteIndex: 63
+      m_TileIndex: 48
+      m_TileSpriteIndex: 26
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -2645,8 +2651,8 @@ Tilemap:
     m_Data: {fileID: 11400000, guid: 7294cde59f1833f4c971d19c7aaacecf, type: 2}
   - m_RefCount: 3
     m_Data: {fileID: 11400000, guid: 948af420869f8a04e96547ed31e20712, type: 2}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
+  - m_RefCount: 1
+    m_Data: {fileID: 11400000, guid: efd1923d22364e94e9b4c4a84a12956c, type: 2}
   - m_RefCount: 1
     m_Data: {fileID: 11400000, guid: 9a38e4561917cc541b10e0acc1d0d4ad, type: 2}
   - m_RefCount: 10
@@ -2679,7 +2685,7 @@ Tilemap:
     m_Data: {fileID: 11400000, guid: 2302a42e56e41b142be9ec63622cf0cc, type: 2}
   - m_RefCount: 5
     m_Data: {fileID: 11400000, guid: ba30aae301a5e624c8f09794469f2d56, type: 2}
-  - m_RefCount: 2
+  - m_RefCount: 1
     m_Data: {fileID: 11400000, guid: c3411626ac7e06046924a624f17b73bc, type: 2}
   - m_RefCount: 1
     m_Data: {fileID: 11400000, guid: abbe5877582d343448a981e89172bbe9, type: 2}
@@ -2740,8 +2746,8 @@ Tilemap:
     m_Data: {fileID: -1142974336, guid: 9b639766cca19b8448c0b6024f5e3552, type: 3}
   - m_RefCount: 2
     m_Data: {fileID: -1982643478, guid: 9b639766cca19b8448c0b6024f5e3552, type: 3}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
+  - m_RefCount: 1
+    m_Data: {fileID: -4482834494123852019, guid: 1061b915ffc9af143a59aa0d12c234dd, type: 3}
   - m_RefCount: 2
     m_Data: {fileID: -1960118479, guid: 9b639766cca19b8448c0b6024f5e3552, type: 3}
   - m_RefCount: 1
@@ -2814,7 +2820,7 @@ Tilemap:
     m_Data: {fileID: -8771874443627039667, guid: 1061b915ffc9af143a59aa0d12c234dd, type: 3}
   - m_RefCount: 1
     m_Data: {fileID: 1171029552, guid: 9b639766cca19b8448c0b6024f5e3552, type: 3}
-  - m_RefCount: 2
+  - m_RefCount: 1
     m_Data: {fileID: -3448884800401157795, guid: 1061b915ffc9af143a59aa0d12c234dd, type: 3}
   - m_RefCount: 1
     m_Data: {fileID: -5205015944953769768, guid: 1061b915ffc9af143a59aa0d12c234dd, type: 3}
@@ -3501,12 +3507,13 @@ MonoBehaviour:
   - {fileID: 880812433}
   pressurePlates:
   - {fileID: 974013643}
-  levelGoodTime: 30
   doors:
   - {fileID: 1190660882}
   - {fileID: 1725795667}
   boxes: []
   lifts: []
+  spikes: []
+  levelGoodTime: 30
 --- !u!4 &754050757
 Transform:
   m_ObjectHideFlags: 0
