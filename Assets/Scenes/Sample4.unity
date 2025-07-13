@@ -12061,10 +12061,12 @@ MonoBehaviour:
   switches: []
   pressurePlates:
   - {fileID: 1830005823}
+  levelGoodTime: 60
   doors:
   - {fileID: 980973542}
   boxes:
   - {fileID: 97749604}
+  lifts: []
 --- !u!4 &1722985062
 Transform:
   m_ObjectHideFlags: 0
