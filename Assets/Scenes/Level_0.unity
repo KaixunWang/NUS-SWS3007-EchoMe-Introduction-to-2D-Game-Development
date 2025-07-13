@@ -9385,7 +9385,7 @@ MonoBehaviour:
   switches:
   - {fileID: 552406783}
   pressurePlates: []
-  levelGoodTime: 15
+  levelGoodTime: 60
   doors:
   - {fileID: 1558971174}
   boxes:
