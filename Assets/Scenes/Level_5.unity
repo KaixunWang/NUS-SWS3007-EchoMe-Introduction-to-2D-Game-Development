@@ -434,6 +434,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: PF Village Props - Platform 01 L X2 (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 4460813094189888139, guid: be45c7f16746c98428fc87d0d0f34226, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5020714311518917839, guid: be45c7f16746c98428fc87d0d0f34226, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6374825536398705596, guid: be45c7f16746c98428fc87d0d0f34226, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -448,7 +460,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 304539468}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: PlatformSet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -595,6 +607,18 @@ PrefabInstance:
     - target: {fileID: 4460813094189888139, guid: be45c7f16746c98428fc87d0d0f34226, type: 3}
       propertyPath: m_Name
       value: PF Village Props - Platform 01 L X2 (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4460813094189888139, guid: be45c7f16746c98428fc87d0d0f34226, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5020714311518917839, guid: be45c7f16746c98428fc87d0d0f34226, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6374825536398705596, guid: be45c7f16746c98428fc87d0d0f34226, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -875,6 +899,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: PF Village Props - Platform 01 L X2 (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 4460813094189888139, guid: be45c7f16746c98428fc87d0d0f34226, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5020714311518917839, guid: be45c7f16746c98428fc87d0d0f34226, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6374825536398705596, guid: be45c7f16746c98428fc87d0d0f34226, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -960,11 +996,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9089738120532026596, guid: da5df88db6842f04e9238cb19c081e74, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -8.01
+      value: -8.09
       objectReference: {fileID: 0}
     - target: {fileID: 9089738120532026596, guid: da5df88db6842f04e9238cb19c081e74, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5.93
+      value: 7.01
       objectReference: {fileID: 0}
     - target: {fileID: 9089738120532026596, guid: da5df88db6842f04e9238cb19c081e74, type: 3}
       propertyPath: m_LocalPosition.z
@@ -5891,12 +5927,16 @@ PrefabInstance:
       value: Beacon (1)
       objectReference: {fileID: 0}
     - target: {fileID: 9089738120532026596, guid: da5df88db6842f04e9238cb19c081e74, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 9089738120532026596, guid: da5df88db6842f04e9238cb19c081e74, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.12
+      value: -0.01
       objectReference: {fileID: 0}
     - target: {fileID: 9089738120532026596, guid: da5df88db6842f04e9238cb19c081e74, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5.99
+      value: 7.07
       objectReference: {fileID: 0}
     - target: {fileID: 9089738120532026596, guid: da5df88db6842f04e9238cb19c081e74, type: 3}
       propertyPath: m_LocalPosition.z
@@ -6180,6 +6220,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 304539468}
     m_Modifications:
+    - target: {fileID: 2631535388643696401, guid: 948a335f2eab4d944a21f7654ca9e467, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4331679147343811814, guid: 948a335f2eab4d944a21f7654ca9e467, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 4460813094189888138, guid: 948a335f2eab4d944a21f7654ca9e467, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -6223,6 +6271,10 @@ PrefabInstance:
     - target: {fileID: 4460813094189888139, guid: 948a335f2eab4d944a21f7654ca9e467, type: 3}
       propertyPath: m_Name
       value: PF Village Props - Platform 01 R X2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4460813094189888139, guid: 948a335f2eab4d944a21f7654ca9e467, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -6293,6 +6345,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 304539468}
     m_Modifications:
+    - target: {fileID: 2631535388643696401, guid: 948a335f2eab4d944a21f7654ca9e467, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4331679147343811814, guid: 948a335f2eab4d944a21f7654ca9e467, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 4460813094189888138, guid: 948a335f2eab4d944a21f7654ca9e467, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -6336,6 +6396,10 @@ PrefabInstance:
     - target: {fileID: 4460813094189888139, guid: 948a335f2eab4d944a21f7654ca9e467, type: 3}
       propertyPath: m_Name
       value: PF Village Props - Platform 01 R X2 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4460813094189888139, guid: 948a335f2eab4d944a21f7654ca9e467, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -6556,6 +6620,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 304539468}
     m_Modifications:
+    - target: {fileID: 2631535388643696401, guid: 948a335f2eab4d944a21f7654ca9e467, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4331679147343811814, guid: 948a335f2eab4d944a21f7654ca9e467, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 4460813094189888138, guid: 948a335f2eab4d944a21f7654ca9e467, type: 3}
       propertyPath: m_LocalPosition.x
       value: -16.03
@@ -6599,6 +6671,10 @@ PrefabInstance:
     - target: {fileID: 4460813094189888139, guid: 948a335f2eab4d944a21f7654ca9e467, type: 3}
       propertyPath: m_Name
       value: PF Village Props - Platform 01 R X2 (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4460813094189888139, guid: 948a335f2eab4d944a21f7654ca9e467, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -6709,6 +6785,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 304539468}
     m_Modifications:
+    - target: {fileID: 2631535388643696401, guid: 948a335f2eab4d944a21f7654ca9e467, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4331679147343811814, guid: 948a335f2eab4d944a21f7654ca9e467, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 4460813094189888138, guid: 948a335f2eab4d944a21f7654ca9e467, type: 3}
       propertyPath: m_LocalPosition.x
       value: -16.06
@@ -6753,6 +6837,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PF Village Props - Platform 01 R X2 (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 4460813094189888139, guid: 948a335f2eab4d944a21f7654ca9e467, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -6766,6 +6854,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 304539468}
     m_Modifications:
+    - target: {fileID: 2631535388643696401, guid: 948a335f2eab4d944a21f7654ca9e467, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4331679147343811814, guid: 948a335f2eab4d944a21f7654ca9e467, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 4460813094189888138, guid: 948a335f2eab4d944a21f7654ca9e467, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.04000044
@@ -6809,6 +6905,10 @@ PrefabInstance:
     - target: {fileID: 4460813094189888139, guid: 948a335f2eab4d944a21f7654ca9e467, type: 3}
       propertyPath: m_Name
       value: PF Village Props - Platform 01 R X2 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4460813094189888139, guid: 948a335f2eab4d944a21f7654ca9e467, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -10001,6 +10101,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: PF Village Props - Platform 01 L X2
       objectReference: {fileID: 0}
+    - target: {fileID: 4460813094189888139, guid: be45c7f16746c98428fc87d0d0f34226, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5020714311518917839, guid: be45c7f16746c98428fc87d0d0f34226, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6374825536398705596, guid: be45c7f16746c98428fc87d0d0f34226, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -10165,6 +10277,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 304539468}
     m_Modifications:
+    - target: {fileID: 2631535388643696401, guid: 948a335f2eab4d944a21f7654ca9e467, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4331679147343811814, guid: 948a335f2eab4d944a21f7654ca9e467, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 4460813094189888138, guid: 948a335f2eab4d944a21f7654ca9e467, type: 3}
       propertyPath: m_LocalPosition.x
       value: -16.06
@@ -10208,6 +10328,10 @@ PrefabInstance:
     - target: {fileID: 4460813094189888139, guid: 948a335f2eab4d944a21f7654ca9e467, type: 3}
       propertyPath: m_Name
       value: PF Village Props - Platform 01 R X2 (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4460813094189888139, guid: 948a335f2eab4d944a21f7654ca9e467, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -10270,6 +10394,18 @@ PrefabInstance:
     - target: {fileID: 4460813094189888139, guid: be45c7f16746c98428fc87d0d0f34226, type: 3}
       propertyPath: m_Name
       value: PF Village Props - Platform 01 L X2 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4460813094189888139, guid: be45c7f16746c98428fc87d0d0f34226, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5020714311518917839, guid: be45c7f16746c98428fc87d0d0f34226, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6374825536398705596, guid: be45c7f16746c98428fc87d0d0f34226, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -10648,6 +10784,18 @@ PrefabInstance:
     - target: {fileID: 4460813094189888139, guid: be45c7f16746c98428fc87d0d0f34226, type: 3}
       propertyPath: m_Name
       value: PF Village Props - Platform 01 L X2 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4460813094189888139, guid: be45c7f16746c98428fc87d0d0f34226, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5020714311518917839, guid: be45c7f16746c98428fc87d0d0f34226, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6374825536398705596, guid: be45c7f16746c98428fc87d0d0f34226, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
