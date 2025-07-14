@@ -8,6 +8,7 @@ public class LevelSelectManager : MonoBehaviour
     [Header("关卡设置")]
     public string levelScenePrefix = "Level_"; // 关卡场景名称前缀
     public int totalLevels = 10; // 总关卡数
+
     
     [Header("UI管理")]
     public LevelSelectButtonBehaviour[] levelButtons; // 关卡按钮数组
@@ -18,6 +19,7 @@ public class LevelSelectManager : MonoBehaviour
     // 当前选中的关卡
     private int selectedLevel = 0;
     
+
     void Awake()
     {
         // 设置单例
@@ -30,13 +32,13 @@ public class LevelSelectManager : MonoBehaviour
             Destroy(gameObject);
         }
     }
-    
+
     void Start()
     {
         InitializeLevelButtons();
         LoadUnlockedLevels();
     }
-    
+
     // 初始化关卡按钮
     void InitializeLevelButtons()
     {
@@ -45,7 +47,7 @@ public class LevelSelectManager : MonoBehaviour
         {
             levelButtons = FindObjectsOfType<LevelSelectButtonBehaviour>();
         }
-        
+
         // 为每个按钮设置关卡索引
         for (int i = 0; i < levelButtons.Length; i++)
         {
@@ -54,10 +56,12 @@ public class LevelSelectManager : MonoBehaviour
                 levelButtons[i].levelIndex = i; // 从0开始，这样第0关就是第一个按钮
             }
         }
+
         
         Debug.Log("找到 " + levelButtons.Length + " 个关卡按钮");
     }
     
+
     // 加载已解锁的关卡
     void LoadUnlockedLevels()
     {
@@ -74,12 +78,13 @@ public class LevelSelectManager : MonoBehaviour
             }
         }
     }
-    
+
     // 关卡按钮被点击时的处理
     public void OnLevelButtonClicked(int levelIndex)
     {
         selectedLevel = levelIndex;
         Debug.Log("选中关卡: " + levelIndex);
+
         
         // 可以在这里添加确认对话框、音效等
         
@@ -87,6 +92,7 @@ public class LevelSelectManager : MonoBehaviour
         LoadLevel(levelIndex);
     }
     
+
     // 加载关卡
     void LoadLevel(int levelIndex)
     {
@@ -97,11 +103,13 @@ public class LevelSelectManager : MonoBehaviour
             "Level" + levelIndex,                    // "Level0", "Level1"
             "Level" + (levelIndex + 1)              // "Level1", "Level2"
         };
+
         
         foreach (string sceneName in possibleSceneNames)
         {
             Debug.Log("尝试加载关卡: " + sceneName);
             
+
             try
             {
                 SceneManager.LoadScene(sceneName);
@@ -112,18 +120,20 @@ public class LevelSelectManager : MonoBehaviour
                 Debug.LogWarning("无法加载场景: " + sceneName + "。尝试下一个...");
             }
         }
+
         
         // 如果所有尝试都失败
         Debug.LogError("无法加载关卡 " + levelIndex + "。请确保场景已添加到Build Settings中，并检查场景命名规则。");
     }
     
+
     // 解锁关卡
     public void UnlockLevel(int levelIndex)
     {
         // 保存到存档系统
         PlayerPrefs.SetInt("Level_" + levelIndex + "_Unlocked", 1);
         PlayerPrefs.Save();
-        
+
         // 更新按钮状态
         foreach (var button in levelButtons)
         {
@@ -134,23 +144,24 @@ public class LevelSelectManager : MonoBehaviour
             }
         }
     }
-    
+
     // 返回主菜单
     public void BackToMainMenu()
     {
         SceneManager.LoadScene("MainMenu"); // 替换为你的主菜单场景名
     }
-    
+
     // 重置所有关卡进度
     public void ResetProgress()
     {
         PlayerPrefs.DeleteAll();
         Debug.Log("进度已重置");
-        
+
         // 重新加载场景以更新按钮状态
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }
+
 // using System.Collections;
 // using System.Collections.Generic;
 // using UnityEngine;
