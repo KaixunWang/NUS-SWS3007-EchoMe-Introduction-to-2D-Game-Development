@@ -463,6 +463,18 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9001574876979059853, guid: e0964d75d4fad3141b2696b4cc13b2c8, type: 3}
+      propertyPath: m_VideoClip
+      value: 
+      objectReference: {fileID: 32900000, guid: 8e7cf1f120326784d85f8249f132ff3b, type: 3}
+    - target: {fileID: 9001574876979059853, guid: e0964d75d4fad3141b2696b4cc13b2c8, type: 3}
+      propertyPath: m_RenderMode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9001574876979059853, guid: e0964d75d4fad3141b2696b4cc13b2c8, type: 3}
+      propertyPath: m_TargetCamera
+      value: 
+      objectReference: {fileID: 508150409}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 2118977193107901809, guid: e0964d75d4fad3141b2696b4cc13b2c8, type: 3}
