@@ -11,6 +11,8 @@ TagManager:
   - MovingPlatform
   - switch
   - box
+  - echo
+  - shadow
   layers:
   - Default
   - TransparentFX

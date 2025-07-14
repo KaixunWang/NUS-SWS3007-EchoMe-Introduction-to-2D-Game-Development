@@ -152,7 +152,7 @@ public class EchoBehaviour : MonoBehaviour
     [SerializeField] private Animator animator;
     private float moveSpeed = 6f;
     private float jumpForce = 13f;
-    [SerializeField] private float echoDuration = 10f;
+    public float echoDuration = 10f;
     
     // 新增：音效组件
     public AudioSource footstepAudioSource;
@@ -161,7 +161,7 @@ public class EchoBehaviour : MonoBehaviour
     
     private List<TimeBasedInputEvent> inputEvents;
     private int currentEventIndex = 0;
-    private float replayStartTime;
+    [SerializeField]private float replayStartTime;
     private Dictionary<InputType, bool> currentInputStates;
     private bool isGrounded = false;
 
@@ -170,13 +170,18 @@ public class EchoBehaviour : MonoBehaviour
     private bool isNearSwitch = false;
     private Cainos.PixelArtPlatformer_Dungeon.Switch switchObject = null;
     private BeaconBehaviour beaconBehaviour;
+
+    private bool isMirrored = false; // 是否镜像
+    public GameObject oppEcho = null;
+    public Mirror mirror = null;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
 
         // 初始化输入状态
-        currentInputStates = new Dictionary<InputType, bool>
+        if (!isMirrored) currentInputStates = new Dictionary<InputType, bool>
         {
             {InputType.W, false},
             {InputType.A, false},
@@ -185,7 +190,7 @@ public class EchoBehaviour : MonoBehaviour
             {InputType.G, false}
         };
 
-        replayStartTime = Time.time;
+        if (!isMirrored) replayStartTime = Time.time;
 
         // 确保BeaconBehaviour已设置
         if (beaconBehaviour != null)
@@ -232,15 +237,60 @@ public class EchoBehaviour : MonoBehaviour
         if (currentInputStates[InputType.A])
         {
             moveInput = -1f;
+            if (isMirrored) moveInput = 1f; // 如果是镜像，反转移动输入
         }
         else if (currentInputStates[InputType.D])
         {
             moveInput = 1f;
+            if (isMirrored) moveInput = -1f; // 如果是镜像，反转移动输入
         }
         
         rb.velocity = new Vector2(moveInput * moveSpeed, rb.velocity.y);
     }
     
+    public void setMirrored(bool mirrored)
+    {
+        isMirrored = mirrored;
+    }
+    public List<TimeBasedInputEvent> getInputEvents()
+    {
+        return inputEvents;
+    }
+    public void SetCurrentEventIndex(int index)
+    {
+        if (index < 0 || index >= inputEvents.Count)
+        {
+            Debug.LogError("Index out of bounds for input events.");
+            return;
+        }
+        currentEventIndex = index;
+    }
+
+    public int getCurrentEventIndex()
+    {
+        return currentEventIndex;
+    }
+
+    public void setReplayStartTime(float startTime)
+    {
+        replayStartTime = startTime;
+    }
+
+    public float getReplayStartTime()
+    {
+        return replayStartTime;
+    }   
+
+    public void setCurrentInputStates(Dictionary<InputType, bool> states)
+    {
+        currentInputStates = states;
+    }
+
+    public Dictionary<InputType, bool> getCurrentInputStates()
+    {
+        return currentInputStates;
+    }
+
     void ProcessTimeBasedInput()
     {
         if (inputEvents == null || currentEventIndex >= inputEvents.Count) return;
@@ -255,7 +305,6 @@ public class EchoBehaviour : MonoBehaviour
             
             // 更新输入状态
             currentInputStates[inputEvent.inputType] = inputEvent.isPressed;
-            
             // 处理特殊的KeyDown事件
             if (inputEvent.isPressed)
             {
@@ -297,11 +346,13 @@ public class EchoBehaviour : MonoBehaviour
         {
             animator.SetBool("IsWalking", true);
             transform.localScale = new Vector3(-3, 3, 1);
+            if (isMirrored) transform.localScale = new Vector3(3, 3, 1); // 如果是镜像，反转方向
         }
         else if (currentInputStates[InputType.D])
         {
             animator.SetBool("IsWalking", true);
             transform.localScale = new Vector3(3, 3, 1);
+            if (isMirrored) transform.localScale = new Vector3(-3, 3, 1); // 如果是镜像，反转方向
         }
         else
         {
@@ -378,7 +429,7 @@ public class EchoBehaviour : MonoBehaviour
         // 等待一小段时间让音效开始播放
         yield return new WaitForSeconds(0.1f);
         
-        if (beaconBehaviour != null)
+        if (!isMirrored && beaconBehaviour != null)
         {
             beaconBehaviour.SetHasEcho(false);
             beaconBehaviour.restore();
@@ -394,18 +445,26 @@ public class EchoBehaviour : MonoBehaviour
             // 如果没有音效文件，等待0.5秒
             yield return new WaitForSeconds(0.5f);
         }
-        
+        if (oppEcho != null)
+            Destroy(oppEcho);
         Destroy(gameObject);
+        if (mirror != null) mirror.reset();
     }
     public void DestroyImmediate()
     {
-        
-        if (beaconBehaviour != null)
+        if (!isMirrored && beaconBehaviour != null)
         {
             beaconBehaviour.SetHasEcho(false);
             beaconBehaviour.restore();
+        }  
+        if (oppEcho != null)
+        {
+            Destroy(oppEcho);
         }
+        if (mirror != null) mirror.reset();
+        
         Destroy(gameObject);
+        
     }
 
     void OnTriggerEnter2D(Collider2D other)

@@ -19,7 +19,7 @@ GameObject:
   - component: {fileID: 7302951284602536822}
   m_Layer: 10
   m_Name: Echo
-  m_TagString: Player
+  m_TagString: echo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -136,6 +136,9 @@ MonoBehaviour:
   footstepAudioSource: {fileID: 5244413542744780512}
   jumpAudioSource: {fileID: -2647502676905334826}
   deadAudioSource: {fileID: 7302951284602536822}
+  replayStartTime: 0
+  oppEcho: {fileID: 0}
+  mirror: {fileID: 0}
 --- !u!95 &6001218066578299396
 Animator:
   serializedVersion: 5

@@ -11,7 +11,7 @@ public class PortalSide : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other)
     {
         // 检查是否是玩家
-        if (other.CompareTag("Player") || other.CompareTag("box"))
+        if (other.CompareTag("Player") || other.CompareTag("box") || other.CompareTag("shadow") || other.CompareTag("echo"))
         {
             // 告诉父传送门有人进入了
             parentPortal.TeleportPlayer(other.gameObject, isAside);
