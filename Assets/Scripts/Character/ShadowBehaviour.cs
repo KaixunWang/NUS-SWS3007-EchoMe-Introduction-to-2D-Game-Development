@@ -177,9 +177,10 @@ public class ShadowBehaviour : MonoBehaviour
     [SerializeField] private Animator animator;
     private float jumpForce = 13f;
     private float moveSpeed = 6f;
-    [SerializeField] private float shadowDuration = 10f;
+    public float shadowDuration = 10f;
     [SerializeField] private float destroyAlpha = 0.2f; // 销毁影子的透明度阈值
     private float maxAlphaDistance;
+    [SerializeField] private float originalAlpha = 1f;
     
     private bool isGrounded = false;
     private float moveInput = 0f;
@@ -193,6 +194,11 @@ public class ShadowBehaviour : MonoBehaviour
     private List<TimeBasedInputEvent> inputEvents;
     private float recordStartTime;
     private Dictionary<InputType, bool> currentInputStates;
+
+    //是否镜像
+    private bool isMirrored = false;
+    public GameObject oppShadow = null;
+    public Mirror mirror = null;
     
     void Start()
     {
@@ -218,8 +224,12 @@ public class ShadowBehaviour : MonoBehaviour
     {
         yield return new WaitForSeconds(shadowDuration);
         float currentTime = Time.time - recordStartTime;
-        beaconBehaviour.SetEchoTime(currentTime);
-        beaconBehaviour.restore(); // 恢复Sprite
+        // 如果不是镜像，设置回音时间并恢复Sprite
+        if (!isMirrored)
+        {
+            beaconBehaviour.SetEchoTime(currentTime);
+            beaconBehaviour.restore(); // 恢复Sprite
+        }
         // 查找player并通知它回到正常状态
         GameObject player = GameObject.Find("Player");
 
@@ -233,7 +243,9 @@ public class ShadowBehaviour : MonoBehaviour
         }
         //beaconBehaviour.SwitchPlayer(player.GetComponent<PlayerBehaviour>().nearBeaconPosition);
         // 销毁shadow
+        Debug.Log("Shadow destroyed after " + shadowDuration + " seconds");
         Destroy(gameObject);
+        if (mirror != null) mirror.reset();
     }
     void Update()
     {
@@ -243,10 +255,12 @@ public class ShadowBehaviour : MonoBehaviour
         {
             animator.SetBool("IsJumping", false);
         }
-        
-        // 记录输入事件（基于时间）
-        RecordInputEvents();
-        
+        if (!isMirrored)
+        {
+            // 记录输入事件（基于时间）
+            RecordInputEvents();
+        }
+
         // 处理实际输入
         HandleInput();
 
@@ -301,12 +315,22 @@ public class ShadowBehaviour : MonoBehaviour
             animator.SetBool("IsWalking", true);
             transform.localScale = new Vector3(-3, 3, 1);
             moveInput = -1f;
+            if (isMirrored) 
+            {
+                moveInput = 1f; // 如果是镜像，反转移动输入
+                transform.localScale = new Vector3(3, 3, 1);
+            }
         }
         else if (Input.GetKey(KeyCode.D))
         {
             animator.SetBool("IsWalking", true);
             transform.localScale = new Vector3(3, 3, 1);
             moveInput = 1f;
+            if (isMirrored) 
+            {
+                moveInput = -1f; // 如果是镜像，反转移动输入
+                transform.localScale = new Vector3(-3, 3, 1);
+            }
         }
         else
         {
@@ -357,11 +381,11 @@ public class ShadowBehaviour : MonoBehaviour
             // 设置颜色透明度
             SpriteRenderer shadowSpriteRenderer = GetComponent<SpriteRenderer>();
             Color newColor = shadowSpriteRenderer.color;
-            newColor.a = alpha;
+            newColor.a = alpha * originalAlpha;
             shadowSpriteRenderer.color = newColor;
 
             // 如果透明度低于阈值，销毁影子
-            if (alpha <= destroyAlpha)
+            if (newColor.a <= destroyAlpha)
             {
                 DestroyImmediate();
             }
@@ -379,8 +403,11 @@ public class ShadowBehaviour : MonoBehaviour
     void DestroyImmediate()
     {
         float currentTime = Time.time - recordStartTime;
-        beaconBehaviour.SetEchoTime(currentTime);
-        beaconBehaviour.restore(); // 恢复Sprite
+        if (!isMirrored)
+        {
+            beaconBehaviour.SetEchoTime(currentTime);
+            beaconBehaviour.restore(); // 恢复Sprite
+        }
         GameObject player = GameObject.Find("Player");
         if (player != null)
         {
@@ -392,6 +419,10 @@ public class ShadowBehaviour : MonoBehaviour
         }
         
         Debug.Log("Shadow destroyed by G key");
+        if (oppShadow != null)
+            Destroy(oppShadow); // 销毁镜像影子
+        if (mirror != null) mirror.reset();    
+
         Destroy(gameObject);
     }
     
@@ -425,6 +456,16 @@ public class ShadowBehaviour : MonoBehaviour
         beaconBehaviour = beacon;
         inputEvents = beacon.getInput();
         inputEvents.Clear();
+    }
+
+    public void setMirrored(bool mirrored)
+    {
+        isMirrored = mirrored;
+    }
+
+    public float getRecordStartTime()
+    {
+        return recordStartTime;
     }
 
     void OnTriggerEnter2D(Collider2D other)

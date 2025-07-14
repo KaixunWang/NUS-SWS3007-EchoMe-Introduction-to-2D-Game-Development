@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 4523603553948794318}
   m_Layer: 10
   m_Name: Echo
-  m_TagString: Untagged
+  m_TagString: echo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -129,8 +129,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 0}
   animator: {fileID: 0}
-  moveSpeed: 6
-  jumpForce: 10
   echoDuration: 10
 --- !u!95 &6001218066578299396
 Animator:

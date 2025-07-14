@@ -15,8 +15,8 @@ GameObject:
   - component: {fileID: 7769803175563642706}
   - component: {fileID: 1669534501454773668}
   m_Layer: 9
-  m_Name: Shadow
-  m_TagString: shadow
+  m_Name: ShadowMirror
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -52,7 +52,10 @@ MonoBehaviour:
   rb: {fileID: 0}
   animator: {fileID: 0}
   shadowDuration: 10
-  destroyAlpha: 0.3
+  destroyAlpha: 0.2
+  originalAlpha: 0.5
+  oppShadow: {fileID: 0}
+  mirror: {fileID: 0}
 --- !u!50 &4252102077086372520
 Rigidbody2D:
   serializedVersion: 4
@@ -122,7 +125,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 3
   m_Sprite: {fileID: 1891974999, guid: aaed16f88ab3711498c295a41a3fe5d0, type: 3}
-  m_Color: {r: 0.5471698, g: 0.25500175, b: 0.25500175, a: 1}
+  m_Color: {r: 0.5471698, g: 0.25500175, b: 0.25500175, a: 0.5019608}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
