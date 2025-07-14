@@ -10283,7 +10283,7 @@ MonoBehaviour:
   lifts:
   - {fileID: 96014766}
   spikes: []
-  levelGoodTime: 15
+  levelGoodTime: 40
 --- !u!4 &1655490169
 Transform:
   m_ObjectHideFlags: 0
