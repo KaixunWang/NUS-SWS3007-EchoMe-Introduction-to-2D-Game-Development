@@ -14,6 +14,8 @@ namespace Cainos.PixelArtPlatformer_Dungeon
     {
         [FoldoutGroup("Reference")] public Door target;
         [FoldoutGroup("Reference")] public Bundos.MovingPlatforms.PlatformController targetPlatform;
+        [FoldoutGroup("Reference")] public SpikeBehaviour targetSpike;
+        [FoldoutGroup("Reference")] public Portal targetPortal;
         [Space]
         [FoldoutGroup("Reference")] public SpriteRenderer spriteRenderer;
         [FoldoutGroup("Reference")] public Sprite spriteOn;
@@ -51,10 +53,10 @@ namespace Cainos.PixelArtPlatformer_Dungeon
                 TriggerDoor(); // 触发门的状态切换
                 Debug.Log("Switch: " + (IsOn ? "Turn On" : "Turn Off"));
             }
-            else
-            {
-                Debug.LogWarning("Switch: No target assigned.");
-            }
+            // else
+            // {
+            //     Debug.LogWarning("Switch: Target door is not assigned.");
+            // }
         }
         public void TriggerDoor()
         {

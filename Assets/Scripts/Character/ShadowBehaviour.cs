@@ -353,9 +353,18 @@ public class ShadowBehaviour : MonoBehaviour
             switchObject.TriggerSwitch(); // 触发开关
             if (switchObject.targetPlatform != null && switchObject.targetPlatform.tag == "MovingPlatform")
             {
-                switchObject.targetPlatform.RemainingCount ++; // 设置剩余前进路径点数量为1
+                switchObject.targetPlatform.RemainingCount++; // 设置剩余前进路径点数量为1
+            }
+            else if (switchObject.targetSpike != null)
+            {
+                switchObject.targetSpike.cntMove+=2;
+            }else if(switchObject.targetPortal != null){
+                bool isActive = switchObject.targetPortal.isActive;
+                switchObject.targetPortal.SetPortalState(!isActive);
             }
         }
+        
+        
         
         // 立即销毁
         if (Input.GetKeyDown(KeyCode.G))
@@ -387,7 +396,9 @@ public class ShadowBehaviour : MonoBehaviour
             // 如果透明度低于阈值，销毁影子
             if (newColor.a <= destroyAlpha)
             {
+                AchievementManager.Instance.UnlockAchievement("ShadowSuicide");
                 DestroyImmediate();
+                
             }
         }
     }
@@ -535,6 +546,7 @@ public class ShadowBehaviour : MonoBehaviour
     {
         float currentTime = Time.time - recordStartTime;
         Debug.Log("Shadow destroyed by trap at time: " + currentTime);
+        
         DestroyImmediate();
     }
 }

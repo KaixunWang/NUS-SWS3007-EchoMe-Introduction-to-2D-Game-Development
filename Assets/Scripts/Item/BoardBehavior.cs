@@ -13,6 +13,7 @@ public class BoardBehavior : MonoBehaviour
     public Sprite spriteOpened;
     public Sprite spriteClosed;
     public Cainos.PixelArtPlatformer_Dungeon.Door door = null;
+    public Portal portal = null;
     private int count = 0;
 
 
@@ -56,13 +57,23 @@ public class BoardBehavior : MonoBehaviour
     private bool isOpened;
 
     public void TriggerDoor() {
-        if (IsOpened && door != null) {
+        if (IsOpened && door != null)
+        {
             Debug.Log("Switch: Open the door");
             door.SetDoor(true);
+            if (door.tag == "gate")
+            {
+                door.SetGate(true); // 确保门的状态被正确设置
+            }
         }
-        else if (!IsOpened && door != null) {
+        else if (!IsOpened && door != null)
+        {
             Debug.Log("Switch: Close the door");
             door.SetDoor(false);
+            if(door.tag == "gate")
+            {
+                door.SetGate(false); // 确保门的状态被正确设置
+            }
         }
     }
 
@@ -77,6 +88,9 @@ public class BoardBehavior : MonoBehaviour
         count++;
         IsOpened = true;
         TriggerDoor(); // 触发门的开关
+        if(portal != null){
+            portal.SetPortalState(true);
+        }
         //gogogo
     }
     void OnTriggerExit2D(Collider2D other)
@@ -85,6 +99,9 @@ public class BoardBehavior : MonoBehaviour
         if (count <= 0){
             IsOpened = false; // 切换门的开关状态
             TriggerDoor(); // 触发门的开关
+            if(portal != null){
+                portal.SetPortalState(false);
+            }
         }
     }
     public bool GetBoardState()

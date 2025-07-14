@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 2224519002236593742}
   m_Layer: 0
   m_Name: Beacon
-  m_TagString: Untagged
+  m_TagString: beacon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -162,7 +162,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: -3866962587194397796, guid: b8cf5e33b087dea4dba562c9b74760b9, type: 2}
   m_audioClip: {fileID: 8300000, guid: 27440c1cd555a0441a20f1f2d9e01fca, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.499
   m_Pitch: 1
   Loop: 0
   Mute: 0

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MenuParallax : MonoBehaviour
 {
@@ -28,5 +29,9 @@ public class MenuParallax : MonoBehaviour
         
         // 平滑移动到目标位置
         transform.position = Vector2.SmoothDamp(transform.position, targetPosition, ref velocity, smoothTime);
+
+        if(SceneManager.GetActiveScene().name == "BeatTheGameScene"){
+            AchievementManager.Instance.UnlockAchievement("GameOver");
+        }
     }
 }

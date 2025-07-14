@@ -13,4 +13,5 @@ public class SceneState
     public List<Vector3> boxPositions = new List<Vector3>();
     public List<Vector3> boxSpeed = new List<Vector3>();
     public List<PlatformState> lifts = new List<PlatformState>();
+    public List<SpikeState> spikes = new List<SpikeState>();
 }

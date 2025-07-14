@@ -154,6 +154,11 @@ public class EchoBehaviour : MonoBehaviour
     private float jumpForce = 13f;
     public float echoDuration = 10f;
     
+    // 新增：音效组件
+    public AudioSource footstepAudioSource;
+    public AudioSource jumpAudioSource;
+    public AudioSource deadAudioSource;
+    
     private List<TimeBasedInputEvent> inputEvents;
     private int currentEventIndex = 0;
     [SerializeField]private float replayStartTime;
@@ -206,14 +211,23 @@ public class EchoBehaviour : MonoBehaviour
 
         // 处理基于时间的输入重播
         ProcessTimeBasedInput();
-        // if (currentEventIndex >= inputEvents.Count)
-        // {
-        //     beaconBehaviour.SetHasEcho(false);
-        //         Destroy(gameObject);
-        // }
         // 根据当前输入状态执行动作
         ExecuteCurrentInputs();
-        
+        // 走路音效控制
+        if ((currentInputStates[InputType.A] || currentInputStates[InputType.D]) && isGrounded)
+        {
+            if (footstepAudioSource != null && !footstepAudioSource.isPlaying)
+            {
+                footstepAudioSource.Play();
+            }
+        }
+        else
+        {
+            if (footstepAudioSource != null)
+            {
+                footstepAudioSource.Stop();
+            }
+        }
     }
     
     void FixedUpdate()
@@ -305,27 +319,23 @@ public class EchoBehaviour : MonoBehaviour
     {
         switch (inputType)
         {
-
             case InputType.W:
                 if (isGrounded)
                 {
                     animator.SetBool("IsJumping", true);
                     rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+                    if (jumpAudioSource != null)
+                    {
+                        jumpAudioSource.Play();
+                    }
                 }
                 break;
             case InputType.E:
                 Interact();
                 break;
             case InputType.G:
-                if (!isMirrored)
-                {
-                    // 销毁当前回音
-                    beaconBehaviour.SetHasEcho(false);
-                    beaconBehaviour.restore(); // 恢复Sprite
-                }
-                Destroy(gameObject);
+                StartCoroutine(PlayDeadAndDestroy());
                 break;
-
         }
     }
     
@@ -394,27 +404,55 @@ public class EchoBehaviour : MonoBehaviour
             switchObject.TriggerSwitch(); // 触发开关
             if (switchObject.targetPlatform != null && switchObject.targetPlatform.tag == "MovingPlatform")
             {
-                switchObject.targetPlatform.RemainingCount ++; // 设置剩余前进路径点数量为1
+                switchObject.targetPlatform.RemainingCount++; // 设置剩余前进路径点数量为1
             }
+            else if (switchObject.targetSpike != null)
+            {
+                switchObject.targetSpike.cntMove+=2;
+            }else if(switchObject.targetPortal != null){
+                bool isActive = switchObject.targetPortal.isActive;
+                switchObject.targetPortal.SetPortalState(!isActive);
+            }
+
         }
     }
     
     IEnumerator DestroyAfterTime()
     {
         yield return new WaitForSeconds(echoDuration);
-        if (!isMirrored)
+        StartCoroutine(PlayDeadAndDestroy());
+    }
+
+    // 新增：死亡音效协程
+    IEnumerator PlayDeadAndDestroy()
+    {
+        // 等待一小段时间让音效开始播放
+        yield return new WaitForSeconds(0.1f);
+        
+        if (!isMirrored && beaconBehaviour != null)
         {
             beaconBehaviour.SetHasEcho(false);
             beaconBehaviour.restore();
         }
         
-         // 恢复Sprite
+        // 等待音效播放完成后再销毁对象
+        if (deadAudioSource != null && deadAudioSource.clip != null)
+        {
+            yield return new WaitForSeconds(deadAudioSource.clip.length);
+        }
+        else
+        {
+            // 如果没有音效文件，等待0.5秒
+            yield return new WaitForSeconds(0.5f);
+        }
+        if (oppEcho != null)
+            Destroy(oppEcho);
         Destroy(gameObject);
         if (mirror != null) mirror.reset();
     }
     public void DestroyImmediate()
     {
-        if (!isMirrored)
+        if (!isMirrored && beaconBehaviour != null)
         {
             beaconBehaviour.SetHasEcho(false);
             beaconBehaviour.restore();
@@ -424,6 +462,7 @@ public class EchoBehaviour : MonoBehaviour
             Destroy(oppEcho);
         }
         if (mirror != null) mirror.reset();
+        
         Destroy(gameObject);
         
     }
@@ -481,5 +520,19 @@ public class EchoBehaviour : MonoBehaviour
         //         board.TriggerDoor(); // 触发门的开关
         //     }
         // }
+    }
+    public void TakeDamage(string source)
+    {
+        // Time.timeScale = 0; // 停止时间Time.timeScale = 0; // 停止时间
+        // lose = true;
+        if (deadAudioSource != null)
+        {
+            deadAudioSource.Play(); // 播放死亡音效
+            Debug.Log("111111111111111111111111111111111111111111111111111111111111111111");
+        }
+        //1s 后AchievementManager.Instance.UnlockAchievement("Die");
+        // StartCoroutine(UnlockAchievementAfterDelay(1f));
+        StartCoroutine(PlayDeadAndDestroy());
+        Debug.Log("Echo took damage from " + source);
     }
 }
