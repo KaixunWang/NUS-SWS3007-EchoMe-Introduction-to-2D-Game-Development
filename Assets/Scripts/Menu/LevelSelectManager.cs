@@ -9,14 +9,16 @@ public class LevelSelectManager : MonoBehaviour
     public string levelScenePrefix = "Level_"; // 关卡场景名称前缀
     public int totalLevels = 10; // 总关卡数
 
+    
     [Header("UI管理")]
     public LevelSelectButtonBehaviour[] levelButtons; // 关卡按钮数组
-
+    
     // 单例模式
     public static LevelSelectManager Instance { get; private set; }
-
+    
     // 当前选中的关卡
     private int selectedLevel = 0;
+    
 
     void Awake()
     {
@@ -55,8 +57,10 @@ public class LevelSelectManager : MonoBehaviour
             }
         }
 
+        
         Debug.Log("找到 " + levelButtons.Length + " 个关卡按钮");
     }
+    
 
     // 加载已解锁的关卡
     void LoadUnlockedLevels()
@@ -81,11 +85,13 @@ public class LevelSelectManager : MonoBehaviour
         selectedLevel = levelIndex;
         Debug.Log("选中关卡: " + levelIndex);
 
+        
         // 可以在这里添加确认对话框、音效等
-
+        
         // 加载关卡场景
         LoadLevel(levelIndex);
     }
+    
 
     // 加载关卡
     void LoadLevel(int levelIndex)
@@ -98,9 +104,11 @@ public class LevelSelectManager : MonoBehaviour
             "Level" + (levelIndex + 1)              // "Level1", "Level2"
         };
 
+        
         foreach (string sceneName in possibleSceneNames)
         {
             Debug.Log("尝试加载关卡: " + sceneName);
+            
 
             try
             {
@@ -113,9 +121,11 @@ public class LevelSelectManager : MonoBehaviour
             }
         }
 
+        
         // 如果所有尝试都失败
         Debug.LogError("无法加载关卡 " + levelIndex + "。请确保场景已添加到Build Settings中，并检查场景命名规则。");
     }
+    
 
     // 解锁关卡
     public void UnlockLevel(int levelIndex)
@@ -151,7 +161,6 @@ public class LevelSelectManager : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }
-
 
 // using System.Collections;
 // using System.Collections.Generic;
