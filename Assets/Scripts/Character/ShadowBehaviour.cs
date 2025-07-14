@@ -310,25 +310,28 @@ public class ShadowBehaviour : MonoBehaviour
     {
         if (isPaused) return; // 如果游戏暂停，直接返回
         // 移动输入
-        if (Input.GetKey(KeyCode.A))
+        var inputMgr = InputManager.Instance;
+        bool left = inputMgr != null && inputMgr.IsLeftPressed();
+        bool right = inputMgr != null && inputMgr.IsRightPressed();
+        if (left)
         {
             animator.SetBool("IsWalking", true);
             transform.localScale = new Vector3(-3, 3, 1);
             moveInput = -1f;
-            if (isMirrored) 
+            if (isMirrored)
             {
-                moveInput = 1f; // 如果是镜像，反转移动输入
+                moveInput = 1f;
                 transform.localScale = new Vector3(3, 3, 1);
             }
         }
-        else if (Input.GetKey(KeyCode.D))
+        else if (right)
         {
             animator.SetBool("IsWalking", true);
             transform.localScale = new Vector3(3, 3, 1);
             moveInput = 1f;
-            if (isMirrored) 
+            if (isMirrored)
             {
-                moveInput = -1f; // 如果是镜像，反转移动输入
+                moveInput = -1f;
                 transform.localScale = new Vector3(-3, 3, 1);
             }
         }
@@ -337,39 +340,35 @@ public class ShadowBehaviour : MonoBehaviour
             animator.SetBool("IsWalking", false);
             moveInput = 0f;
         }
-        
+
         // 跳跃
-        if (Input.GetKeyDown(KeyCode.W) && isGrounded)
+        if (inputMgr != null && inputMgr.IsJumpPressed() && isGrounded)
         {
             Jump();
         }
-        if (Input.GetKeyDown(KeyCode.G))
+        // 立即销毁（G键）
+        if (inputMgr != null && inputMgr.IsInterruptPressed())
         {
             DestroyImmediate();
         }
-        if (Input.GetKeyDown(KeyCode.E) && isNearSwitch && switchObject != null)
+        // 交互（E键）
+        if (inputMgr != null && inputMgr.IsInteractPressed() && isNearSwitch && switchObject != null)
         {
             Debug.Log("E pressed near switch");
             switchObject.TriggerSwitch(); // 触发开关
             if (switchObject.targetPlatform != null && switchObject.targetPlatform.tag == "MovingPlatform")
             {
-                switchObject.targetPlatform.RemainingCount++; // 设置剩余前进路径点数量为1
+                switchObject.targetPlatform.RemainingCount++;
             }
             else if (switchObject.targetSpike != null)
             {
-                switchObject.targetSpike.cntMove+=2;
-            }else if(switchObject.targetPortal != null){
+                switchObject.targetSpike.cntMove += 2;
+            }
+            else if (switchObject.targetPortal != null)
+            {
                 bool isActive = switchObject.targetPortal.isActive;
                 switchObject.targetPortal.SetPortalState(!isActive);
             }
-        }
-        
-        
-        
-        // 立即销毁
-        if (Input.GetKeyDown(KeyCode.G))
-        {
-            DestroyImmediate();
         }
 
         

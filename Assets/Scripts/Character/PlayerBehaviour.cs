@@ -37,13 +37,14 @@ public class PlayerBehaviour : MonoBehaviour
     public AudioSource footstepAudioSource;
     public AudioSource jumpAudioSource;
     public AudioSource deadAudioSource;
-
+    public InputManager inputManager;
     void Start()
     {
         QualitySettings.vSyncCount = 0;           // 关闭 VSync
         Application.targetFrameRate = 60;         // 手动锁帧
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        inputManager = InputManager.Instance; // 获取 InputManager 实例
     }
     public void setBeaconpos(Vector3 pos)
     {
@@ -83,7 +84,7 @@ public class PlayerBehaviour : MonoBehaviour
 
     void Update()
     {
-        if (isPaused||lose||win) return; // 如果游戏暂停，直接返回
+        if (isPaused || lose || win) return; // 如果游戏暂停，直接返回
         // 检查是否处于影子状态，如果是则禁用移动
         bool isShadow = animator.GetBool("IsShadow");
         isGrounded = CheckGrounded();
@@ -98,52 +99,55 @@ public class PlayerBehaviour : MonoBehaviour
                 footstepAudioSource.Stop();
             }
         }
+
         if (!isShadow)
         {
-            
             // 只有在非影子状态下才允许移动
-            if (isInputEnabled && Input.GetKey(KeyCode.A))
+            if (isInputEnabled && inputManager != null)
             {
-                animator.SetBool("IsWalking", true);
-                transform.localScale = new Vector3(-3, 3, 1);
-                moveInput = -1f;
-                if (footstepAudioSource != null && !footstepAudioSource.isPlaying && isGrounded)
+                bool left = inputManager.IsLeftPressed();
+                bool right = inputManager.IsRightPressed();
+                if (left)
                 {
-                    footstepAudioSource.Play();
+                    animator.SetBool("IsWalking", true);
+                    transform.localScale = new Vector3(-3, 3, 1);
+                    moveInput = -1f;
+                    if (footstepAudioSource != null && !footstepAudioSource.isPlaying && isGrounded)
+                    {
+                        footstepAudioSource.Play();
+                    }
+                    AchievementMove = true;
                 }
-                AchievementMove = true;
-            }
-            if (isInputEnabled && Input.GetKey(KeyCode.D))
-            {
-                animator.SetBool("IsWalking", true);
-                transform.localScale = new Vector3(3, 3, 1);
-                moveInput = 1f;
-                if (footstepAudioSource != null && !footstepAudioSource.isPlaying && isGrounded)
+                if (right)
                 {
-                    footstepAudioSource.Play();
+                    animator.SetBool("IsWalking", true);
+                    transform.localScale = new Vector3(3, 3, 1);
+                    moveInput = 1f;
+                    if (footstepAudioSource != null && !footstepAudioSource.isPlaying && isGrounded)
+                    {
+                        footstepAudioSource.Play();
+                    }
+                    AchievementMove = true;
                 }
-                AchievementMove = true;
-
-            }
-            if (isInputEnabled && !Input.GetKey(KeyCode.A) && !Input.GetKey(KeyCode.D))
-            {
-                animator.SetBool("IsWalking", false);
-                moveInput = 0f;
-            }
-            // 只有在非影子状态下才允许跳跃
-            if (isInputEnabled && Input.GetKeyDown(KeyCode.W) && isGrounded)
-            {
-                Debug.Log("Jump");
-                
-                Jump();
-                if (jumpAudioSource != null)
+                if (!left && !right)
                 {
-                    jumpAudioSource.Play();
+                    animator.SetBool("IsWalking", false);
+                    moveInput = 0f;
                 }
-                AchievementJump = true;
+                // 只有在非影子状态下才允许跳跃
+                if (inputManager.IsJumpPressed() && isGrounded)
+                {
+                    Debug.Log("Jump");
+                    Jump();
+                    if (jumpAudioSource != null)
+                    {
+                        jumpAudioSource.Play();
+                    }
+                    AchievementJump = true;
+                }
+                if (AchievementMove) AchievementManager.Instance.UnlockAchievement("Move");
+                if (AchievementJump) AchievementManager.Instance.UnlockAchievement("PressW");
             }
-            if (AchievementMove) AchievementManager.Instance.UnlockAchievement("Move");
-            if(AchievementJump) AchievementManager.Instance.UnlockAchievement("PressW");
         }
         else
         {
@@ -153,18 +157,16 @@ public class PlayerBehaviour : MonoBehaviour
         }
 
         // 切换影子的按键在任何状态下都可以使用
-        if (isInputEnabled && Input.GetKeyDown(KeyCode.E) && isNearBeacon && !isShadow)
+        if (isInputEnabled && inputManager != null && inputManager.IsInteractPressed() && isNearBeacon && !isShadow)
         {
             Debug.Log("E pressed");
             SwitchShadow();
         }
 
-
-        if (isInputEnabled && Input.GetKeyDown(KeyCode.E) && isNearSwitch && switchObject != null)
+        if (isInputEnabled && inputManager != null && inputManager.IsInteractPressed() && isNearSwitch && switchObject != null)
         {
             Debug.Log("E pressed near switch");
             switchObject.TriggerSwitch(); // 触发开关
-            //switchObject.IsOn = !switchObject.IsOn; // 切换开关状态
             if (switchObject.targetPlatform != null && switchObject.targetPlatform.tag == "MovingPlatform")
             {
                 switchObject.targetPlatform.RemainingCount++; // 设置剩余前进路径点数量为1
@@ -172,15 +174,17 @@ public class PlayerBehaviour : MonoBehaviour
             else if (switchObject.targetSpike != null)
             {
                 Debug.Log("Spike behaviour found, incrementing cntMove");
-                switchObject.targetSpike.cntMove+=2;
-            }else if(switchObject.targetPortal != null){
+                switchObject.targetSpike.cntMove += 2;
+            }
+            else if (switchObject.targetPortal != null)
+            {
                 bool isActive = switchObject.targetPortal.isActive;
                 switchObject.targetPortal.SetPortalState(!isActive);
             }
-
         }
 
-        if (isInputEnabled && Input.GetKeyDown(KeyCode.R) && isNearBeacon && !isShadow && !beaconBehaviour.HasEcho())
+        // R键（召唤Echo）可选：如需自定义可在InputManager添加对应接口
+        if (isInputEnabled && inputManager != null && inputManager.IsEchoPressed() && isNearBeacon && !isShadow && !beaconBehaviour.HasEcho())
         {
             Debug.Log("R pressed to summon echo");
             SummonEcho();
