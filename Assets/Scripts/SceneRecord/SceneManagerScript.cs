@@ -50,7 +50,7 @@ public class SceneManagerScript : MonoBehaviour
         {
             GameObject.Find("PauseObject").GetComponent<PauseMenuManager>().SetEndState(); // 设置游戏结束状态
             win.SetActive(true);
-            string message = "Finish Level!\n";
+            string message = "";
             score = 1;
 
             if (coinSystem.GetComponent<CoinSystemScript>().GetCoinCount() == 3)
