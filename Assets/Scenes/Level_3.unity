@@ -661,6 +661,10 @@ PrefabInstance:
       propertyPath: m_CollisionDetection
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3225212788608903986, guid: e623316cbef78534a9cb4bb490bd8d84, type: 3}
+      propertyPath: m_EdgeRadius
+      value: 0.07
+      objectReference: {fileID: 0}
     - target: {fileID: 4280888610046116458, guid: e623316cbef78534a9cb4bb490bd8d84, type: 3}
       propertyPath: m_Name
       value: Single Box (1)
