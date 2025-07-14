@@ -18,7 +18,8 @@ public class BeaconsystemScript : MonoBehaviour
         var ebeaconBehaviour = echoBeacon.GetComponent<BeaconBehaviour>();
         pbeaconBehaviour.setSystem(true); // 设置玩家信标为系统信标
         ebeaconBehaviour.setSystem(true);
-        playerBehaviour.setBeaconpos(echoBeacon.transform.position);
+        ebeaconBehaviour.setcallbeacon(false); // 设置回声信标调用状态为false
+        playerBehaviour.setBeaconpos(ebeaconBehaviour.transform.position);
     }
 
     // Update is called once per frame
@@ -26,6 +27,7 @@ public class BeaconsystemScript : MonoBehaviour
     {
         var ebeaconBehaviour = echoBeacon.GetComponent<BeaconBehaviour>();
         var pbeaconBehaviour = playerBeacon.GetComponent<BeaconBehaviour>();
+        var playerBehaviour = player.GetComponent<PlayerBehaviour>();
         ebeaconBehaviour.sc.sprite = pbeaconBehaviour.sc.sprite; // 设置回声信标的精灵与玩家信标一致
     }
 }
