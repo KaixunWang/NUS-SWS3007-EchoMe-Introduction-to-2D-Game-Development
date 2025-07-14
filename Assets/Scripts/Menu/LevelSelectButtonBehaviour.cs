@@ -63,15 +63,23 @@ public class LevelSelectButtonBehaviour : MonoBehaviour
     // 检查关卡是否解锁
     void CheckLevelUnlock()
     {
-        // 第0关默认解锁
-        if (levelIndex == 0)
+        // 使用LevelSelectManager的解锁逻辑
+        if (LevelSelectManager.Instance != null)
         {
-            isUnlocked = true;
+            isUnlocked = LevelSelectManager.Instance.IsLevelUnlocked(levelIndex);
         }
         else
         {
-            // 其他关卡：上一关获得≥1星才解锁
-            isUnlocked = PlayerPrefs.GetInt($"Level_{levelIndex - 1}_Stars", 0) >= 1;
+            // 备用逻辑：第0关默认解锁
+            if (levelIndex == 0)
+            {
+                isUnlocked = true;
+            }
+            else
+            {
+                // 其他关卡：上一关获得≥1星才解锁
+                isUnlocked = PlayerPrefs.GetInt($"Level_{levelIndex - 1}_Stars", 0) >= 1;
+            }
         }
         Debug.Log($"关卡 {levelIndex} 解锁状态: {isUnlocked}");
     }
