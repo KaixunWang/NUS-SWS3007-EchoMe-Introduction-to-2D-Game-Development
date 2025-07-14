@@ -53,6 +53,10 @@ public class PlayerBehaviour : MonoBehaviour
     }
     void SwitchShadow()
     {
+        if (!beaconBehaviour)
+        {
+            return;
+        }
         if (beaconBehaviour.HasEcho())
         {
             return;
@@ -180,7 +184,7 @@ public class PlayerBehaviour : MonoBehaviour
 
         }
 
-        if (isInputEnabled && Input.GetKeyDown(KeyCode.R) && isNearBeacon && !isShadow && !beaconBehaviour.HasEcho())
+        if ((beaconBehaviour) && isInputEnabled && Input.GetKeyDown(KeyCode.R) && isNearBeacon && !isShadow && !beaconBehaviour.HasEcho())
         {
             Debug.Log("R pressed to summon echo");
             SummonEcho();
@@ -270,6 +274,11 @@ public class PlayerBehaviour : MonoBehaviour
             Debug.Log("Beacon Updated");
             isNearBeacon = true; 
             beaconBehaviour = other.gameObject.GetComponent<BeaconBehaviour>();
+            if (!(beaconBehaviour.getcallbeacon()))
+            {
+                beaconBehaviour = null;
+                return;
+            }
             if (beaconBehaviour.getSystem())
             {
                 isBeaconSystem = true; // 标记为信标系统
@@ -334,7 +343,7 @@ public class PlayerBehaviour : MonoBehaviour
         if (other.gameObject.CompareTag("beacon"))
         {
             isNearBeacon = false;
-            if(!isBeaconSystem) nearBeaconPosition = Vector3.zero;
+            if (!isBeaconSystem) nearBeaconPosition = Vector3.zero;
         }
 
         if (other.gameObject.tag == "switch")
