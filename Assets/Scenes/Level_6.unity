@@ -843,7 +843,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Different beacon stores different behaviours
+  m_text: Go to a portal to teleport to a better place.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 4aefc6f2a245a564d8e320ee74b2e3dd, type: 2}
   m_sharedMaterial: {fileID: -4620885034074759032, guid: 4aefc6f2a245a564d8e320ee74b2e3dd, type: 2}
@@ -6627,7 +6627,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 57.5}
-  m_SizeDelta: {x: 583.8, y: 166}
+  m_SizeDelta: {x: 200, y: 156}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &803153922
 MonoBehaviour:
@@ -6649,7 +6649,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 587e66337b58b564f88a5768e6afb343, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 0a309c3c5d9f6c2488c498ff70deab64, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
