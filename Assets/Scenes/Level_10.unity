@@ -10803,7 +10803,7 @@ PrefabInstance:
       objectReference: {fileID: 1907581261}
     - target: {fileID: 8361891967557709806, guid: e4c8054b8cb66d246b8000ee8cf6e6ef, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -26.574268
+      value: -26.47
       objectReference: {fileID: 0}
     - target: {fileID: 8361891967557709806, guid: e4c8054b8cb66d246b8000ee8cf6e6ef, type: 3}
       propertyPath: m_LocalPosition.y
@@ -11022,6 +11022,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Board
       objectReference: {fileID: 0}
+    - target: {fileID: 6330581793940135679, guid: e4c8054b8cb66d246b8000ee8cf6e6ef, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 827c5cd68ba29be40b7706ab89149129, type: 2}
     - target: {fileID: 7367017407816311610, guid: e4c8054b8cb66d246b8000ee8cf6e6ef, type: 3}
       propertyPath: originY
       value: 9.5
@@ -11097,6 +11101,22 @@ PrefabInstance:
     - target: {fileID: 8361891967557709806, guid: e4c8054b8cb66d246b8000ee8cf6e6ef, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8829269620031442436, guid: e4c8054b8cb66d246b8000ee8cf6e6ef, type: 3}
+      propertyPath: m_PointLightOuterRadius
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8829269620031442436, guid: e4c8054b8cb66d246b8000ee8cf6e6ef, type: 3}
+      propertyPath: m_LocalBounds.m_Center.y
+      value: -0.00000011920929
+      objectReference: {fileID: 0}
+    - target: {fileID: 8829269620031442436, guid: e4c8054b8cb66d246b8000ee8cf6e6ef, type: 3}
+      propertyPath: m_LocalBounds.m_Extent.x
+      value: 0.9985302
+      objectReference: {fileID: 0}
+    - target: {fileID: 8829269620031442436, guid: e4c8054b8cb66d246b8000ee8cf6e6ef, type: 3}
+      propertyPath: m_LocalBounds.m_Extent.y
+      value: 0.99853027
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -11902,6 +11922,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: doorboard
       objectReference: {fileID: 0}
+    - target: {fileID: 6330581793940135679, guid: e4c8054b8cb66d246b8000ee8cf6e6ef, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 827c5cd68ba29be40b7706ab89149129, type: 2}
     - target: {fileID: 7367017407816311610, guid: e4c8054b8cb66d246b8000ee8cf6e6ef, type: 3}
       propertyPath: door
       value: 
@@ -11945,6 +11969,22 @@ PrefabInstance:
     - target: {fileID: 8361891967557709806, guid: e4c8054b8cb66d246b8000ee8cf6e6ef, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8829269620031442436, guid: e4c8054b8cb66d246b8000ee8cf6e6ef, type: 3}
+      propertyPath: m_PointLightOuterRadius
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8829269620031442436, guid: e4c8054b8cb66d246b8000ee8cf6e6ef, type: 3}
+      propertyPath: m_LocalBounds.m_Center.y
+      value: -0.00000011920929
+      objectReference: {fileID: 0}
+    - target: {fileID: 8829269620031442436, guid: e4c8054b8cb66d246b8000ee8cf6e6ef, type: 3}
+      propertyPath: m_LocalBounds.m_Extent.x
+      value: 0.9985302
+      objectReference: {fileID: 0}
+    - target: {fileID: 8829269620031442436, guid: e4c8054b8cb66d246b8000ee8cf6e6ef, type: 3}
+      propertyPath: m_LocalBounds.m_Extent.y
+      value: 0.99853027
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
