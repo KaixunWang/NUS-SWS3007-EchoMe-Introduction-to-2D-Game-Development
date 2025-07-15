@@ -187,6 +187,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2477942229528130168, guid: e4c3b8ac35930e64591b3670121ba35d, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 19136f9206b85ee43bc3f06b71156f07, type: 2}
+    - target: {fileID: 2604998484573021996, guid: e4c3b8ac35930e64591b3670121ba35d, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 19136f9206b85ee43bc3f06b71156f07, type: 2}
+    - target: {fileID: 4421860687734506620, guid: e4c3b8ac35930e64591b3670121ba35d, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 19136f9206b85ee43bc3f06b71156f07, type: 2}
     - target: {fileID: 7209355819302705270, guid: e4c3b8ac35930e64591b3670121ba35d, type: 3}
       propertyPath: m_Name
       value: playergate
@@ -442,6 +454,7 @@ MonoBehaviour:
   - {fileID: 717221011}
   spikes: []
   levelGoodTime: 90
+  leaderboard: {fileID: 0}
 --- !u!4 &378976225
 Transform:
   m_ObjectHideFlags: 0
@@ -474,6 +487,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Board_final
       objectReference: {fileID: 0}
+    - target: {fileID: 6330581793940135679, guid: e4c8054b8cb66d246b8000ee8cf6e6ef, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 827c5cd68ba29be40b7706ab89149129, type: 2}
     - target: {fileID: 7367017407816311610, guid: e4c8054b8cb66d246b8000ee8cf6e6ef, type: 3}
       propertyPath: door
       value: 
@@ -6653,6 +6670,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 148804148854900681, guid: e0964d75d4fad3141b2696b4cc13b2c8, type: 3}
   m_PrefabInstance: {fileID: 941791507}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &941791509 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4810050538705875983, guid: e0964d75d4fad3141b2696b4cc13b2c8, type: 3}
+  m_PrefabInstance: {fileID: 941791507}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63ee70320ea2b1a49b755875123f589b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &956614993 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4454724116019459432, guid: e4c8054b8cb66d246b8000ee8cf6e6ef, type: 3}
@@ -7113,6 +7141,22 @@ PrefabInstance:
     - target: {fileID: 1568022176389912661, guid: a8c889116495da54397835781b005aba, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2071808408937008394, guid: a8c889116495da54397835781b005aba, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 941791509}
+    - target: {fileID: 2071808408937008394, guid: a8c889116495da54397835781b005aba, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ReturnToMainMenu
+      objectReference: {fileID: 0}
+    - target: {fileID: 2152364206274318664, guid: a8c889116495da54397835781b005aba, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 941791509}
+    - target: {fileID: 2152364206274318664, guid: a8c889116495da54397835781b005aba, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: RestartGame
       objectReference: {fileID: 0}
     - target: {fileID: 4750236094321503291, guid: a8c889116495da54397835781b005aba, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument

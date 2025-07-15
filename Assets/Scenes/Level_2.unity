@@ -3596,6 +3596,7 @@ MonoBehaviour:
   lifts: []
   spikes: []
   levelGoodTime: 30
+  leaderboard: {fileID: 0}
 --- !u!4 &754050757
 Transform:
   m_ObjectHideFlags: 0
@@ -3764,6 +3765,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e0964d75d4fad3141b2696b4cc13b2c8, type: 3}
+--- !u!114 &771738418 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4810050538705875983, guid: e0964d75d4fad3141b2696b4cc13b2c8, type: 3}
+  m_PrefabInstance: {fileID: 771738417}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63ee70320ea2b1a49b755875123f589b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &826028648
 GameObject:
   m_ObjectHideFlags: 0
@@ -3997,7 +4009,7 @@ PrefabInstance:
     - target: {fileID: 991917628361141982, guid: 2e6beff292853594ebc04470710f07c7, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: ae03952a516f86e40b0ecd09ced19078, type: 2}
+      objectReference: {fileID: 2100000, guid: e139ae229bde5a94690c424e1dd018bd, type: 2}
     - target: {fileID: 5437204593989898298, guid: 2e6beff292853594ebc04470710f07c7, type: 3}
       propertyPath: m_LocalPosition.x
       value: -8.93
@@ -8467,6 +8479,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2071808408937008394, guid: a8c889116495da54397835781b005aba, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 771738418}
+    - target: {fileID: 2071808408937008394, guid: a8c889116495da54397835781b005aba, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ReturnToMainMenu
+      objectReference: {fileID: 0}
+    - target: {fileID: 2152364206274318664, guid: a8c889116495da54397835781b005aba, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 771738418}
+    - target: {fileID: 2152364206274318664, guid: a8c889116495da54397835781b005aba, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: RestartGame
+      objectReference: {fileID: 0}
     - target: {fileID: 4750236094321503291, guid: a8c889116495da54397835781b005aba, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
       value: Level_3
@@ -8606,6 +8634,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2477942229528130168, guid: e4c3b8ac35930e64591b3670121ba35d, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 19136f9206b85ee43bc3f06b71156f07, type: 2}
+    - target: {fileID: 2604998484573021996, guid: e4c3b8ac35930e64591b3670121ba35d, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e139ae229bde5a94690c424e1dd018bd, type: 2}
+    - target: {fileID: 4421860687734506620, guid: e4c3b8ac35930e64591b3670121ba35d, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 19136f9206b85ee43bc3f06b71156f07, type: 2}
     - target: {fileID: 7209355819302705270, guid: e4c3b8ac35930e64591b3670121ba35d, type: 3}
       propertyPath: m_Name
       value: Gate

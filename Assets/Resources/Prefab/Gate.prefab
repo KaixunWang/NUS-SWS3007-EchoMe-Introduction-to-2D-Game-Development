@@ -8,6 +8,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2757065402110803978, guid: 8ce820bbc95aeb142ab6a6990e617c41, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: ae03952a516f86e40b0ecd09ced19078, type: 2}
+    - target: {fileID: 4142715627474073102, guid: 8ce820bbc95aeb142ab6a6990e617c41, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: ae03952a516f86e40b0ecd09ced19078, type: 2}
     - target: {fileID: 6930122694965717508, guid: 8ce820bbc95aeb142ab6a6990e617c41, type: 3}
       propertyPath: m_Name
       value: Gate
@@ -26,11 +34,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6930122694965717509, guid: 8ce820bbc95aeb142ab6a6990e617c41, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.27
+      value: 1.33
       objectReference: {fileID: 0}
     - target: {fileID: 6930122694965717509, guid: 8ce820bbc95aeb142ab6a6990e617c41, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -7.01
+      value: -7.21
       objectReference: {fileID: 0}
     - target: {fileID: 6930122694965717509, guid: 8ce820bbc95aeb142ab6a6990e617c41, type: 3}
       propertyPath: m_LocalPosition.z
@@ -100,7 +108,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: ae03952a516f86e40b0ecd09ced19078, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
