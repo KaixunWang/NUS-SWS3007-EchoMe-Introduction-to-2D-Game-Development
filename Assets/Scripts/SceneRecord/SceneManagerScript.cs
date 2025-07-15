@@ -129,7 +129,18 @@ public class SceneManagerScript : MonoBehaviour
             if (switchComponent != null)
             {
                 currentState.switchStates.Add(switchComponent.IsOn);
-                currentState.switchRemainingTimes.Add(switchComponent.GetRemainingTime());
+                var level3 = switchObj.GetComponent<Switch_Level3>();
+                if (level3 != null)
+                {
+                    float timer = level3.getTime();
+                    float currentTime = level3.getCurrentTime();
+                    currentState.switchRemainingTimes.Add(currentTime - timer);
+                }
+                else
+                {
+                    currentState.switchRemainingTimes.Add(switchComponent.GetRemainingTime());
+                }
+                
                 Debug.Log($"Switch {switchObj.name} state: {switchComponent.IsOn}");
             }
         }
@@ -210,6 +221,14 @@ public class SceneManagerScript : MonoBehaviour
                     // {
                     //     switchComponent.SetRemainingTime(0f); // Reset remaining time if switch is off
                     // }
+                    var level3 = switches[i].GetComponent<Switch_Level3>();
+                    if (level3 != null)
+                    {
+                        float currentTime = level3.getCurrentTime();
+                        float timer = currentTime - currentState.switchRemainingTimes[i];
+                        level3.setTime(timer);
+                        Debug.Log($"Switch_Level3 {switches[i].name} state loaded with remaining time: {currentState.switchRemainingTimes[i]}");
+                    }
                 }
             }
             for (int i = 0; i < pressurePlates.Count && i < currentState.pressurePlateStates.Count; i++)
