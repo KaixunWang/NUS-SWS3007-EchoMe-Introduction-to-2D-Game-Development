@@ -192,10 +192,15 @@ public class SceneManagerScript : MonoBehaviour
                 var switchComponent = switches[i].GetComponent<Cainos.PixelArtPlatformer_Dungeon.Switch>();
                 if (switchComponent != null)
                 {
-                    switchComponent.IsOn = currentState.switchStates[i];
-                    if (switchComponent.IsOn)
+                    if (currentState.switchStates[i])
                     {
+                        switchComponent.TurnOn();
                         switchComponent.SetRemainingTime(currentState.switchRemainingTimes[i]);
+                    }
+                    else
+                    {
+                        switchComponent.TurnOff();
+                        switchComponent.SetRemainingTime(0f); // Reset remaining time if switch is off
                     }
                     // else
                     // {
@@ -217,6 +222,7 @@ public class SceneManagerScript : MonoBehaviour
                 if (doorComponent != null)
                 {
                     doorComponent.IsOpened = currentState.doorStates[i];
+                    if (doors[i].tag == "gate") doors[i].GetComponent<Collider2D>().isTrigger = currentState.doorStates[i];
                 }
             }
             for (int i = 0; i < boxes.Count && i < currentState.boxPositions.Count; i++)

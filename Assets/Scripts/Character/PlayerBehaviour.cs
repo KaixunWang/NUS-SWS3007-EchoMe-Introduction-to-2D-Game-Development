@@ -316,7 +316,7 @@ public class PlayerBehaviour : MonoBehaviour
             }
         }
 
-        if (Exit != null && other.GetComponent<Cainos.PixelArtPlatformer_Dungeon.Door>() == Exit)
+        if (Exit != null && other.GetComponent<Cainos.PixelArtPlatformer_Dungeon.Door>() == Exit && isGrounded)
 
         {
             if (Exit.IsOpened)

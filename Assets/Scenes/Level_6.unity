@@ -236,6 +236,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e4c3b8ac35930e64591b3670121ba35d, type: 3}
+--- !u!1 &215357890 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7209355819302705270, guid: e4c3b8ac35930e64591b3670121ba35d, type: 3}
+  m_PrefabInstance: {fileID: 215357889}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &286757412
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -428,7 +433,7 @@ MonoBehaviour:
   - {fileID: 956614993}
   doors:
   - {fileID: 638706357}
-  - {fileID: 1348160385}
+  - {fileID: 215357890}
   - {fileID: 996077334}
   boxes:
   - {fileID: 1591153767}
@@ -7015,7 +7020,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 248064450293723124, guid: e4c3b8ac35930e64591b3670121ba35d, type: 3}
   m_PrefabInstance: {fileID: 215357889}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 215357890}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0953681beb9c028459afe45ac6c82102, type: 3}
@@ -10908,6 +10913,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4718721017037462768, guid: b8ccb5122366f204ea1153b76d1f79c2, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -2.74
+      objectReference: {fileID: 0}
+    - target: {fileID: 4718721017037462768, guid: b8ccb5122366f204ea1153b76d1f79c2, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -6.19
+      objectReference: {fileID: 0}
     - target: {fileID: 5766825644102273660, guid: b8ccb5122366f204ea1153b76d1f79c2, type: 3}
       propertyPath: m_Name
       value: beaconsystem
@@ -10955,6 +10968,14 @@ PrefabInstance:
     - target: {fileID: 6141859146216205343, guid: b8ccb5122366f204ea1153b76d1f79c2, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8516688428148077589, guid: b8ccb5122366f204ea1153b76d1f79c2, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.82
+      objectReference: {fileID: 0}
+    - target: {fileID: 8516688428148077589, guid: b8ccb5122366f204ea1153b76d1f79c2, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 8.04
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
