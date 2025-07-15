@@ -1404,6 +1404,34 @@ MonoBehaviour:
     isUnlocked: 0
     icon: {fileID: -820050990, guid: 0de512ca4a4475a46ad6200659a6e6c9, type: 3}
     scoreReward: 3
+  - id: PassLevel7
+    name: In The Shell
+    description: Player passes level 7.
+    category: Progress
+    isUnlocked: 0
+    icon: {fileID: 1009558817, guid: 0de512ca4a4475a46ad6200659a6e6c9, type: 3}
+    scoreReward: 3
+  - id: PassLevel8
+    name: No Leash
+    description: Player passes level 8.
+    category: Progress
+    isUnlocked: 0
+    icon: {fileID: 493382525, guid: 0de512ca4a4475a46ad6200659a6e6c9, type: 3}
+    scoreReward: 3
+  - id: PassLevel9
+    name: Fractured Aether
+    description: Player passes level 9.
+    category: Progress
+    isUnlocked: 0
+    icon: {fileID: -1475097861, guid: 0de512ca4a4475a46ad6200659a6e6c9, type: 3}
+    scoreReward: 3
+  - id: PassLevel10
+    name: Kelvin
+    description: Player passes level 10.
+    category: Progress
+    isUnlocked: 0
+    icon: {fileID: -1300199408, guid: 0de512ca4a4475a46ad6200659a6e6c9, type: 3}
+    scoreReward: 3
   - id: PressW
     name: You Know jump
     description: Player learned jump.
@@ -10208,6 +10236,7 @@ MonoBehaviour:
   achievementPanel: {fileID: 92800899}
   optionsPanel: {fileID: 128033626}
   usernameInput: {fileID: 0}
+  leaderboardPanel: {fileID: 0}
 --- !u!4 &1239920465
 Transform:
   m_ObjectHideFlags: 0
