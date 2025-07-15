@@ -178,7 +178,14 @@ public class PlayerBehaviour : MonoBehaviour
             else if (switchObject.targetSpike != null)
             {
                 Debug.Log("Spike behaviour found, incrementing cntMove");
-                switchObject.targetSpike.cntMove += 2;
+                if(switchObject.targetSpike.singleMove)
+                {
+                    switchObject.targetSpike.cntMove += 1; // 如果是单次移动，增加1
+                }
+                else
+                {
+                    switchObject.targetSpike.cntMove += 2; // 否则增加2
+                }
             }
             else if (switchObject.targetPortal != null)
             {
