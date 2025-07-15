@@ -5,6 +5,7 @@ public class PauseMenuManager : MonoBehaviour
 {
     public PlayerBehaviour playerBehaviour; // 关联 PlayerBehaviour 脚本
     public GameObject pausePanel;  // 关联 PausePanel UI
+    public GameObject helpPanel;
     private bool isPaused = false;
     public bool isEnd = false;
     void Start()
@@ -14,6 +15,8 @@ public class PauseMenuManager : MonoBehaviour
         // 确保暂停面板初始状态为隐藏
         if (pausePanel != null)
             pausePanel.SetActive(false);
+        if (helpPanel != null)
+            helpPanel.SetActive(false);
     }
     void Update()
     {
@@ -89,5 +92,13 @@ public class PauseMenuManager : MonoBehaviour
     public void SetEndState()
     {
         isEnd = true; // 设置游戏结束状态
+    }
+    public void ShowHelpPanel()
+    {
+        helpPanel.SetActive(true);
+    }
+    public void HideHelpPanel()
+    {
+        helpPanel.SetActive(false);
     }
 }

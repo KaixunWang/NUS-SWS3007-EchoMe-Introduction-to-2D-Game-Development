@@ -12,6 +12,7 @@ public class BeaconBehaviour : MonoBehaviour
     private float ShadowTime = 10f;
     private float EchoTime = 0f;
     private bool hasEcho = false;
+    private bool callbeacon = true;//是否能调用
     // Start is called before the first frame update
     void Start()
     {
@@ -24,6 +25,14 @@ public class BeaconBehaviour : MonoBehaviour
     public bool getSystem()
     {
         return isSystem;
+    }
+    public void setcallbeacon(bool callbeacon)
+    {
+        this.callbeacon = callbeacon;
+    }
+    public bool getcallbeacon()
+    {
+        return callbeacon;
     }
 
     public void SwitchShadow(Vector3 nearBeaconPosition)

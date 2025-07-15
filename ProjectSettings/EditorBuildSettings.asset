@@ -33,6 +33,10 @@ EditorBuildSettings:
     path: Assets/Scenes/Level_6.unity
     guid: 9624fec10db7db84faf1248007c20a81
   - enabled: 1
+    path: Assets/Scenes/Level_7.unity
+    guid: 622d0a33027536b4eb3ac8d59de0c4dd
+  - enabled: 1
     path: Assets/Scenes/BeatTheGameScene.unity
     guid: 9f0f3e7d55cc50c488a791b35ba8320e
-  m_configObjects: {}
+  m_configObjects:
+    com.unity.input.settings: {fileID: 11400000, guid: 8aaa0172c23b7c74eb7d2a5d0f25fb13, type: 2}
