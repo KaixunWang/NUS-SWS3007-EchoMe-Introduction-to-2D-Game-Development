@@ -187,6 +187,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2477942229528130168, guid: e4c3b8ac35930e64591b3670121ba35d, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 19136f9206b85ee43bc3f06b71156f07, type: 2}
+    - target: {fileID: 2604998484573021996, guid: e4c3b8ac35930e64591b3670121ba35d, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 19136f9206b85ee43bc3f06b71156f07, type: 2}
+    - target: {fileID: 4421860687734506620, guid: e4c3b8ac35930e64591b3670121ba35d, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 19136f9206b85ee43bc3f06b71156f07, type: 2}
     - target: {fileID: 7209355819302705270, guid: e4c3b8ac35930e64591b3670121ba35d, type: 3}
       propertyPath: m_Name
       value: playergate
@@ -442,6 +454,7 @@ MonoBehaviour:
   - {fileID: 717221011}
   spikes: []
   levelGoodTime: 90
+  leaderboard: {fileID: 0}
 --- !u!4 &378976225
 Transform:
   m_ObjectHideFlags: 0
