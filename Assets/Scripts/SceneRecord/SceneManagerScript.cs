@@ -22,6 +22,8 @@ public class SceneManagerScript : MonoBehaviour
     private int score = 0;
     public int levelGoodTime = 60;
     // Start is called before the first frame update
+
+    public leaderboard leaderboard;
     void Start()
     {
         
@@ -97,6 +99,8 @@ public class SceneManagerScript : MonoBehaviour
                 PlayerPrefs.Save();
                 Debug.Log($"保存关卡{currentLevelIndex}星星数: {score}");
             }
+
+            if (leaderboard != null) leaderboard.SubmitScoreRoutine(score, clock.GetComponent<TimerBehavior>().GetElapsedTime());
             // ---------------------------------------------
         }else if (playerBehaviour.IsLose())
         {
