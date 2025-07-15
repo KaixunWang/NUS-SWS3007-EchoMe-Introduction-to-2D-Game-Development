@@ -34,7 +34,8 @@ public class PauseMenuManager : MonoBehaviour
     public void PauseGame()
     {
         Debug.Log("Game Paused");
-        pausePanel.SetActive(true);
+        if(pausePanel != null)
+            pausePanel.SetActive(true);
         if (playerBehaviour != null)
         {
             playerBehaviour.isPaused = true;
@@ -58,7 +59,9 @@ public class PauseMenuManager : MonoBehaviour
     }
     public void ResumeGame()
     {
-        pausePanel.SetActive(false);
+        if (pausePanel != null){
+            pausePanel.SetActive(false);
+        }
         if (playerBehaviour != null)
         {
             playerBehaviour.isPaused = false;

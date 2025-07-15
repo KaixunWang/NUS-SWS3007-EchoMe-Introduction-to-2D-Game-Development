@@ -196,10 +196,15 @@ public class SceneManagerScript : MonoBehaviour
                 var switchComponent = switches[i].GetComponent<Cainos.PixelArtPlatformer_Dungeon.Switch>();
                 if (switchComponent != null)
                 {
-                    switchComponent.IsOn = currentState.switchStates[i];
-                    if (switchComponent.IsOn)
+                    if (currentState.switchStates[i])
                     {
+                        switchComponent.TurnOn();
                         switchComponent.SetRemainingTime(currentState.switchRemainingTimes[i]);
+                    }
+                    else
+                    {
+                        switchComponent.TurnOff();
+                        switchComponent.SetRemainingTime(0f); // Reset remaining time if switch is off
                     }
                     // else
                     // {

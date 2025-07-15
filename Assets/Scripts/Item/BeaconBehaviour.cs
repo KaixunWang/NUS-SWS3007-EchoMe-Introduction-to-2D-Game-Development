@@ -8,6 +8,7 @@ public class BeaconBehaviour : MonoBehaviour
     public AudioSource callShadowSource; // 音频源，用于播放开关音效
     public SpriteRenderer sc;
     public Sprite[] pic;
+    private int index = 0; // 用于跟踪当前精灵索引
     private bool isSystem = false;
     private float ShadowTime = 10f;
     private float EchoTime = 0f;
@@ -40,6 +41,7 @@ public class BeaconBehaviour : MonoBehaviour
         // 尝试加载 Shadow prefab
         GameObject shadowPrefab = Resources.Load<GameObject>("Prefab/Shadow");
         sc.sprite = pic[1];
+        index = 1;
         if (shadowPrefab == null)
         {
             Debug.LogError("Failed to load Shadow prefab from Resources/Prefab/Shadow");
@@ -89,6 +91,7 @@ public class BeaconBehaviour : MonoBehaviour
         // 尝试加载 Echo prefab
         GameObject echoPrefab = Resources.Load<GameObject>("Prefab/Echo");
         sc.sprite = pic[2];
+        index = 2;
         if (echoPrefab == null)
         {
             Debug.LogError("Failed to load Echo prefab from Resources/Prefab/Echo");
@@ -152,5 +155,10 @@ public class BeaconBehaviour : MonoBehaviour
     public void restore()
     {
         sc.sprite = pic[0];
+        index = 0;
+    }
+    public int getIndex()
+    {
+        return index;
     }
 }
