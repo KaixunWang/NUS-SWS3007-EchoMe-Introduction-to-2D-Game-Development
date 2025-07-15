@@ -27,7 +27,7 @@ public class BeaconsystemScript : MonoBehaviour
     {
         var ebeaconBehaviour = echoBeacon.GetComponent<BeaconBehaviour>();
         var pbeaconBehaviour = playerBeacon.GetComponent<BeaconBehaviour>();
-        var playerBehaviour = player.GetComponent<PlayerBehaviour>();
-        ebeaconBehaviour.sc.sprite = pbeaconBehaviour.sc.sprite; // 设置回声信标的精灵与玩家信标一致
+        int index = pbeaconBehaviour.getIndex();
+        ebeaconBehaviour.sc.sprite = ebeaconBehaviour.pic[index];
     }
 }
