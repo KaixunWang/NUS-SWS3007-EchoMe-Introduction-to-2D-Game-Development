@@ -11130,6 +11130,30 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9001574876979059853, guid: e0964d75d4fad3141b2696b4cc13b2c8, type: 3}
+      propertyPath: m_VideoClip
+      value: 
+      objectReference: {fileID: 32900000, guid: 616a5bf26946c1d4ba8d8f16b4ce054b, type: 3}
+    - target: {fileID: 9001574876979059853, guid: e0964d75d4fad3141b2696b4cc13b2c8, type: 3}
+      propertyPath: m_ControlledAudioTrackCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9001574876979059853, guid: e0964d75d4fad3141b2696b4cc13b2c8, type: 3}
+      propertyPath: m_DirectAudioMutes.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9001574876979059853, guid: e0964d75d4fad3141b2696b4cc13b2c8, type: 3}
+      propertyPath: m_DirectAudioVolumes.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9001574876979059853, guid: e0964d75d4fad3141b2696b4cc13b2c8, type: 3}
+      propertyPath: m_EnabledAudioTracks.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9001574876979059853, guid: e0964d75d4fad3141b2696b4cc13b2c8, type: 3}
+      propertyPath: m_TargetAudioSources.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
