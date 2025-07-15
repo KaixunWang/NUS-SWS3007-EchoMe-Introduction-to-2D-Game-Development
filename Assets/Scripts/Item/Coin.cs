@@ -31,7 +31,7 @@ public class Coin : MonoBehaviour
     }
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.name == "Player" || collision.gameObject.name == "Echo(Clone)")
+        if (collision.gameObject.name == "Player" || collision.gameObject.tag == "echo")
         {
             // 增加分数或执行其他逻辑
             Debug.Log("Coin collected!");

@@ -69,14 +69,6 @@ public class InputManager : MonoBehaviour
         SaveBinding(JumpBindingKey, path);
         Debug.Log($"Jump key rebound to {path}");
     }
-
-    public void RebindLeft(Key newKey)
-    {
-        string path = $"<Keyboard>/{newKey.ToString().ToLower()}";
-        _controls.GamePlay.Left.ApplyBindingOverride(0, path);
-        SaveBinding(LeftBindingKey, path);
-        Debug.Log($"Left key rebound to {path}");
-    }
     public void RebindJumptoW()
     {
         RebindJump(Key.W);
@@ -84,6 +76,13 @@ public class InputManager : MonoBehaviour
     public void RebindJumptoSpace()
     {
         RebindJump(Key.Space);
+    }
+    public void RebindLeft(Key newKey)
+    {
+        string path = $"<Keyboard>/{newKey.ToString().ToLower()}";
+        _controls.GamePlay.Left.ApplyBindingOverride(0, path);
+        SaveBinding(LeftBindingKey, path);
+        Debug.Log($"Left key rebound to {path}");
     }
     public void RebindRight(Key newKey)
     {

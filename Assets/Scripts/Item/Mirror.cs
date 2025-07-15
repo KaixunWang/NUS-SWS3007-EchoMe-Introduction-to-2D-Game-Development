@@ -64,6 +64,7 @@ public class Mirror : MonoBehaviour
     void HandleShadow(Collider2D collision){
         shadowNumber--;
         GameObject shadow_mirror = Resources.Load<GameObject>("Prefab/ShadowMirror");
+        shadow_mirror.tag = "shadow";
         shadow_mirror = Instantiate(shadow_mirror, collision.transform.position, Quaternion.identity);
         Vector3 originalPos = collision.gameObject.transform.position;
         Vector3 mirroredPos = new Vector3(
@@ -93,6 +94,7 @@ public class Mirror : MonoBehaviour
         echoNumber--;
         // 触发玩家进入镜子区域的逻辑
         GameObject echo_mirror = Resources.Load<GameObject>("Prefab/EchoMirror");
+        echo_mirror.tag = "echo";
         echo_mirror = Instantiate(echo_mirror, collision.transform.position, Quaternion.identity);
         Vector3 originalPos = collision.gameObject.transform.position;
         Vector3 mirroredPos = new Vector3(
