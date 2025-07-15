@@ -518,6 +518,7 @@ RectTransform:
   - {fileID: 1474037297}
   - {fileID: 899417002}
   - {fileID: 1003485342}
+  - {fileID: 870306562}
   m_Father: {fileID: 400702611}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
@@ -3671,6 +3672,54 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 837440832}
   m_CullTransparentMesh: 1
+--- !u!1 &870306561
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 870306562}
+  - component: {fileID: 870306563}
+  m_Layer: 5
+  m_Name: KeyBind
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &870306562
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 870306561}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 159238474}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &870306563
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 870306561}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92f67b8a8992d37448c55e5b4fa4fe18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &899417001
 GameObject:
   m_ObjectHideFlags: 0
@@ -3755,9 +3804,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 25793234}
-        m_TargetAssemblyTypeName: InputManager, Assembly-CSharp
-        m_MethodName: RebindJumptoW
+      - m_Target: {fileID: 870306563}
+        m_TargetAssemblyTypeName: ButtonBindKey, Assembly-CSharp
+        m_MethodName: BindJumpToW
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4835,9 +4884,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 25793234}
-        m_TargetAssemblyTypeName: InputManager, Assembly-CSharp
-        m_MethodName: RebindJumptoSpace
+      - m_Target: {fileID: 870306563}
+        m_TargetAssemblyTypeName: ButtonBindKey, Assembly-CSharp
+        m_MethodName: BindJumpToSpace
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
