@@ -63,6 +63,7 @@ public class InputManager : MonoBehaviour
     // 运行时改键接口示例
     public void RebindJump(Key newKey)
     {
+        
         string path = $"<Keyboard>/{newKey.ToString().ToLower()}";
         _controls.GamePlay.Jump.ApplyBindingOverride(0, path);
         SaveBinding(JumpBindingKey, path);
@@ -76,7 +77,14 @@ public class InputManager : MonoBehaviour
         SaveBinding(LeftBindingKey, path);
         Debug.Log($"Left key rebound to {path}");
     }
-
+    public void RebindJumptoW()
+    {
+        RebindJump(Key.W);
+    }
+    public void RebindJumptoSpace()
+    {
+        RebindJump(Key.Space);
+    }
     public void RebindRight(Key newKey)
     {
         string path = $"<Keyboard>/{newKey.ToString().ToLower()}";
