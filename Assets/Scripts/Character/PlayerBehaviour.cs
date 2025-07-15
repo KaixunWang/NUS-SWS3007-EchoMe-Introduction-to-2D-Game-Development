@@ -203,7 +203,7 @@ public class PlayerBehaviour : MonoBehaviour
             SummonEcho();
         }
 
-        if (isInDoor && Exit != null && Exit.IsOpened)
+        if (isInDoor && Exit != null && Exit.IsOpened && isGrounded)
         {
             Debug.Log("Player is in door and exit is opened");
             isInputEnabled = false; // 禁用输入
@@ -324,7 +324,6 @@ public class PlayerBehaviour : MonoBehaviour
         }
 
         if (Exit != null && other.GetComponent<Cainos.PixelArtPlatformer_Dungeon.Door>() == Exit && isGrounded)
-
         {
             if (Exit.IsOpened)
             {
