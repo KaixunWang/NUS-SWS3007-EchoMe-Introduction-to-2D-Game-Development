@@ -60,14 +60,30 @@ namespace Cainos.PixelArtPlatformer_Dungeon
         }
         public void TriggerDoor()
         {
-            if (target != null && target.tag == "door")
+            // if (target != null && target.tag == "door" && IsOn)
+            // {
+            //     target.SetDoor(IsOn); 
+            // }
+            // if (target != null && target.tag == "gate" && !IsOn)
+            // {
+            //     target.SetGate(IsOn);
+            //     target.SetDoor(IsOn);
+            // }
+            if (IsOn && target != null)
             {
-                target.SetDoor(IsOn); 
+                target.SetDoor(true);
+                if (target.tag == "gate")
+                {
+                    target.SetGate(true); // 确保门的状态被正确设置
+                }
             }
-            if (target != null && target.tag == "gate")
+            else if (!IsOn && target != null)
             {
-                target.SetGate(IsOn);
-                target.SetDoor(IsOn);
+                target.SetDoor(false);
+                if (target.tag == "gate")
+                {
+                    target.SetGate(false); // 确保门的状态被正确设置
+                }
             }
         }
         void Update()
@@ -151,13 +167,13 @@ namespace Cainos.PixelArtPlatformer_Dungeon
         [FoldoutGroup("Runtime"), HorizontalGroup("Runtime/Button"), Button("Turn On")]
         public void TurnOn()
         {
-            IsOn = true;
+            isOn = true;
         }
 
         [FoldoutGroup("Runtime"), HorizontalGroup("Runtime/Button"), Button("Turn Off")]
         public void TurnOff()
         {
-            IsOn = false;
+            isOn = false;
         }
         public float GetRemainingTime()
         {
