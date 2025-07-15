@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Controls;
@@ -35,7 +36,7 @@ public class InputManager : MonoBehaviour
         }
     }
 
-    private void LoadBindings()
+    public void LoadBindings()
     {
         if (PlayerPrefs.HasKey(JumpBindingKey))
         {
@@ -63,7 +64,7 @@ public class InputManager : MonoBehaviour
     // 运行时改键接口示例
     public void RebindJump(Key newKey)
     {
-        
+
         string path = $"<Keyboard>/{newKey.ToString().ToLower()}";
         _controls.GamePlay.Jump.ApplyBindingOverride(0, path);
         SaveBinding(JumpBindingKey, path);
@@ -106,5 +107,10 @@ public class InputManager : MonoBehaviour
     public bool IsRightPressed()
     {
         return _controls.GamePlay.Right.IsPressed();
+    }
+    public KeyCode getJumpBinding(){
+        return _controls.GamePlay.Jump.bindings[0].overridePath != null ?
+            (KeyCode)System.Enum.Parse(typeof(KeyCode), _controls.GamePlay.Jump.bindings[0].overridePath.Split('/')[1], true) :
+            KeyCode.None;
     }
 }

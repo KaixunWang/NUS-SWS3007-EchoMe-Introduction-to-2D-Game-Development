@@ -284,9 +284,9 @@ public class ShadowBehaviour : MonoBehaviour
         
         float currentTime = Time.time - recordStartTime;
         Vector2 currentPosition = transform.position;
-        
+        var inputMgr = InputManager.Instance;
         // 检查每个输入键的状态变化
-        CheckInputStateChange(KeyCode.W, InputType.W, currentTime, currentPosition);
+        CheckInputStateChange(inputMgr.getJumpBinding(), InputType.W, currentTime, currentPosition);
         CheckInputStateChange(KeyCode.A, InputType.A, currentTime, currentPosition);
         CheckInputStateChange(KeyCode.D, InputType.D, currentTime, currentPosition);
         CheckInputStateChange(KeyCode.E, InputType.E, currentTime, currentPosition);
