@@ -81,6 +81,7 @@ public class Mirror : MonoBehaviour
         shadow_mirror_behaviour.setMirrored(true); // 设置镜像状态
         shadow_behaviour.oppShadow = shadow_mirror; // 设置镜像影子
         shadow_mirror_behaviour.oppShadow = collision.gameObject; // 设置镜像影子的原影
+        //shadow_mirror_behaviour.setBeaconBehaviour(shadow_behaviour.getBeaconBehaviour());
         // 设置镜像影子剩余时间
         shadow_mirror_behaviour.shadowDuration = shadow_behaviour.shadowDuration - (Time.time - shadow_behaviour.getRecordStartTime());
 
@@ -122,6 +123,8 @@ echo_mirror.transform.position = mirroredPos;
         echo_mirror_Behaviour.setReplayStartTime(echo_Behaviour.getReplayStartTime()); // 设置回放开始时间
         // 设置镜像回音剩余时间
         echo_mirror_Behaviour.echoDuration = echo_Behaviour.echoDuration - (Time.time - echo_Behaviour.getReplayStartTime());
+        // 设置神像对象
+        echo_mirror_Behaviour.SetBeaconBehaviour(echo_Behaviour.getBeaconBehaviour());
 
         Debug.Log("Player entered the mirror area.");
         // 在这里添加玩家进入镜子区域的逻辑

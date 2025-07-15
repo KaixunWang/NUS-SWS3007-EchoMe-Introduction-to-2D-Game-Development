@@ -394,6 +394,11 @@ public class EchoBehaviour : MonoBehaviour
     {
         beaconBehaviour = beacon;
     }
+
+    public BeaconBehaviour getBeaconBehaviour()
+    {
+        return beaconBehaviour;
+    }
     
     private void Interact()
     {
@@ -436,7 +441,7 @@ public class EchoBehaviour : MonoBehaviour
         // 等待一小段时间让音效开始播放
         yield return new WaitForSeconds(0.1f);
         
-        if (!isMirrored && beaconBehaviour != null)
+        if (beaconBehaviour != null)
         {
             beaconBehaviour.SetHasEcho(false);
             beaconBehaviour.restore();
