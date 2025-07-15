@@ -3961,6 +3961,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: DESTROY
       objectReference: {fileID: 0}
+    - target: {fileID: 3940876103382122625, guid: ba74ccccb9c11a14d995dd93e2642fe5, type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4100964376395635227, guid: ba74ccccb9c11a14d995dd93e2642fe5, type: 3}
       propertyPath: m_Name
       value: Canvas
@@ -4174,10 +4178,6 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 749695954}
-    - target: {fileID: 4750236094321503291, guid: a8c889116495da54397835781b005aba, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: Level_2
-      objectReference: {fileID: 0}
     - target: {fileID: 8735341808391543837, guid: a8c889116495da54397835781b005aba, type: 3}
       propertyPath: m_Name
       value: Summary_win
@@ -4441,7 +4441,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0b23f9036149d6b4ab20baaad5ca1f52, type: 3}
-
 --- !u!1 &1049843436
 GameObject:
   m_ObjectHideFlags: 0
@@ -4524,7 +4523,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-
 --- !u!1001 &1161499461
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6541,6 +6539,4 @@ SceneRoots:
   - {fileID: 1612205109}
   - {fileID: 312564022}
   - {fileID: 726045310}
-
   - {fileID: 1049843438}
-

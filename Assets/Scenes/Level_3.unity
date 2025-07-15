@@ -1074,6 +1074,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce0b8ee05a797364a9c62e8e1ee4ae30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  singleMove: 0
   cntMove: 0
   inMove: 0
   moveSpeed: 1.5
@@ -1306,6 +1307,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 148804148854900681, guid: e0964d75d4fad3141b2696b4cc13b2c8, type: 3}
   m_PrefabInstance: {fileID: 382736181}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &382736183 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4810050538705875983, guid: e0964d75d4fad3141b2696b4cc13b2c8, type: 3}
+  m_PrefabInstance: {fileID: 382736181}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63ee70320ea2b1a49b755875123f589b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &383648690 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5437204593989898298, guid: 2e6beff292853594ebc04470710f07c7, type: 3}
@@ -7560,6 +7572,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce0b8ee05a797364a9c62e8e1ee4ae30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  singleMove: 0
   cntMove: 0
   inMove: 0
   moveSpeed: 1.5
@@ -7778,6 +7791,22 @@ PrefabInstance:
     - target: {fileID: 1568022176389912661, guid: a8c889116495da54397835781b005aba, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2071808408937008394, guid: a8c889116495da54397835781b005aba, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 382736183}
+    - target: {fileID: 2071808408937008394, guid: a8c889116495da54397835781b005aba, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ReturnToMainMenu
+      objectReference: {fileID: 0}
+    - target: {fileID: 2152364206274318664, guid: a8c889116495da54397835781b005aba, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 382736183}
+    - target: {fileID: 2152364206274318664, guid: a8c889116495da54397835781b005aba, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: RestartGame
       objectReference: {fileID: 0}
     - target: {fileID: 4750236094321503291, guid: a8c889116495da54397835781b005aba, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
@@ -8437,6 +8466,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce0b8ee05a797364a9c62e8e1ee4ae30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  singleMove: 0
   cntMove: 0
   inMove: 0
   moveSpeed: 1.5
@@ -9283,6 +9313,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce0b8ee05a797364a9c62e8e1ee4ae30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  singleMove: 0
   cntMove: 0
   inMove: 0
   moveSpeed: 1.5
@@ -12838,6 +12869,7 @@ MonoBehaviour:
   - {fileID: 1483971390}
   - {fileID: 362977820}
   levelGoodTime: 30
+  leaderboard: {fileID: 0}
 --- !u!4 &1655490169
 Transform:
   m_ObjectHideFlags: 0
@@ -13110,6 +13142,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce0b8ee05a797364a9c62e8e1ee4ae30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  singleMove: 0
   cntMove: 0
   inMove: 0
   moveSpeed: 1.5
@@ -13511,6 +13544,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce0b8ee05a797364a9c62e8e1ee4ae30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  singleMove: 0
   cntMove: 0
   inMove: 0
   moveSpeed: 1.5
