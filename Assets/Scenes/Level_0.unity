@@ -800,6 +800,7 @@ PrefabInstance:
     - {fileID: 9001574876979059853, guid: e0964d75d4fad3141b2696b4cc13b2c8, type: 3}
     m_RemovedGameObjects:
     - {fileID: 2118977193107901809, guid: e0964d75d4fad3141b2696b4cc13b2c8, type: 3}
+    - {fileID: 7931820067764801110, guid: e0964d75d4fad3141b2696b4cc13b2c8, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 1667792336313846804, guid: e0964d75d4fad3141b2696b4cc13b2c8, type: 3}
@@ -7088,6 +7089,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 382736183}
+    - target: {fileID: 4750236094321503291, guid: a8c889116495da54397835781b005aba, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: Level_1
+      objectReference: {fileID: 0}
     - target: {fileID: 8735341808391543837, guid: a8c889116495da54397835781b005aba, type: 3}
       propertyPath: m_Name
       value: Summary_win
