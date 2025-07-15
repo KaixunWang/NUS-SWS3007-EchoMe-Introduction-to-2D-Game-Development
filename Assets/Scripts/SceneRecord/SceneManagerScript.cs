@@ -217,6 +217,7 @@ public class SceneManagerScript : MonoBehaviour
                 if (doorComponent != null)
                 {
                     doorComponent.IsOpened = currentState.doorStates[i];
+                    if (doors[i].tag == "gate") doors[i].GetComponent<Collider2D>().isTrigger = currentState.doorStates[i];
                 }
             }
             for (int i = 0; i < boxes.Count && i < currentState.boxPositions.Count; i++)
