@@ -24,7 +24,7 @@ public class KeyBindingManager : MonoBehaviour
         {
             jumpAction.Enable();
         }
-        
+        if (jumpAction == null||bindWButton==null||bindSpaceButton==null)return;
         // 绑定按钮事件
         bindWButton.onClick.AddListener(() => StartRebind(0)); // 重新绑定第一个绑定
         bindSpaceButton.onClick.AddListener(() => StartRebind(0)); // 重新绑定第一个绑定
@@ -34,6 +34,8 @@ public class KeyBindingManager : MonoBehaviour
     
     void StartRebind(int bindingIndex)
     {
+        if (jumpAction == null||bindWButton==null||bindSpaceButton==null)return;
+
         // 取消之前的重新绑定操作
         rebindOperation?.Cancel();
         
@@ -64,6 +66,7 @@ public class KeyBindingManager : MonoBehaviour
     
     void SaveBindingOverrides()
     {
+        if (jumpAction == null||bindWButton==null||bindSpaceButton==null)return;
         // 保存绑定覆盖到PlayerPrefs
         var overrides = new InputBindingOverrideList();
         overrides.GetOverrides(jumpAction);
@@ -77,6 +80,7 @@ public class KeyBindingManager : MonoBehaviour
     
     void LoadBindingOverrides()
     {
+        if (jumpAction == null||bindWButton==null||bindSpaceButton==null)return;
         // 从PlayerPrefs加载绑定覆盖
         if (PlayerPrefs.HasKey("JumpActionOverrides"))
         {
