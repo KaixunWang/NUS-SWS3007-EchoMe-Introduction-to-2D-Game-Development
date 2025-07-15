@@ -362,7 +362,15 @@ public class ShadowBehaviour : MonoBehaviour
             }
             else if (switchObject.targetSpike != null)
             {
-                switchObject.targetSpike.cntMove += 2;
+                if (switchObject.targetSpike.singleMove)
+                {
+                    switchObject.targetSpike.cntMove += 1;
+                }
+                else
+                {
+                    switchObject.targetSpike.cntMove += 2;
+                }
+                
             }
             else if (switchObject.targetPortal != null)
             {

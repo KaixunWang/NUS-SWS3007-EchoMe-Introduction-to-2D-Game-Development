@@ -6,6 +6,7 @@ using Bundos.MovingPlatforms;
 [System.Serializable]
 public class SpikeState
 {
+    public bool singleMove; // 是否单次移动
     public int cntMove; // 移动计数
     public bool inMove; // 是否开启移动
     public Vector3 Destination; // 目标位置

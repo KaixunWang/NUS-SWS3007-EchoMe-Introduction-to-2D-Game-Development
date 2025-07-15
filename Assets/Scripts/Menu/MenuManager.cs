@@ -10,7 +10,7 @@ public class MenuManager : MonoBehaviour
     public GameObject achievementPanel;
     public GameObject optionsPanel;
     public TMP_InputField usernameInput;
-
+    public GameObject leaderboardPanel;
     public void Start()
     {
         StartCoroutine(LoginRoutine());
@@ -94,5 +94,15 @@ public class MenuManager : MonoBehaviour
     public void CloseOptions()
     {
         optionsPanel.SetActive(false);
+    }
+
+    public void ShowLeaderboard()
+    {
+        leaderboardPanel.SetActive(true);
+    }
+
+    public void CloseLeaderboard()
+    {
+        leaderboardPanel.SetActive(false);
     }
 }

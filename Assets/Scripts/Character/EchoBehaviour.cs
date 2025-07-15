@@ -408,7 +408,14 @@ public class EchoBehaviour : MonoBehaviour
             }
             else if (switchObject.targetSpike != null)
             {
-                switchObject.targetSpike.cntMove+=2;
+                if(switchObject.targetSpike.singleMove)
+                {
+                    switchObject.targetSpike.cntMove += 1; // 单次移动
+                }
+                else
+                {
+                    switchObject.targetSpike.cntMove += 2; // 多次移动
+                }
             }else if(switchObject.targetPortal != null){
                 bool isActive = switchObject.targetPortal.isActive;
                 switchObject.targetPortal.SetPortalState(!isActive);
