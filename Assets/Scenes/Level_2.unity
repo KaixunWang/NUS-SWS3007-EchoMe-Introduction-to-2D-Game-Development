@@ -3637,6 +3637,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PauselControl
       objectReference: {fileID: 0}
+    - target: {fileID: 4485364139748159152, guid: e0964d75d4fad3141b2696b4cc13b2c8, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5384439676390780224, guid: e0964d75d4fad3141b2696b4cc13b2c8, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0

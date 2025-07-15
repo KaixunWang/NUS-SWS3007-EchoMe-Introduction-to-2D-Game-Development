@@ -30,7 +30,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Level_4.unity
     guid: dc09058294f9dfc4591b1fe585cf2790
   - enabled: 1
-    path: Assets/Scenes/Level_5.unity
+    path: Assets/Scenes/Level_9.unity
     guid: 855189ff79c00e249ba4b608803a9450
   - enabled: 1
     path: Assets/Scenes/Level_6.unity
@@ -38,6 +38,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Level_7.unity
     guid: 622d0a33027536b4eb3ac8d59de0c4dd
+  - enabled: 1
+    path: Assets/Scenes/Level_8.unity
+    guid: 26de8c6a0c4c21949828914f61e9a745
   - enabled: 1
     path: Assets/Scenes/BeatTheGameScene.unity
     guid: 9f0f3e7d55cc50c488a791b35ba8320e
