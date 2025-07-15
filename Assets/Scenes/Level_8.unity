@@ -8765,6 +8765,30 @@ PrefabInstance:
       propertyPath: m_Name
       value: DoorBoard
       objectReference: {fileID: 0}
+    - target: {fileID: 6330581793940135679, guid: e4c8054b8cb66d246b8000ee8cf6e6ef, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6330581793940135679, guid: e4c8054b8cb66d246b8000ee8cf6e6ef, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6330581793940135679, guid: e4c8054b8cb66d246b8000ee8cf6e6ef, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6330581793940135679, guid: e4c8054b8cb66d246b8000ee8cf6e6ef, type: 3}
+      propertyPath: m_DrawMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6330581793940135679, guid: e4c8054b8cb66d246b8000ee8cf6e6ef, type: 3}
+      propertyPath: m_MaskInteraction
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6330581793940135679, guid: e4c8054b8cb66d246b8000ee8cf6e6ef, type: 3}
+      propertyPath: m_SpriteSortPoint
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7367017407816311610, guid: e4c8054b8cb66d246b8000ee8cf6e6ef, type: 3}
       propertyPath: door
       value: 

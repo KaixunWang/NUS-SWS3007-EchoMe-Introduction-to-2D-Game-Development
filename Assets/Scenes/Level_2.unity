@@ -3596,6 +3596,7 @@ MonoBehaviour:
   lifts: []
   spikes: []
   levelGoodTime: 30
+  leaderboard: {fileID: 0}
 --- !u!4 &754050757
 Transform:
   m_ObjectHideFlags: 0
@@ -3997,7 +3998,7 @@ PrefabInstance:
     - target: {fileID: 991917628361141982, guid: 2e6beff292853594ebc04470710f07c7, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: ae03952a516f86e40b0ecd09ced19078, type: 2}
+      objectReference: {fileID: 2100000, guid: e139ae229bde5a94690c424e1dd018bd, type: 2}
     - target: {fileID: 5437204593989898298, guid: 2e6beff292853594ebc04470710f07c7, type: 3}
       propertyPath: m_LocalPosition.x
       value: -8.93
@@ -8606,6 +8607,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2604998484573021996, guid: e4c3b8ac35930e64591b3670121ba35d, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e139ae229bde5a94690c424e1dd018bd, type: 2}
+    - target: {fileID: 4421860687734506620, guid: e4c3b8ac35930e64591b3670121ba35d, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: ae03952a516f86e40b0ecd09ced19078, type: 2}
     - target: {fileID: 7209355819302705270, guid: e4c3b8ac35930e64591b3670121ba35d, type: 3}
       propertyPath: m_Name
       value: Gate
