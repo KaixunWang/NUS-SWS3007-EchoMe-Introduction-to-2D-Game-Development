@@ -3725,7 +3725,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 899417004}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 25793234}
+        m_TargetAssemblyTypeName: InputManager, Assembly-CSharp
+        m_MethodName: RebindJumptoW
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &899417004
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4780,7 +4792,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1003485344}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 25793234}
+        m_TargetAssemblyTypeName: InputManager, Assembly-CSharp
+        m_MethodName: RebindJumptoSpace
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1003485344
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10183,6 +10207,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   achievementPanel: {fileID: 92800899}
   optionsPanel: {fileID: 128033626}
+  usernameInput: {fileID: 0}
 --- !u!4 &1239920465
 Transform:
   m_ObjectHideFlags: 0
@@ -10210,8 +10235,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17c01b0b58dfadb49afee77815f3e597, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bindWButton: {fileID: 899417003}
-  bindSpaceButton: {fileID: 1003485343}
+  bindWButton: {fileID: 0}
+  bindSpaceButton: {fileID: 0}
   jumpActionRef: {fileID: 2026642142279272899, guid: 264b40d74d585a343aee0c937d3e04ce, type: 3}
 --- !u!1 &1248312813
 GameObject:
