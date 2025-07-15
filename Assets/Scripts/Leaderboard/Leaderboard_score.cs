@@ -5,12 +5,12 @@ using LootLocker.Requests;
 
 public class leaderboard_score : MonoBehaviour
 {
-    public string leaderboardKey = "";
+    public string leaderboardKey = "numlevel";
 
-    private List<int> scores = new List<int>(10);
+    private List<Player_LevelPassed> scores = new List<Player_LevelPassed>(10);
 
     // 获取分数
-    public List<int> GetScores()
+    public List<Player_LevelPassed> GetScores()
     {
         return scores;
     }
@@ -53,10 +53,11 @@ public class leaderboard_score : MonoBehaviour
                 // 遍历获取前十项并解析
                 foreach (var item in response.items)
                 {
-                    int scoreValue = item.score;
+                    int player_id = item.player.id;
+                    int level_passed = item.score;
 
                     // 添加到列表
-                    scores.Add(scoreValue);
+                    scores.Add(new Player_LevelPassed(player_id,level_passed));
                 }
 
                 Debug.Log($"Fetched and saved {scores.Count} scores.");
@@ -69,5 +70,15 @@ public class leaderboard_score : MonoBehaviour
         });
 
         yield return new WaitWhile(() => done == false);
+    }
+}
+
+public class Player_LevelPassed{
+    public int player_id;
+    public int level_passed;
+    
+    public Player_LevelPassed(int playerId,int levelPassed){
+        this.player_id = playerId;
+        this.level_passed = levelPassed;
     }
 }

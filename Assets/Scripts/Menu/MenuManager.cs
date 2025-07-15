@@ -105,4 +105,17 @@ public class MenuManager : MonoBehaviour
     {
         leaderboardPanel.SetActive(false);
     }
+
+    public void OpenLeaderboard()
+    {
+        LeaderboardUpdater updater = FindObjectOfType<LeaderboardUpdater>();
+        if (updater != null)
+        {
+            updater.ShowLeaderboard();
+        }
+        else
+        {
+            Debug.LogWarning("LeaderboardUpdater 未找到");
+        }
+    }
 }
