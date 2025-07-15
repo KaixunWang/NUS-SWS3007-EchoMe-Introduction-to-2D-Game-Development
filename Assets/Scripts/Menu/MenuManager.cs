@@ -3,6 +3,7 @@ using UnityEngine.SceneManagement;
 using LootLocker.Requests;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 
 public class MenuManager : MonoBehaviour
 {
