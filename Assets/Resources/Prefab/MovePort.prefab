@@ -10433,7 +10433,7 @@ MonoBehaviour:
   linkedPortal: {fileID: 0}
   sideAPosition: {fileID: 5164687446859500493}
   sideBPosition: {fileID: 1958960834249294881}
-  teleportCooldown: 0.5
+  teleportCooldown: 0.3
 --- !u!1 &7697625865127675255
 GameObject:
   m_ObjectHideFlags: 0

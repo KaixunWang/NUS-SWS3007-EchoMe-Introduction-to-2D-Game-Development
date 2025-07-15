@@ -16,28 +16,34 @@ EditorBuildSettings:
     guid: 760c4aeec28dd6c4c8b2a88fc978de99
   - enabled: 1
     path: Assets/Scenes/Level_1.unity
-    guid: fb36de3877635b042829937a8374d06b
-  - enabled: 1
-    path: Assets/Scenes/Level_1(true).unity
     guid: cee888e6d1a801e45b9854263f67c76b
   - enabled: 1
     path: Assets/Scenes/Level_2.unity
     guid: 44c15a4c15fd9b6498e3590c4152d9ea
   - enabled: 1
     path: Assets/Scenes/Level_3.unity
-    guid: 1fbd096e51ccdb64283d222150cc788b
+    guid: eca5e76470b73a64b92ecbc70b39819e
   - enabled: 1
     path: Assets/Scenes/Level_4.unity
     guid: dc09058294f9dfc4591b1fe585cf2790
   - enabled: 1
     path: Assets/Scenes/Level_5.unity
-    guid: 855189ff79c00e249ba4b608803a9450
+    guid: 1fbd096e51ccdb64283d222150cc788b
   - enabled: 1
     path: Assets/Scenes/Level_6.unity
-    guid: 9624fec10db7db84faf1248007c20a81
+    guid: 855189ff79c00e249ba4b608803a9450
   - enabled: 1
     path: Assets/Scenes/Level_7.unity
+    guid: 9624fec10db7db84faf1248007c20a81
+  - enabled: 1
+    path: Assets/Scenes/Level_8.unity
     guid: 622d0a33027536b4eb3ac8d59de0c4dd
+  - enabled: 1
+    path: Assets/Scenes/Level_9.unity
+    guid: 26de8c6a0c4c21949828914f61e9a745
+  - enabled: 1
+    path: Assets/Scenes/Level_10.unity
+    guid: fb36de3877635b042829937a8374d06b
   - enabled: 1
     path: Assets/Scenes/BeatTheGameScene.unity
     guid: 9f0f3e7d55cc50c488a791b35ba8320e

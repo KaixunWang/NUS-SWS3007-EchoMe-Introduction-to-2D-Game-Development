@@ -22,6 +22,8 @@ public class SceneManagerScript : MonoBehaviour
     private int score = 0;
     public int levelGoodTime = 60;
     // Start is called before the first frame update
+
+    public leaderboard leaderboard;
     void Start()
     {
         
@@ -97,6 +99,8 @@ public class SceneManagerScript : MonoBehaviour
                 PlayerPrefs.Save();
                 Debug.Log($"保存关卡{currentLevelIndex}星星数: {score}");
             }
+
+            if (leaderboard != null) leaderboard.SubmitScoreRoutine(score, clock.GetComponent<TimerBehavior>().GetElapsedTime());
             // ---------------------------------------------
         }else if (playerBehaviour.IsLose())
         {
@@ -222,6 +226,7 @@ public class SceneManagerScript : MonoBehaviour
                 if (doorComponent != null)
                 {
                     doorComponent.IsOpened = currentState.doorStates[i];
+                    if (doors[i].tag == "gate") doors[i].GetComponent<Collider2D>().isTrigger = currentState.doorStates[i];
                 }
             }
             for (int i = 0; i < boxes.Count && i < currentState.boxPositions.Count; i++)

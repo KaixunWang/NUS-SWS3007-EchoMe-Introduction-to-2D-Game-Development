@@ -776,6 +776,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2412296935104180035}
   - component: {fileID: 5938571644119543009}
+  - component: {fileID: 2526672468408023974}
   m_Layer: 5
   m_Name: HelpPanel
   m_TagString: Untagged
@@ -814,6 +815,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4485364139748159152}
   m_CullTransparentMesh: 1
+--- !u!114 &2526672468408023974
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4485364139748159152}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2036019a4170e5945ac9bb936a4811b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4662373687293100406
 GameObject:
   m_ObjectHideFlags: 0
@@ -1635,6 +1648,18 @@ MonoBehaviour:
       - m_Target: {fileID: 4810050538705875983}
         m_TargetAssemblyTypeName: PauseMenuManager, Assembly-CSharp
         m_MethodName: ShowHelpPanel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2526672468408023974}
+        m_TargetAssemblyTypeName: CheatAchievement, Assembly-CSharp
+        m_MethodName: OnCheat
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

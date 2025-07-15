@@ -50,14 +50,7 @@ MonoBehaviour:
   linkedPortal: {fileID: 0}
   sideAPosition: {fileID: 8484845997552195102}
   sideBPosition: {fileID: 2973288191988177394}
-  particleSystems:
-  - {fileID: 4598305203923973925}
-  - {fileID: 3448463256259551914}
-  portalColliders:
-  - {fileID: 1414775142419505331}
-  - {fileID: 6770575928779333322}
-  - {fileID: 4111875153942597747}
-  teleportCooldown: 0.5
+  teleportCooldown: 0.3
 --- !u!1 &1916181846182874091
 GameObject:
   m_ObjectHideFlags: 0
