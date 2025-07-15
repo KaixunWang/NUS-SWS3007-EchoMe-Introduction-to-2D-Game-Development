@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class SpikeBehaviour : MonoBehaviour
 {
+    public bool singleMove = false; // 是否单次移动
     public int cntMove = 0;
     public bool inMove=false; // 是否开启
     public float moveSpeed = 2f; // 移动速度
@@ -16,6 +17,7 @@ public class SpikeBehaviour : MonoBehaviour
     }
     public void setState(SpikeState state)
     {
+        singleMove = state.singleMove;
         cntMove = state.cntMove;
         inMove = state.inMove;
         Destination = state.Destination;
@@ -25,6 +27,7 @@ public class SpikeBehaviour : MonoBehaviour
     public SpikeState getState()
     {
         SpikeState state = new SpikeState();
+        state.singleMove = singleMove;
         state.cntMove = cntMove;
         state.inMove = inMove;
         state.Destination = Destination;

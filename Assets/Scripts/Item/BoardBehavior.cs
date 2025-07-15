@@ -14,6 +14,10 @@ public class BoardBehavior : MonoBehaviour
     public Sprite spriteClosed;
     public Cainos.PixelArtPlatformer_Dungeon.Door door = null;
     public Portal portal = null;
+    public List<GameObject> spikes;
+    private float targetY = 0f;
+    private float originY = 0f;
+    public float speed = 0.1f; // 刺上升或下降的速度
     private int count = 0;
 
 
@@ -82,26 +86,58 @@ public class BoardBehavior : MonoBehaviour
     {
         Animator.Play(isOpened ? "Opened" : "Closed");
         IsOpened = isOpened;
+        if(spikes.Count != 0)
+        {
+            originY = spikes[0].transform.position.y;
+            targetY = originY - 1f; // 假设刺下降1个单位
+        }
     }
     void OnTriggerEnter2D(Collider2D other)
     {
         count++;
         IsOpened = true;
         TriggerDoor(); // 触发门的开关
-        if(portal != null){
+        if (portal != null)
+        {
             portal.SetPortalState(true);
         }
-        //gogogo
+        if(spikes.Count != 0)
+        {
+            LowerSpikes();
+        }
     }
     void OnTriggerExit2D(Collider2D other)
     {
         count--;
-        if (count <= 0){
+        if (count <= 0)
+        {
             IsOpened = false; // 切换门的开关状态
             TriggerDoor(); // 触发门的开关
-            if(portal != null){
+            if (portal != null)
+            {
                 portal.SetPortalState(false);
             }
+        }
+        if( spikes.Count != 0)
+        {
+            RaiseSpikes();
+        }  
+    }
+    void LowerSpikes()
+    {
+        foreach (GameObject spike in spikes)
+        {
+
+            spike.transform.position = new Vector3(spike.transform.position.x, targetY, spike.transform.position.z);
+
+        }
+    }
+    void RaiseSpikes()
+    {
+        foreach (GameObject spike in spikes)
+        {
+            spike.transform.position = new Vector3(spike.transform.position.x, originY, spike.transform.position.z);
+
         }
     }
     public bool GetBoardState()
