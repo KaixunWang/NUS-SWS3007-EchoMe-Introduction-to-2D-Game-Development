@@ -70,7 +70,7 @@ public class SpikeBehaviour : MonoBehaviour
         //     // 示例调用：影子掉血
         //     other.GetComponent<ShadowBehaviour>().DestroybyTrap();
         // }
-        if (other.name == "Echo(Clone)")
+        if (other.tag == "echo")
         {
             Debug.Log("Echo hit the spike!");
             // 示例调用：回声掉血
