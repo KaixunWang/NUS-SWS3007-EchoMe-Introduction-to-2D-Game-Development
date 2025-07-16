@@ -96,6 +96,7 @@ namespace Cainos.PixelArtPlatformer_Dungeon
         {
             // yield return new WaitForSeconds(autoCloseDelay);
             // float countdown = autoCloseDelay;
+            // Debug.LogWarning("Switch remaining time is " + remainingTime);
             while (remainingTime > 0f)
             {
                 // remainingTime = countdown; // 更新剩余时间
