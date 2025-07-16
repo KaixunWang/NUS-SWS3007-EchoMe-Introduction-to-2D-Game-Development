@@ -609,10 +609,18 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 647935904715260433, guid: e0964d75d4fad3141b2696b4cc13b2c8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ReturnToLevelSelect
+      objectReference: {fileID: 0}
     - target: {fileID: 2533829036143430411, guid: e0964d75d4fad3141b2696b4cc13b2c8, type: 3}
       propertyPath: m_Name
       value: PauselControl
       objectReference: {fileID: 0}
+    - target: {fileID: 4514894322213148098, guid: e0964d75d4fad3141b2696b4cc13b2c8, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -620845891, guid: 0de512ca4a4475a46ad6200659a6e6c9, type: 3}
     - target: {fileID: 5384439676390780224, guid: e0964d75d4fad3141b2696b4cc13b2c8, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
