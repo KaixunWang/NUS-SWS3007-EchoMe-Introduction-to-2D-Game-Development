@@ -7950,7 +7950,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fddcab5a5a966204eb4340f6919a56e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelIndex: 6
+  levelIndex: 7
   normalSprite: {fileID: 1009558817, guid: 0de512ca4a4475a46ad6200659a6e6c9, type: 3}
   pressedSprite: {fileID: 931724287, guid: 0de512ca4a4475a46ad6200659a6e6c9, type: 3}
   lockedSprite: {fileID: -1783097623, guid: 0de512ca4a4475a46ad6200659a6e6c9, type: 3}
@@ -8693,7 +8693,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelScenePrefix: Level_
-  totalLevels: 8
+  totalLevels: 11
   unlockRequirements: ffffffff00000000010000000200000003000000040000000200000006000000070000000200000009000000
   levelButtons:
   - {fileID: 496553882}

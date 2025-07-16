@@ -1,4 +1,3 @@
-using LootLocker.Extension.DataTypes;
 using UnityEngine;
 
 public class NoticeManger : MonoBehaviour
