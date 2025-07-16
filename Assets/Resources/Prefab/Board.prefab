@@ -56,7 +56,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: ae03952a516f86e40b0ecd09ced19078, type: 2}
+  - {fileID: 2100000, guid: 19136f9206b85ee43bc3f06b71156f07, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -105,6 +105,8 @@ MonoBehaviour:
   spriteClosed: {fileID: -505832463, guid: f6f785e56237ef44b88e0ccc38a504ca, type: 3}
   door: {fileID: 0}
   portal: {fileID: 0}
+  spikes: []
+  speed: 0.1
   isOpened: 0
 --- !u!61 &5698858722802468987
 BoxCollider2D:
@@ -189,7 +191,7 @@ MonoBehaviour:
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.5
   m_Color: {r: 1, g: 0.8666667, b: 0.6666667, a: 1}
-  m_Intensity: 1
+  m_Intensity: 1.5
   m_LightVolumeIntensity: 1
   m_LightVolumeIntensityEnabled: 0
   m_ApplyToSortingLayers: 
@@ -206,8 +208,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 0, y: 0, z: 0}
-    m_Extent: {x: 0, y: 0, z: 0}
+    m_Center: {x: 0, y: -0.00000011920929, z: 0}
+    m_Extent: {x: 0.9985302, y: 0.99853027, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
