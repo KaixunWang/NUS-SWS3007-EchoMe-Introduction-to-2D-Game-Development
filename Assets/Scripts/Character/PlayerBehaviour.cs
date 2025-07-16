@@ -31,7 +31,7 @@ public class PlayerBehaviour : MonoBehaviour
     {
         return animator.GetBool("IsShadow");
     }
-    public Vector3 nearBeaconPosition;
+    private Vector3 nearBeaconPosition;
     private BeaconBehaviour beaconBehaviour;
 
     public AudioSource footstepAudioSource;
