@@ -19,6 +19,8 @@ public class Portal : MonoBehaviour
     private static System.Collections.Generic.Dictionary<GameObject, float> lastTeleportTime = 
         new System.Collections.Generic.Dictionary<GameObject, float>();
     
+    public AudioSource teleportSound; // 传送音效
+
     void Start()
     {
         SetPortalState(isActive);
@@ -29,6 +31,11 @@ public class Portal : MonoBehaviour
     {
         if (!isActive || linkedPortal == null || !linkedPortal.isActive) return;
         
+        if (teleportSound != null)
+        {
+            teleportSound.Play(); // 播放传送音效
+        }
+
         // 检查冷却时间
         if (lastTeleportTime.ContainsKey(player) && 
             Time.time - lastTeleportTime[player] < teleportCooldown)
