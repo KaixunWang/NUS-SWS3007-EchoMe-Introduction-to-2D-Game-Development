@@ -935,6 +935,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 647935904715260433, guid: e0964d75d4fad3141b2696b4cc13b2c8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ReturnToLevelSelect
+      objectReference: {fileID: 0}
     - target: {fileID: 2533829036143430411, guid: e0964d75d4fad3141b2696b4cc13b2c8, type: 3}
       propertyPath: m_Name
       value: PauselControl
