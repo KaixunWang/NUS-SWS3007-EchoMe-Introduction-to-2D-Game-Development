@@ -50,11 +50,13 @@ public class PauseMenuManager : MonoBehaviour
     {
         Time.timeScale = 1f; // 恢复时间再重启
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        NoticeManger.Instance.ShowNotice(false); // 隐藏通知
     }
     public void LoseRestartGame()
     {
         Time.timeScale = 1f; // 恢复时间再重启
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        NoticeManger.Instance.ShowNotice(false); // 隐藏通知
         AchievementManager.Instance.UnlockAchievement("Restart");
     }
     public void ResumeGame()
