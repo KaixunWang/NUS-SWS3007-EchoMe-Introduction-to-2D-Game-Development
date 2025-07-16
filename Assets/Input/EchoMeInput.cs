@@ -80,6 +80,15 @@ public partial class @EchoMeInput: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Restart"",
+                    ""type"": ""Button"",
+                    ""id"": ""b41e4d72-38fd-48c1-bff5-cbb214cd6172"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -148,6 +157,17 @@ public partial class @EchoMeInput: IInputActionCollection2, IDisposable
                     ""action"": ""echo"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""022e6f7e-3de9-4e3b-9d39-543d637fccd0"",
+                    ""path"": ""<Keyboard>/tab"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Restart"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -162,6 +182,7 @@ public partial class @EchoMeInput: IInputActionCollection2, IDisposable
         m_GamePlay_Left = m_GamePlay.FindAction("Left", throwIfNotFound: true);
         m_GamePlay_Right = m_GamePlay.FindAction("Right", throwIfNotFound: true);
         m_GamePlay_echo = m_GamePlay.FindAction("echo", throwIfNotFound: true);
+        m_GamePlay_Restart = m_GamePlay.FindAction("Restart", throwIfNotFound: true);
     }
 
     ~@EchoMeInput()
@@ -234,6 +255,7 @@ public partial class @EchoMeInput: IInputActionCollection2, IDisposable
     private readonly InputAction m_GamePlay_Left;
     private readonly InputAction m_GamePlay_Right;
     private readonly InputAction m_GamePlay_echo;
+    private readonly InputAction m_GamePlay_Restart;
     public struct GamePlayActions
     {
         private @EchoMeInput m_Wrapper;
@@ -244,6 +266,7 @@ public partial class @EchoMeInput: IInputActionCollection2, IDisposable
         public InputAction @Left => m_Wrapper.m_GamePlay_Left;
         public InputAction @Right => m_Wrapper.m_GamePlay_Right;
         public InputAction @echo => m_Wrapper.m_GamePlay_echo;
+        public InputAction @Restart => m_Wrapper.m_GamePlay_Restart;
         public InputActionMap Get() { return m_Wrapper.m_GamePlay; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -271,6 +294,9 @@ public partial class @EchoMeInput: IInputActionCollection2, IDisposable
             @echo.started += instance.OnEcho;
             @echo.performed += instance.OnEcho;
             @echo.canceled += instance.OnEcho;
+            @Restart.started += instance.OnRestart;
+            @Restart.performed += instance.OnRestart;
+            @Restart.canceled += instance.OnRestart;
         }
 
         private void UnregisterCallbacks(IGamePlayActions instance)
@@ -293,6 +319,9 @@ public partial class @EchoMeInput: IInputActionCollection2, IDisposable
             @echo.started -= instance.OnEcho;
             @echo.performed -= instance.OnEcho;
             @echo.canceled -= instance.OnEcho;
+            @Restart.started -= instance.OnRestart;
+            @Restart.performed -= instance.OnRestart;
+            @Restart.canceled -= instance.OnRestart;
         }
 
         public void RemoveCallbacks(IGamePlayActions instance)
@@ -318,5 +347,6 @@ public partial class @EchoMeInput: IInputActionCollection2, IDisposable
         void OnLeft(InputAction.CallbackContext context);
         void OnRight(InputAction.CallbackContext context);
         void OnEcho(InputAction.CallbackContext context);
+        void OnRestart(InputAction.CallbackContext context);
     }
 }
