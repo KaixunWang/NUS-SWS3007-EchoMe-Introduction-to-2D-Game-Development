@@ -209,12 +209,18 @@ public class SceneManagerScript : MonoBehaviour
                 {
                     if (currentState.switchStates[i])
                     {
-                        switchComponent.TurnOn();
+                        if (!(switchComponent.IsOn))
+                        {
+                            switchComponent.TriggerSwitch();
+                        }
                         switchComponent.SetRemainingTime(currentState.switchRemainingTimes[i]);
                     }
                     else
                     {
-                        switchComponent.TurnOff();
+                        if (switchComponent.IsOn)
+                        {
+                            switchComponent.TriggerSwitch();
+                        }
                         switchComponent.SetRemainingTime(0f); // Reset remaining time if switch is off
                     }
                     // else
