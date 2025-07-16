@@ -285,8 +285,18 @@ public class ShadowBehaviour : MonoBehaviour
         float currentTime = Time.time - recordStartTime;
         Vector2 currentPosition = transform.position;
         var inputMgr = InputManager.Instance;
+        
         // 检查每个输入键的状态变化
-        CheckInputStateChange(inputMgr.getJumpBinding(), InputType.W, currentTime, currentPosition);
+        // 对于跳跃键，使用InputManager的IsJumpPressed()方法
+        bool jumpPressed = inputMgr != null && inputMgr.IsJumpPressed();
+        bool previousJumpState = currentInputStates[InputType.W];
+        if (jumpPressed != previousJumpState)
+        {
+            inputEvents.Add(new TimeBasedInputEvent(currentTime, InputType.W, jumpPressed, currentPosition));
+            currentInputStates[InputType.W] = jumpPressed;
+        }
+        
+        // 其他按键使用原来的方法
         CheckInputStateChange(KeyCode.A, InputType.A, currentTime, currentPosition);
         CheckInputStateChange(KeyCode.D, InputType.D, currentTime, currentPosition);
         CheckInputStateChange(KeyCode.E, InputType.E, currentTime, currentPosition);
