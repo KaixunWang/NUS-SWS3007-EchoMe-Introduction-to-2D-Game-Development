@@ -27,7 +27,7 @@ public class MenuManager : MonoBehaviour
             if (response.success)
             {
                 Debug.Log("Login successful");
-                PlayerPrefs.SetString("playerID", response.player_id.ToString());
+                PlayerPrefs.SetString("PlayerID", response.player_id.ToString());
                 done = true;
             }
             else
