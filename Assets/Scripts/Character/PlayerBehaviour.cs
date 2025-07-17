@@ -167,7 +167,7 @@ public class PlayerBehaviour : MonoBehaviour
             SwitchShadow();
         }
 
-        if (isInputEnabled && inputManager != null && inputManager.IsInteractPressed() && isNearSwitch && switchObject != null)
+        if (isInputEnabled && inputManager != null && inputManager.IsInteractPressed() && isNearSwitch && switchObject != null && !isShadow)
         {
             Debug.Log("E pressed near switch");
             switchObject.TriggerSwitch(); // 触发开关
