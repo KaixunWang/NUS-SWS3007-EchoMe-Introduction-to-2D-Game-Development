@@ -81,7 +81,11 @@ public class LeaderboardUI : MonoBehaviour
             // 设置玩家ID
             TextMeshProUGUI playerText = entry.transform.Find("ID").GetComponent<TextMeshProUGUI>();
             if (playerText != null)
-                playerText.text = $"{scores[i].player_id}";
+            {
+                // 使用LootLockerManager获取更好的显示名称
+                string displayName = LootLockerManager.Instance.GetPlayerDisplayName(scores[i].player_id, scores[i].player_name);
+                playerText.text = displayName;
+            }
             
             // 设置通关数
             TextMeshProUGUI scoreText = entry.transform.Find("LevelPassed").GetComponent<TextMeshProUGUI>();

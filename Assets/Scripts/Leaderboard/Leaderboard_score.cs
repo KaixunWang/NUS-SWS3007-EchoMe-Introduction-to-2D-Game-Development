@@ -5,7 +5,7 @@ using LootLocker.Requests;
 
 public class leaderboard_score : MonoBehaviour
 {
-    public string leaderboardKey = "numlevel";
+    public string leaderboardKey = "passlevelnumber";
 
     private List<Player_LevelPassed> scores = new List<Player_LevelPassed>(10);
 
@@ -17,6 +17,9 @@ public class leaderboard_score : MonoBehaviour
 
     public IEnumerator SubmitScoreRoutine(int scoreToUpload)
     {
+        // 确保LootLocker已初始化
+        yield return StartCoroutine(LootLockerManager.Instance.EnsureInitialized());
+        
         bool done = false;
         string playerID = PlayerPrefs.GetString("PlayerID");
         LootLockerSDKManager.SubmitScore(playerID, scoreToUpload, leaderboardKey, (response) =>
@@ -34,13 +37,16 @@ public class leaderboard_score : MonoBehaviour
         });
         yield return new WaitWhile(() => done == false);
     }
-
+    
     // 通过这个函数，获取相应的分数，并保存在scores中
     public IEnumerator FetchTopHighScoresRoutine()
     {
+        // 确保LootLocker已初始化
+        yield return StartCoroutine(LootLockerManager.Instance.EnsureInitialized());
+        
         bool done = false;
 
-        LootLockerSDKManager.GetScoreList(leaderboardKey, 10, 0, (response) =>
+        LootLockerSDKManager.GetScoreList(leaderboardKey, 100, 0, (response) =>
         {
             if (response.success)
             {
@@ -55,9 +61,13 @@ public class leaderboard_score : MonoBehaviour
                 {
                     int player_id = item.player.id;
                     int level_passed = item.score;
+                    string player_name = item.player.name; // 获取玩家名字
+                    
+                    // 使用LootLockerManager获取更好的显示名称
+                    string displayName = LootLockerManager.Instance.GetPlayerDisplayName(player_id, player_name);
 
                     // 添加到列表
-                    scores.Add(new Player_LevelPassed(player_id,level_passed));
+                    scores.Add(new Player_LevelPassed(player_id, level_passed, displayName));
                 }
 
                 Debug.Log($"Fetched and saved {scores.Count} scores.");
@@ -76,9 +86,11 @@ public class leaderboard_score : MonoBehaviour
 public class Player_LevelPassed{
     public int player_id;
     public int level_passed;
+    public string player_name; // 添加玩家名字字段
     
-    public Player_LevelPassed(int playerId,int levelPassed){
+    public Player_LevelPassed(int playerId, int levelPassed, string playerName = ""){
         this.player_id = playerId;
         this.level_passed = levelPassed;
+        this.player_name = playerName;
     }
 }

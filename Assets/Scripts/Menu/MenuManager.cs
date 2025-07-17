@@ -13,33 +13,10 @@ public class MenuManager : MonoBehaviour
     public GameObject leaderboardPanel;
     public void Start()
     {
-        StartCoroutine(LoginRoutine());
         // 初始化菜单或其他设置
         Debug.Log("MenuManager initialized");
     }
 
-    IEnumerator LoginRoutine()
-    {
-        bool done = false;
-        // 登录LootLocker
-        LootLockerSDKManager.StartGuestSession((response) =>
-        {
-            if (response.success)
-            {
-                Debug.Log("Login successful");
-                PlayerPrefs.SetString("PlayerID", response.player_id.ToString());
-                done = true;
-            }
-            else
-            {
-                Debug.LogError("Login failed");
-                done = true;
-            }
-        });
-
-        // 等待登录完成
-        yield return new WaitWhile(()=>done == false);
-    }
 
     // 调用这个函数用于设置名字
     public void SetPlayerName(){
