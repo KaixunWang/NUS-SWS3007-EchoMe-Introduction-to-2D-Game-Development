@@ -67,7 +67,7 @@ public class LootLockerManager : MonoBehaviour
         }
         
         // 如果都没有，返回玩家ID
-        return $"玩家{playerId}";
+        return $"{playerId}";
     }
     
     // 确保LootLocker已初始化
