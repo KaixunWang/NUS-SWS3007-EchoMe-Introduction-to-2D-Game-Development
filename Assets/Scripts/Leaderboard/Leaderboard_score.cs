@@ -46,7 +46,7 @@ public class leaderboard_score : MonoBehaviour
         
         bool done = false;
 
-        LootLockerSDKManager.GetScoreList(leaderboardKey, 100, 0, (response) =>
+        LootLockerSDKManager.GetScoreList(leaderboardKey, 15, 0, (response) =>
         {
             if (response.success)
             {

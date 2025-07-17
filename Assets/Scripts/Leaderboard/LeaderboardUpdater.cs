@@ -47,8 +47,8 @@ public class LeaderboardUpdater : MonoBehaviour
     {
         int count = 0;
         
-        // 遍历所有可能的关卡（假设最多100关）
-        for (int i = 0; i < 100; i++)
+        // 遍历所有可能的关卡（假设最多11关）
+        for (int i = 0; i <= 10; i++)
         {
             int stars = PlayerPrefs.GetInt($"Level_{i}_Stars", 0);
             if (stars > 0)
