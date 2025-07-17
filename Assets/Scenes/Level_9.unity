@@ -940,7 +940,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9001574876979059853, guid: e0964d75d4fad3141b2696b4cc13b2c8, type: 3}
       propertyPath: m_Url
-      value: https://cdn.jsdelivr.net/gh/KaixunWang/EchoMeTipVideos@main/level5tips.webm
+      value: https://cdn.jsdelivr.net/gh/KaixunWang/EchoMeTipVideos/level5tips.webm?v=2
       objectReference: {fileID: 0}
     - target: {fileID: 9001574876979059853, guid: e0964d75d4fad3141b2696b4cc13b2c8, type: 3}
       propertyPath: m_VideoClip
