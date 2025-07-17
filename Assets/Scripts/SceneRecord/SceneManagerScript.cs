@@ -23,6 +23,7 @@ public class SceneManagerScript : MonoBehaviour
     private int score = 0;
     public int levelGoodTime = 60;
     private int cooldown = 100;
+    private bool hasSubmittedLeaderboard = false;
     // Start is called before the first frame update
 
     private int currentLevelIndex = 0;
@@ -125,11 +126,15 @@ public class SceneManagerScript : MonoBehaviour
             {
                 message += "Time: " + time + "/" + levelGoodTime + "s\n";
             }
-            if (cooldown == 0){
+           
             // 提交通关时间到当前关卡排行榜（使用精确时间，包含毫秒）
-                StartCoroutine(SubmitLevelTimeToLeaderboard(preciseTime));
-                cooldown = 100;
-            }
+                // 为避免在Update中多次提交排行榜，只在首次胜利时提交
+                if (!hasSubmittedLeaderboard)
+                {
+                    StartCoroutine(SubmitLevelTimeToLeaderboard(preciseTime));
+                    hasSubmittedLeaderboard = true;
+                }
+            
             
             win.GetComponent<WinScript>().SetStars(score);
             win.GetComponent<WinScript>().ShowWinPanel(message);
