@@ -115,10 +115,10 @@ public class SceneManagerScript : MonoBehaviour
             if (time <= levelGoodTime)
             {
                 score++;
-                //如果当前scene是Level_4，则触发成就PassLevel4
-                if (SceneManager.GetActiveScene().name == "Level_4" && clock.GetComponent<TimerBehavior>().GetElapsedTime() <= 20)
+                //如果当前scene是Level_3，则触发成就PassLevel3
+                if (SceneManager.GetActiveScene().name == "Level_3" && clock.GetComponent<TimerBehavior>().GetElapsedTime() <= 20)
                 {
-                    AchievementManager.Instance.UnlockAchievement("PassLevel4_Under20");
+                    AchievementManager.Instance.UnlockAchievement("PassLevel3_Under20");
                 }
                 message += "Time: " + time + "/" + levelGoodTime + "s\n";
             }
