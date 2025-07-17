@@ -75,6 +75,13 @@ public class LevelSelectButtonBehaviour : MonoBehaviour
             {
                 isUnlocked = true;
             }
+            else if (levelIndex == 11)
+            {
+                for (int i = 0; i <= 10; i++)
+                {
+                    isUnlocked &= PlayerPrefs.GetInt($"Level_{i}_Stars", 0) >= 1; // 第11关需要第10关≥1星解锁
+                }
+            }
             else
             {
                 // 其他关卡：上一关获得≥1星才解锁
@@ -156,7 +163,7 @@ public class LevelSelectButtonBehaviour : MonoBehaviour
     {
         CheckLevelUnlock(); // 确保isUnlocked是最新的
         if (starImages == null || starImages.Length == 0) return;
-
+        if (levelIndex == 11) return;   // 第11关不显示星星
         // 没解锁就隐藏所有星星
         if (!isUnlocked)
         {
