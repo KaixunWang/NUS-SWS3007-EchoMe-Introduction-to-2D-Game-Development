@@ -10157,11 +10157,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6265670936862214329, guid: 4c330f7f1a865114e9eb8722d9b4f9c5, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -11.6
+      value: -10.72
       objectReference: {fileID: 0}
     - target: {fileID: 6265670936862214329, guid: 4c330f7f1a865114e9eb8722d9b4f9c5, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.05
+      value: 1.89
       objectReference: {fileID: 0}
     - target: {fileID: 6265670936862214329, guid: 4c330f7f1a865114e9eb8722d9b4f9c5, type: 3}
       propertyPath: m_LocalPosition.z
@@ -11460,7 +11460,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2886701514927247130, guid: ba74ccccb9c11a14d995dd93e2642fe5, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -1.23
+      value: -1.35
       objectReference: {fileID: 0}
     - target: {fileID: 3218336040957493444, guid: ba74ccccb9c11a14d995dd93e2642fe5, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -11490,6 +11490,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 4103960605745974840, guid: ba74ccccb9c11a14d995dd93e2642fe5, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -21.62
+      objectReference: {fileID: 0}
+    - target: {fileID: 4103960605745974840, guid: ba74ccccb9c11a14d995dd93e2642fe5, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -2.07
+      objectReference: {fileID: 0}
     - target: {fileID: 5295474506880345690, guid: ba74ccccb9c11a14d995dd93e2642fe5, type: 3}
       propertyPath: maxDistance
       value: 20
@@ -11502,6 +11510,17 @@ PrefabInstance:
       propertyPath: playerObject
       value: 
       objectReference: {fileID: 484055780}
+    - target: {fileID: 5626941116414255253, guid: ba74ccccb9c11a14d995dd93e2642fe5, type: 3}
+      propertyPath: m_text
+      value: 'use ''A'' ''D'' to move and push the box
+
+        press ''Tab'' to
+        restart'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5626941116414255253, guid: ba74ccccb9c11a14d995dd93e2642fe5, type: 3}
+      propertyPath: m_margin.z
+      value: -4.320797
+      objectReference: {fileID: 0}
     - target: {fileID: 5626941116414255253, guid: ba74ccccb9c11a14d995dd93e2642fe5, type: 3}
       propertyPath: m_fontAsset
       value: 
