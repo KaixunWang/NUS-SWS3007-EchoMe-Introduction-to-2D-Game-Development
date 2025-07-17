@@ -17,7 +17,6 @@ public class MenuManager : MonoBehaviour
         Debug.Log("MenuManager initialized");
     }
 
-    // 移除LoginRoutine方法
 
     // 调用这个函数用于设置名字
     public void SetPlayerName(){
