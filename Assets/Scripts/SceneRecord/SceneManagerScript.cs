@@ -124,8 +124,8 @@ public class SceneManagerScript : MonoBehaviour
                 message += "Time: " + time + "/" + levelGoodTime + "s\n";
             }
             
-            // 提交通关时间到当前关卡排行榜
-            StartCoroutine(SubmitLevelTimeToLeaderboard(time));
+            // 提交通关时间到当前关卡排行榜（使用精确时间，包含毫秒）
+            StartCoroutine(SubmitLevelTimeToLeaderboard(preciseTime));
             
             win.GetComponent<WinScript>().SetStars(score);
             win.GetComponent<WinScript>().ShowWinPanel(message);
@@ -353,7 +353,7 @@ public class SceneManagerScript : MonoBehaviour
     }
     
     // 提交通关时间到当前关卡排行榜
-    private IEnumerator SubmitLevelTimeToLeaderboard(int elapsedTime)
+    private IEnumerator SubmitLevelTimeToLeaderboard(float elapsedTime)
     {
         // 确保LootLocker已初始化
         yield return StartCoroutine(LootLockerManager.Instance.EnsureInitialized());
@@ -362,11 +362,14 @@ public class SceneManagerScript : MonoBehaviour
         string playerID = PlayerPrefs.GetString("PlayerID");
         string leaderboardKey = GetCurrentLevelLeaderboardKey();
         
-        LootLockerSDKManager.SubmitScore(playerID, elapsedTime, leaderboardKey, (response) =>
+        // 将浮点数时间转换为毫秒整数（LootLocker只接受整数）
+        int timeInMilliseconds = Mathf.RoundToInt(elapsedTime * 1000);
+        
+        LootLockerSDKManager.SubmitScore(playerID, timeInMilliseconds, leaderboardKey, (response) =>
         {
             if (response.success)
             {
-                Debug.Log($"成功提交关卡{currentLevelIndex}通关时间: {elapsedTime}秒 到排行榜: {leaderboardKey}");
+                Debug.Log($"成功提交关卡{currentLevelIndex}通关时间: {elapsedTime:F3}秒 ({timeInMilliseconds}毫秒) 到排行榜: {leaderboardKey}");
             }
             else
             {

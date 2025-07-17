@@ -239,10 +239,13 @@ public class LeaderboardUI : MonoBehaviour
             {
                 if (title.Contains("Time"))
                 {
-                    // 显示时间格式
-                    int minutes = scores[i].level_passed / 60;
-                    int seconds = scores[i].level_passed % 60;
-                    scoreText.text = $"{minutes:00}:{seconds:00}";
+                    // 显示时间格式 mm:ss.xxx
+                    // level_passed现在是毫秒数
+                    int totalMilliseconds = scores[i].level_passed;
+                    int minutes = totalMilliseconds / (60 * 1000);
+                    int seconds = (totalMilliseconds % (60 * 1000)) / 1000;
+                    int milliseconds = totalMilliseconds % 1000;
+                    scoreText.text = $"{minutes:00}:{seconds:00}.{milliseconds:000}";
                 }
                 else
                 {
