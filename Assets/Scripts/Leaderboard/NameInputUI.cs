@@ -8,7 +8,6 @@ public class NameInputUI : MonoBehaviour
 {
     [Header("UI References")]
     public TMP_InputField nameInputField; // 名字输入框
-    public TMP_Text currentNameText; // 显示当前名字的文本
     
     void Start()
     {
@@ -17,9 +16,6 @@ public class NameInputUI : MonoBehaviour
         {
             nameInputField.onEndEdit.AddListener(OnNameSubmitted);
         }
-        
-        // 显示当前名字
-        UpdateCurrentNameDisplay();
         
         // 设置输入框的当前值
         if (nameInputField != null)
@@ -65,7 +61,6 @@ public class NameInputUI : MonoBehaviour
                 Debug.Log($"玩家名字设置成功: {playerName}");
                 PlayerPrefs.SetString("PlayerName", playerName);
                 PlayerPrefs.Save();
-                UpdateCurrentNameDisplay();
             }
             else
             {
@@ -77,26 +72,18 @@ public class NameInputUI : MonoBehaviour
         yield return new WaitWhile(() => !done);
     }
     
-    // 更新当前名字显示
-    public void UpdateCurrentNameDisplay()
+    // 获取当前玩家名字
+    public string GetCurrentPlayerName()
     {
-        if (currentNameText != null)
-        {
-            string currentName = LootLockerManager.Instance.GetPlayerName();
-            if (string.IsNullOrEmpty(currentName))
-            {
-                currentNameText.text = "未设置名字";
-            }
-            else
-            {
-                currentNameText.text = $"当前名字: {currentName}";
-            }
-        }
+        return LootLockerManager.Instance.GetPlayerName();
     }
     
-    // 这个方法可以在名字设置成功后调用，用于刷新显示
-    public void OnNameSetSuccess()
+    // 手动设置输入框的值
+    public void SetInputFieldValue(string value)
     {
-        UpdateCurrentNameDisplay();
+        if (nameInputField != null)
+        {
+            nameInputField.text = value;
+        }
     }
 } 
