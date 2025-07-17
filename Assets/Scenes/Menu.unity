@@ -1656,13 +1656,13 @@ MonoBehaviour:
     isUnlocked: 0
     icon: {fileID: 1465387530, guid: 0de512ca4a4475a46ad6200659a6e6c9, type: 3}
     scoreReward: 1
-  - id: PassLevel4_Under20
+  - id: PassLevel3_Under20
     name: It Takes Two?
-    description: Beat level 4 under 20s.
+    description: Beat level 3 under 20s.
     category: Other
     isUnlocked: 0
     icon: {fileID: 247304179, guid: 0de512ca4a4475a46ad6200659a6e6c9, type: 3}
-    scoreReward: 1
+    scoreReward: 5
   - id: Coin1
     name: Coin Beginner
     description: Collect a total of 10 coins.

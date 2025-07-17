@@ -22,7 +22,6 @@ public class SceneManagerScript : MonoBehaviour
     public List<GameObject> spikes; // List of spike GameObjects
     private int score = 0;
     public int levelGoodTime = 60;
-    private int cooldown = 100;
     private bool hasSubmittedLeaderboard = false;
     // Start is called before the first frame update
 
