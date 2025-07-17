@@ -8,7 +8,7 @@ public class AutoPauseWhenStart : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        pauseMenuManager.PauseGame();
+        pauseMenuManager.PauseGameWithPopUp();
         if (NoticeManger.Instance != null)
         {
             if (NoticeManger.Instance.noticeCount > 0)

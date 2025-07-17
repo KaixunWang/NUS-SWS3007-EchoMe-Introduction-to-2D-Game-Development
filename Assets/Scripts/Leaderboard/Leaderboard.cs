@@ -29,10 +29,13 @@ public class leaderboard : MonoBehaviour
 
     public IEnumerator SubmitScoreRoutine(int star, int time)
     {
+        // 确保LootLocker已初始化
+        yield return StartCoroutine(LootLockerManager.Instance.EnsureInitialized());
+        
         bool done = false;
         string playerID = PlayerPrefs.GetString("PlayerID");
-        // 我们怎么记录分数，万位是3-星星数，然后后四位是时间的秒数，这样我们可以根据相应的分数进行排序，分数越小越好。
-        int scoreToUpload = (3-star) * 10000 + time;
+        // 我们怎么记录分数，万位是3星星数，然后后四位是时间的秒数，这样我们可以根据相应的分数进行排序，分数越小越好。
+        int scoreToUpload = (3-star) * 100 + time;
         LootLockerSDKManager.SubmitScore(playerID, scoreToUpload, leaderboardKey, (response) =>
         {
             if (response.success)
@@ -48,13 +51,16 @@ public class leaderboard : MonoBehaviour
         });
         yield return new WaitWhile(() => done == false);
     }
-
+    
     // 通过这个函数，获取相应的分数，并保存在scores中
     public IEnumerator FetchTopHighScoresRoutine()
     {
+        // 确保LootLocker已初始化
+        yield return StartCoroutine(LootLockerManager.Instance.EnsureInitialized());
+        
         bool done = false;
 
-        LootLockerSDKManager.GetScoreList(leaderboardKey, 10, 0, (response) =>
+        LootLockerSDKManager.GetScoreList(leaderboardKey, 100, 0, (response) =>
         {
             if (response.success)
             {
@@ -70,14 +76,17 @@ public class leaderboard : MonoBehaviour
                     int scoreValue = item.score;
                     string playerName = item.player.name;
                     int rank = item.rank;
-                    int star = 3 - (scoreValue / 10000);
-                    int time = scoreValue % 10000;
+                    int star = 3 - (scoreValue / 1000);
+                    int time = scoreValue % 1000;
+                    
+                    // 使用LootLockerManager获取更好的显示名称
+                    string displayName = LootLockerManager.Instance.GetPlayerDisplayName(item.player.id, playerName);
 
                     // 添加到列表
                     scores.Add(new Score
                     {
                         rank = rank,
-                        player = playerName,
+                        player = displayName,
                         star = star,
                         time = time
                     });

@@ -19,11 +19,11 @@ PrefabInstance:
     - target: {fileID: 2757065402110803978, guid: 8ce820bbc95aeb142ab6a6990e617c41, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: ae03952a516f86e40b0ecd09ced19078, type: 2}
+      objectReference: {fileID: 2100000, guid: 19136f9206b85ee43bc3f06b71156f07, type: 2}
     - target: {fileID: 4142715627474073102, guid: 8ce820bbc95aeb142ab6a6990e617c41, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: ae03952a516f86e40b0ecd09ced19078, type: 2}
+      objectReference: {fileID: 2100000, guid: 19136f9206b85ee43bc3f06b71156f07, type: 2}
     - target: {fileID: 6930122694965717508, guid: 8ce820bbc95aeb142ab6a6990e617c41, type: 3}
       propertyPath: m_Name
       value: Gate
@@ -122,7 +122,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: ae03952a516f86e40b0ecd09ced19078, type: 2}
+  - {fileID: 2100000, guid: 19136f9206b85ee43bc3f06b71156f07, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

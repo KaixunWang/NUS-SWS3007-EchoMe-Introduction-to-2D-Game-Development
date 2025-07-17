@@ -11154,7 +11154,7 @@ PrefabInstance:
     - target: {fileID: 6330581793940135679, guid: e4c8054b8cb66d246b8000ee8cf6e6ef, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 827c5cd68ba29be40b7706ab89149129, type: 2}
+      objectReference: {fileID: 2100000, guid: e139ae229bde5a94690c424e1dd018bd, type: 2}
     - target: {fileID: 7367017407816311610, guid: e4c8054b8cb66d246b8000ee8cf6e6ef, type: 3}
       propertyPath: originY
       value: 9.5
@@ -12054,7 +12054,7 @@ PrefabInstance:
     - target: {fileID: 6330581793940135679, guid: e4c8054b8cb66d246b8000ee8cf6e6ef, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 827c5cd68ba29be40b7706ab89149129, type: 2}
+      objectReference: {fileID: 2100000, guid: e139ae229bde5a94690c424e1dd018bd, type: 2}
     - target: {fileID: 7367017407816311610, guid: e4c8054b8cb66d246b8000ee8cf6e6ef, type: 3}
       propertyPath: door
       value: 

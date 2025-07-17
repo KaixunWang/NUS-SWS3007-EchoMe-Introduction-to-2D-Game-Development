@@ -1,3 +1,4 @@
+using LootLocker.Extension.DataTypes;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -21,8 +22,9 @@ public class PauseMenuManager : MonoBehaviour
     void Update()
     {
         if (isEnd||pausePanel==null) return; // 如果游戏结束，直接返回
+        
         // 按下 Esc 切换暂停状态
-        if (Input.GetKeyDown(KeyCode.Escape)&&(!isEnd))
+        if (Input.GetKeyDown(KeyCode.Escape) && (!isEnd))
         {
             if (isPaused)
                 ResumeGame();
@@ -32,6 +34,24 @@ public class PauseMenuManager : MonoBehaviour
     }
 
     public void PauseGame()
+    {
+        GameObject obj = GameObject.Find("PopUp");
+        if(obj != null) return;
+        Debug.Log("Game Paused");
+        if(pausePanel != null)
+            pausePanel.SetActive(true);
+        if (playerBehaviour != null)
+        {
+            playerBehaviour.isPaused = true;
+            ShadowBehaviour shadowBehaviour = FindObjectOfType<ShadowBehaviour>();
+            if (shadowBehaviour != null)
+                shadowBehaviour.isPaused = true; // 恢复影子状态   
+        }
+        Time.timeScale = 0f; // 暂停游戏时间
+        isPaused = true;
+    }
+
+    public void PauseGameWithPopUp()
     {
         Debug.Log("Game Paused");
         if(pausePanel != null)

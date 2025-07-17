@@ -13,35 +13,21 @@ public class LeaderboardUpdater : MonoBehaviour
     
     void Start()
     {
-        // 初始化LootLocker会话
-        StartGuestSession();
+        // 使用全局管理器确保LootLocker已初始化
+        StartCoroutine(InitializeAndUpdate());
     }
     
-    // 使用访客会话（不需要登录）
-    void StartGuestSession()
+    // 初始化并更新排行榜
+    private IEnumerator InitializeAndUpdate()
     {
-        LootLockerSDKManager.StartGuestSession((response) =>
+        // 确保LootLocker已初始化
+        yield return StartCoroutine(LootLockerManager.Instance.EnsureInitialized());
+        
+        // 初始化后更新排行榜分数
+        if (autoUpdateOnStart)
         {
-            if (response.success)
-            {
-                Debug.Log("LootLocker会话启动成功");
-                Debug.Log($"玩家ID: {response.player_id}");
-                
-                // 保存LootLocker生成的玩家ID
-                PlayerPrefs.SetString("PlayerID", response.player_id.ToString());
-                PlayerPrefs.Save();
-                
-                // 会话启动后更新排行榜分数
-                if (autoUpdateOnStart)
-                {
-                    UpdateLeaderboardScore();
-                }
-            }
-            else
-            {
-                Debug.LogError("启动LootLocker会话失败: " + response.errorData.ToString());
-            }
-        });
+            UpdateLeaderboardScore();
+        }
     }
     
     // 计算并更新通关数到排行榜

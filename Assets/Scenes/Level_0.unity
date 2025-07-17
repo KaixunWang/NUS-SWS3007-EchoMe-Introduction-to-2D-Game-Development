@@ -11457,6 +11457,10 @@ PrefabInstance:
       value: -2.51
       objectReference: {fileID: 0}
     - target: {fileID: 3940876103382122625, guid: ba74ccccb9c11a14d995dd93e2642fe5, type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3940876103382122625, guid: ba74ccccb9c11a14d995dd93e2642fe5, type: 3}
       propertyPath: m_DynamicPixelsPerUnit
       value: 1
       objectReference: {fileID: 0}
