@@ -30,7 +30,7 @@ public class MenuParallax : MonoBehaviour
         // 平滑移动到目标位置
         transform.position = Vector2.SmoothDamp(transform.position, targetPosition, ref velocity, smoothTime);
 
-        if(SceneManager.GetActiveScene().name == "BeatTheGameScene"){
+        if(SceneManager.GetActiveScene().name == "Level_11"){
             AchievementManager.Instance.UnlockAchievement("GameOver");
         }
     }
