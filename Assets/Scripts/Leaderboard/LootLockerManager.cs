@@ -95,16 +95,67 @@ public class LootLockerManager : MonoBehaviour
             yield break;
         }
         
-        // 使用设备唯一标识符进行游客登录
+        // 尝试使用保存的玩家ID进行会话恢复
+        string savedPlayerID = PlayerPrefs.GetString("PlayerID", "");
+        if (!string.IsNullOrEmpty(savedPlayerID))
+        {
+            yield return StartCoroutine(TryRestoreSession(savedPlayerID));
+        }
+        
+        // 如果恢复失败或没有保存的ID，创建新的游客会话
+        if (!isInitialized)
+        {
+            yield return StartCoroutine(CreateNewGuestSession());
+        }
+        
+        isInitializing = false;
+    }
+    
+    // 尝试恢复现有会话
+    private IEnumerator TryRestoreSession(string playerID)
+    {
         bool done = false;
-        LootLockerSDKManager.StartGuestSession(SystemInfo.deviceUniqueIdentifier, (response) =>
+        LootLockerSDKManager.StartGuestSession(playerID, (response) =>
         {
             if (response.success)
             {
-                Debug.Log("LootLocker会话启动成功");
+                Debug.Log("LootLocker会话恢复成功");
                 Debug.Log($"玩家ID: {response.player_id}");
                 
-                // 保存玩家ID
+                // 更新UIDgetter显示
+                UIDgetter uidGetter = FindObjectOfType<UIDgetter>();
+                if (uidGetter != null)
+                {
+                    uidGetter.UpdatePlayerID(response.player_id.ToString());
+                }
+                
+                isInitialized = true;
+            }
+            else
+            {
+                Debug.LogWarning("会话恢复失败，将创建新会话: " + response.errorData.ToString());
+                // 清除无效的玩家ID
+                PlayerPrefs.DeleteKey("PlayerID");
+                PlayerPrefs.Save();
+            }
+            done = true;
+        });
+        
+        yield return new WaitWhile(() => !done);
+    }
+    
+    // 创建新的游客会话
+    private IEnumerator CreateNewGuestSession()
+    {
+        bool done = false;
+        LootLockerSDKManager.StartGuestSession((response) =>
+        {
+            if (response.success)
+            {
+                Debug.Log("LootLocker新会话创建成功");
+                Debug.Log($"新玩家ID: {response.player_id}");
+                
+                // 保存新的玩家ID
                 PlayerPrefs.SetString("PlayerID", response.player_id.ToString());
                 PlayerPrefs.Save();
                 
@@ -119,13 +170,12 @@ public class LootLockerManager : MonoBehaviour
             }
             else
             {
-                Debug.LogError("启动LootLocker会话失败: " + response.errorData.ToString());
+                Debug.LogError("创建LootLocker会话失败: " + response.errorData.ToString());
             }
             done = true;
         });
         
         yield return new WaitWhile(() => !done);
-        isInitializing = false;
     }
     
     // 检查是否已初始化
