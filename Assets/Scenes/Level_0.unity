@@ -10441,7 +10441,29 @@ MonoBehaviour:
   lifts: []
   spikes: []
   levelGoodTime: 60
-  leaderboard: {fileID: 0}
+  levelLeaderboardConfigs:
+  - levelIndex: 0
+    leaderboardKey: level0time
+  - levelIndex: 1
+    leaderboardKey: level1time
+  - levelIndex: 2
+    leaderboardKey: level2time
+  - levelIndex: 3
+    leaderboardKey: level3time
+  - levelIndex: 4
+    leaderboardKey: level4time
+  - levelIndex: 5
+    leaderboardKey: level5time
+  - levelIndex: 6
+    leaderboardKey: level6time
+  - levelIndex: 7
+    leaderboardKey: level7time
+  - levelIndex: 8
+    leaderboardKey: level8time
+  - levelIndex: 9
+    leaderboardKey: level9time
+  - levelIndex: 10
+    leaderboardKey: level10time
 --- !u!4 &1655490169
 Transform:
   m_ObjectHideFlags: 0

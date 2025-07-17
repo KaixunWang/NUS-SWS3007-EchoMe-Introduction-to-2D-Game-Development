@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
+using LootLocker.Requests;
 
 public class SceneManagerScript : MonoBehaviour
 {
@@ -23,9 +24,21 @@ public class SceneManagerScript : MonoBehaviour
     public int levelGoodTime = 60;
     // Start is called before the first frame update
 
+    private int currentLevelIndex = 0;
+    
+    // 关卡排行榜键配置
+    [System.Serializable]
+    public class LevelLeaderboardConfig
+    {
+        public int levelIndex;
+        public string leaderboardKey;
+    }
+    
+    [Header("关卡排行榜配置")]
+    public List<LevelLeaderboardConfig> levelLeaderboardConfigs = new List<LevelLeaderboardConfig>();
+    
     void Start()
     {
-        
         Debug.Assert(player != null, "Player GameObject is not assigned in the SceneManagerScript.");
         Debug.Assert(clock != null, "Clock GameObject is not assigned in the SceneManagerScript.");
         Debug.Assert(win != null, "Win GameObject is not assigned in the SceneManagerScript.");
@@ -33,6 +46,39 @@ public class SceneManagerScript : MonoBehaviour
         Debug.Assert(coinSystem != null, "CoinSystemScript GameObject is not assigned in the SceneManagerScript.");
         win.SetActive(false);
         lose.SetActive(false);
+        
+        // 获取当前关卡编号
+        InitializeLevelInfo();
+        
+        // 初始化关卡排行榜配置（如果没有设置的话）
+        InitializeLevelConfigs();
+    }
+    
+    // 初始化关卡信息
+    void InitializeLevelInfo()
+    {
+        string sceneName = UnityEngine.SceneManagement.SceneManager.GetActiveScene().name;
+        if (sceneName.StartsWith("Level_"))
+        {
+            int.TryParse(sceneName.Substring("Level_".Length), out currentLevelIndex);
+        }
+    }
+
+    // 初始化关卡排行榜配置
+    void InitializeLevelConfigs()
+    {
+        if (levelLeaderboardConfigs.Count == 0)
+        {
+            // 如果没有配置，使用默认配置
+            for (int i = 0; i <= 10; i++) // 假设最多10关
+            {
+                levelLeaderboardConfigs.Add(new LevelLeaderboardConfig
+                {
+                    levelIndex = i,
+                    leaderboardKey = $"level{i}time" // 默认键名
+                });
+            }
+        }
     }
 
     // Update is called once per frame
@@ -77,8 +123,10 @@ public class SceneManagerScript : MonoBehaviour
             {
                 message += "Time: " + time + "/" + levelGoodTime + "s\n";
             }
-            //将player和preciseTime上传到对应关卡的leaderboard
-            //TODO
+            
+            // 提交通关时间到当前关卡排行榜
+            StartCoroutine(SubmitLevelTimeToLeaderboard(time));
+            
             win.GetComponent<WinScript>().SetStars(score);
             win.GetComponent<WinScript>().ShowWinPanel(message);
             clock.GetComponent<TimerBehavior>().SetTimer(false);
@@ -302,5 +350,76 @@ public class SceneManagerScript : MonoBehaviour
     public int GetScore()
     {
         return score;
+    }
+    
+    // 提交通关时间到当前关卡排行榜
+    private IEnumerator SubmitLevelTimeToLeaderboard(int elapsedTime)
+    {
+        // 确保LootLocker已初始化
+        yield return StartCoroutine(LootLockerManager.Instance.EnsureInitialized());
+        
+        bool done = false;
+        string playerID = PlayerPrefs.GetString("PlayerID");
+        string leaderboardKey = GetCurrentLevelLeaderboardKey();
+        
+        LootLockerSDKManager.SubmitScore(playerID, elapsedTime, leaderboardKey, (response) =>
+        {
+            if (response.success)
+            {
+                Debug.Log($"成功提交关卡{currentLevelIndex}通关时间: {elapsedTime}秒 到排行榜: {leaderboardKey}");
+            }
+            else
+            {
+                Debug.LogError($"提交关卡{currentLevelIndex}通关时间失败: {response.errorData.ToString()}");
+            }
+            done = true;
+        });
+        
+        yield return new WaitWhile(() => !done);
+    }
+    
+    // 获取当前关卡对应的排行榜键
+    private string GetCurrentLevelLeaderboardKey()
+    {
+        // 查找配置中的排行榜键
+        foreach (var config in levelLeaderboardConfigs)
+        {
+            if (config.levelIndex == currentLevelIndex)
+            {
+                return config.leaderboardKey;
+            }
+        }
+        
+        // 如果没找到配置，使用默认键名
+        return $"level_{currentLevelIndex}_leaderboard";
+    }
+    
+
+    
+    // 获取当前关卡编号
+    public int GetCurrentLevelIndex()
+    {
+        return currentLevelIndex;
+    }
+    
+    // 添加关卡排行榜配置
+    public void AddLevelLeaderboardConfig(int levelIndex, string leaderboardKey)
+    {
+        // 检查是否已存在
+        for (int i = 0; i < levelLeaderboardConfigs.Count; i++)
+        {
+            if (levelLeaderboardConfigs[i].levelIndex == levelIndex)
+            {
+                levelLeaderboardConfigs[i].leaderboardKey = leaderboardKey;
+                return;
+            }
+        }
+        
+        // 如果不存在，添加新的配置
+        levelLeaderboardConfigs.Add(new LevelLeaderboardConfig
+        {
+            levelIndex = levelIndex,
+            leaderboardKey = leaderboardKey
+        });
     }
 }
