@@ -92,13 +92,26 @@ public class LevelSelectManager : MonoBehaviour
         }
 
         int requiredLevel = unlockRequirements[levelIndex];
-        
+
         // -1表示默认解锁（比如第0关）
         if (requiredLevel == -1)
         {
             return true;
         }
-        
+
+        // -2表示需要前面所有关卡>=1星
+        if (requiredLevel == -2)
+        {
+            for (int i = 0; i < levelIndex; i++)
+            {
+                if (PlayerPrefs.GetInt($"Level_{i}_Stars", 0) < 1)
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+
         // 检查指定关卡是否通过（>=1星）
         return PlayerPrefs.GetInt($"Level_{requiredLevel}_Stars", 0) >= 1;
     }
