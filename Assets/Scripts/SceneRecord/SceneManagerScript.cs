@@ -23,7 +23,6 @@ public class SceneManagerScript : MonoBehaviour
     public int levelGoodTime = 60;
     // Start is called before the first frame update
 
-    public leaderboard leaderboard;
     void Start()
     {
         
@@ -62,7 +61,9 @@ public class SceneManagerScript : MonoBehaviour
             } else {
                 message += "Collect Coins:" + coinSystem.GetComponent<CoinSystemScript>().GetCoinCount() + "/3\n";
             }
-            if (clock.GetComponent<TimerBehavior>().GetElapsedTime() <= levelGoodTime)
+            int time = (int)clock.GetComponent<TimerBehavior>().GetElapsedTime();
+            float preciseTime = clock.GetComponent<TimerBehavior>().GetPreciseElapsedTime();
+            if (time <= levelGoodTime)
             {
                 score++;
                 //如果当前scene是Level_4，则触发成就PassLevel4
@@ -70,12 +71,14 @@ public class SceneManagerScript : MonoBehaviour
                 {
                     AchievementManager.Instance.UnlockAchievement("PassLevel4_Under20");
                 }
-                message += "Time: " + clock.GetComponent<TimerBehavior>().GetElapsedTime() + "/" + levelGoodTime + "s\n";
+                message += "Time: " + time + "/" + levelGoodTime + "s\n";
             }
             else
             {
-                message += "Time: " + clock.GetComponent<TimerBehavior>().GetElapsedTime() + "/" + levelGoodTime + "s\n";
+                message += "Time: " + time + "/" + levelGoodTime + "s\n";
             }
+            //将player和preciseTime上传到对应关卡的leaderboard
+            //TODO
             win.GetComponent<WinScript>().SetStars(score);
             win.GetComponent<WinScript>().ShowWinPanel(message);
             clock.GetComponent<TimerBehavior>().SetTimer(false);
@@ -100,7 +103,6 @@ public class SceneManagerScript : MonoBehaviour
                 Debug.Log($"保存关卡{currentLevelIndex}星星数: {score}");
             }
 
-            if (leaderboard != null) leaderboard.SubmitScoreRoutine(score, clock.GetComponent<TimerBehavior>().GetElapsedTime());
             // ---------------------------------------------
         }else if (playerBehaviour.IsLose())
         {

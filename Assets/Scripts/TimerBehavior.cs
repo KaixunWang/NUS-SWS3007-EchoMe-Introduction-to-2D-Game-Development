@@ -52,6 +52,10 @@ public class TimerBehavior : MonoBehaviour
     {
         return Mathf.FloorToInt(elapsedTime);
     }
+    public float GetPreciseElapsedTime()
+    {
+        return elapsedTime;
+    }
     public void SetTimer(bool set)
     {
         isRecording = set;
