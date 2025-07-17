@@ -348,7 +348,7 @@ public class LeaderboardUI : MonoBehaviour
         }
         
         // 如果没找到配置，使用默认键名
-        return $"level_{levelIndex}_leaderboard";
+        return $"level{levelIndex}time";
     }
     
     // 设置关卡数量（可以在运行时调整）
