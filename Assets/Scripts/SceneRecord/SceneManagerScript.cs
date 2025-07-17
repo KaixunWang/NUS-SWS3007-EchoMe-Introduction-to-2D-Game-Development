@@ -22,6 +22,7 @@ public class SceneManagerScript : MonoBehaviour
     public List<GameObject> spikes; // List of spike GameObjects
     private int score = 0;
     public int levelGoodTime = 60;
+    private int cooldown = 100;
     // Start is called before the first frame update
 
     private int currentLevelIndex = 0;
@@ -81,6 +82,7 @@ public class SceneManagerScript : MonoBehaviour
         }
     }
 
+    
     // Update is called once per frame
     void Update()
     {
@@ -123,9 +125,11 @@ public class SceneManagerScript : MonoBehaviour
             {
                 message += "Time: " + time + "/" + levelGoodTime + "s\n";
             }
-            
+            if (cooldown == 0){
             // 提交通关时间到当前关卡排行榜（使用精确时间，包含毫秒）
-            StartCoroutine(SubmitLevelTimeToLeaderboard(preciseTime));
+                StartCoroutine(SubmitLevelTimeToLeaderboard(preciseTime));
+                cooldown = 100;
+            }
             
             win.GetComponent<WinScript>().SetStars(score);
             win.GetComponent<WinScript>().ShowWinPanel(message);
