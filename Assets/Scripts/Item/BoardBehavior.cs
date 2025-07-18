@@ -89,7 +89,7 @@ public class BoardBehavior : MonoBehaviour
         if(spikes.Count != 0)
         {
             originY = spikes[0].transform.position.y;
-            targetY = originY - 1f; // 假设刺下降1个单位
+            targetY = originY - 0.8f; // 假设刺下降1个单位
         }
     }
     void OnTriggerEnter2D(Collider2D other)
