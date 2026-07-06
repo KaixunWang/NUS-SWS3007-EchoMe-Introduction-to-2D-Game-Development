@@ -79,8 +79,7 @@ During development, we faced several technical and design challenges:
 
 ## Contacts
 
-If you have any problem about this program(SWS3007 Introduction to 2D Game Development),
-welcome contact me by email or QQ :)
+If you have any problems about this program (SWS3007 Introduction to 2D Game Development), feel free to contact me by email or QQ. :)
 
 Email: 12310803@mail.sustech.edu.cn
 
